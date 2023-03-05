@@ -1,0 +1,30 @@
+{
+  "name": "s6-mini-project",
+  "version": "1.0.0",
+  "description": "s6 mini project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run server \" \"npm run client \""
+  },
+  "author": "Allen Saji",
+  "license": "MIT",
+  "dependencies": {
+    "async-handler": "^0.0.3",
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "nodemon": "^2.0.21"
+  }
+}
