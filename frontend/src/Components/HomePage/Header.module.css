@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+.heading{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+}
+h1{
+    font-family: 'Graduate';
+    font-weight: 400;
+    font-size: 40px;
+   
+}
+.logo{
+    position:absolute;
+}
+.headerP1{
+    width:8%;
+    font-size: 23px;
+    position: relative;
+    margin-right: 3%;
+    margin-top: -2%;
+    line-height:1.7rem;
+    color: rgb(32, 110, 211);
+}

@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Graduate&display=swap');
+
+.button{
+    color: black;
+    border:none;
+    background-color:#ADD8E6;
+    font-size: 28px;
+    font-family: 'Abhaya Libre';
+    font-weight: 600;
+    line-height: 33px;
+    transition-duration: 1s;
+}
+.button:hover {
+    background-color: #e7e7e7;
+    color: rgb(26, 25, 25);
+}
