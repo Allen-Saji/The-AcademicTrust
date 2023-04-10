@@ -1,11 +1,11 @@
 import { Fragment } from 'react';
 import classes from './Announcement.module.css';
-import image from '../../assets/Ann.png';
+import image from '../../assets/announcement1.png';
 const Announcement = props =>{
     return(
         <Fragment>
             <div className={classes.img}>
-            <img width='450px' height='400px' src={image} alt="Announce" />
+            <img width='450px' height='500px' src={image} alt="Announce" />
             </div>
             <h2 className={classes.announce}>Announcements</h2>
             <div className={classes.announcement_content}>
@@ -23,7 +23,7 @@ const Announcement = props =>{
                 </ul>
             </div>
             <span className={classes.para}>
-            <h2>Welcome To The Ofiicial Website of ABJ Technological University</h2>
+            <h2>Welcome To The Oficial Website of APJ Technological University</h2>
             </span>
         </Fragment>
     )

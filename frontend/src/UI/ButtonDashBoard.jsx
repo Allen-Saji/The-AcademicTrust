@@ -1,8 +1,14 @@
 import React from "react";
 import classes from './ButtonDashBoard.module.css';
-const ButtonDashBoard = (props)=>{
+import {useNavigate } from "react-router-dom";
+const ButtonDashBoard = (props)=>{ 
+  const navigate = useNavigate()
+  function clickHandler(){
+     console.log("jdjd");
+     navigate(props.routing);
+  }
     return(
-        <button className={classes.button}>{props.btnName}</button>
+        <button onClick={clickHandler}  className={classes.button}>{props.btnName}</button>
     )
 }
 export default ButtonDashBoard;

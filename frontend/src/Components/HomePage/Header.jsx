@@ -1,6 +1,6 @@
 import React from "react";
 import classes from './Header.module.css';
-import logo from '../../assets/logo/logo.png'
+import logo from '../../assets/logo/logo1.png'
 import DashBoard from "./DashBoard";
 import LeftDashBoard from "./LeftDashBoard";
 import Homepage from "./HomePage";
@@ -11,7 +11,7 @@ const Header = props =>{
         <div className={classes.heading}>
           <img src={logo} alt="logo" />
           <h1>
-            AIMIL BIJ JOSEPH TECHNOLOGICAL UNIVERSITY
+           APJ ABDUL KALAM TECHNOLOGICAL UNIVERSITY
           </h1>
           <p className={classes.headerP1}>celebrating 96 years of service</p>
         </div>

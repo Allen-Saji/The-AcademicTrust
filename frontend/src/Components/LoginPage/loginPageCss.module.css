@@ -1,0 +1,89 @@
+.mainLogo{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.logos{
+    position: absolute;
+    display: flex;
+    margin-left: 25%;
+    margin-top: -20%;
+    
+}
+.logos > div{
+    margin: 25%;
+}
+.institution{
+    margin-top: 10%;
+}
+.student{
+    margin-top: 10%;
+}
+.studentlogoname{
+    margin-top:10%;
+    font-size: 32px;
+}
+
+.universitylogoname{
+    margin-top:4%;
+    font-size: 32px;
+}
+.institutionnlogoname{
+    margin-top:7%;
+    font-size: 32px;
+}
+
+.form{
+    position: relative;
+    margin-top: 25%;
+    margin-right: 8%;
+}
+.labelsignin{
+    width: max-content;
+    position: absolute;
+    margin-top: 60%;
+    margin-left: -168%;
+    font-size: 32px;
+}
+.username{
+    font-size: 22px;
+    margin-left: 33%;
+}
+.password{
+    font-size: 22px;
+    margin-left: 33%;
+}
+input[type=text] {
+    width: 63%;
+  padding: 12px 20px;
+  margin: 3% 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 3px solid #C0C0C0;
+}
+.usernamelabel{
+    position: absolute;
+
+}
+.passwordnamelabel{
+    position: absolute;
+}
+.loginbutton{
+    background-color:  #36454F;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 49%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 25px;
+    
+}
+.loginbutton:hover {
+    background-color: #f44336;
+    color: white;
+  }
+  

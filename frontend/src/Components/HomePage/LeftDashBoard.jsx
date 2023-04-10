@@ -20,7 +20,7 @@ const LeftDashBoard = props =>{
             <p className={classes.blockP6}>IPRs filed last year</p>
           </div>
           <div className={classes.block4}>
-            <p>yada <br /> yada <br /> yada</p>
+            <p>yada <br /> yada <br /> yada </p>
           </div>
         </div>
       </Fragment>
