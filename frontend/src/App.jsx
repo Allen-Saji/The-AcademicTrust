@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom';
-import Header from './Components/HomePage/Header'
-import LoginPage from './Components/LoginPage/LoginPage';
-import Book from './Books';
+import Header from './Pages/Homepage/Header'
+import LoginPage from './Pages/Login/LoginPage';
 
 function App() {
  

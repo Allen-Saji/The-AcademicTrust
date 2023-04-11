@@ -1,6 +1,6 @@
 import React from "react";
 import ButtonDashBoard from "../../UI/ButtonDashBoard";
-import classes from './DashBoard.module.css';
+import classes from './css/DashBoard.module.css';
 
 const DashBoard = props=>{
 

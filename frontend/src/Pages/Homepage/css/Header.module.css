@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+body{
+    background-color: rgb(245, 236, 224);
+}
 .heading{
     display: flex;
     justify-content:space-between;
+    text-align: center;
     align-items: center;
+    margin-top: 1%;
     width: 100%;
 }
 h1{
@@ -11,14 +16,12 @@ h1{
     font-size: 40px;
    
 }
-.logo{
-    position:absolute;
-}
+
 .headerP1{
     width:8%;
     font-size: 23px;
     position: relative;
-    margin-right: 3%;
+    margin-right: 2%;
     margin-top: -2%;
     line-height:1.7rem;
     color: rgb(32, 110, 211);

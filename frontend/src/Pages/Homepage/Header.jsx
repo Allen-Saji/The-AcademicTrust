@@ -1,10 +1,10 @@
 import React from "react";
-import classes from './Header.module.css';
+import classes from './css/Header.module.css';
 import logo from '../../assets/logo/logo1.png'
 import DashBoard from "./DashBoard";
-import LeftDashBoard from "./LeftDashBoard";
-import Homepage from "./HomePage";
-import Announcement from "./Announcements";
+import Body from "./Body";
+import Footer from "./Footer";
+
 const Header = props =>{
     return (
       <React.Fragment>
@@ -15,10 +15,8 @@ const Header = props =>{
           </h1>
           <p className={classes.headerP1}>celebrating 96 years of service</p>
         </div>
-        <DashBoard />
-        <LeftDashBoard />
-        <Homepage />
-        <Announcement />
+       <DashBoard />
+       <Body />
       </React.Fragment>
     );
     
