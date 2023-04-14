@@ -1,0 +1,22 @@
+.mainaboutpage{
+    display: flex;
+    justify-content: space-between;
+}
+.sidebar{
+    background-color: #36454f;
+    width: 100%;
+    height: 100vh;
+}
+.about{
+    margin-left: 2%;
+}
+.aboutname{
+    font-style: normal;
+font-weight: 700;
+font-size: 30px;
+line-height: 45px;
+}
+.aboutdescription{
+    font-weight: 700;
+    line-height: 20px;
+}
