@@ -1,22 +1,21 @@
 const mongoose = require("mongoose");
 
-const courseSchema = new mongoose.Schema({
+const organizationSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
     unique: true,
   },
-  courseCode: {
+  headquarters: {
     type: String,
     required: true,
-    unique: true,
   },
-  credits: {
+  year_of_reg: {
     type: Number,
     required: true,
   },
 });
 
-const Course = mongoose.model("Course", courseSchema);
+const Organization = mongoose.model("Organization", organizationSchema);
 
-module.exports = Course;
+module.exports = Organization;
