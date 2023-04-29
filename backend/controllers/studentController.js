@@ -1,35 +1,14 @@
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const User = require("../models/univAdminModel");
-
-//@desc user login
-//@route /api/admin/login
-//@access public
-const loginUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
-
-  const user = await User.findOne({ email });
-
-  //check if user and password match
-  if (user && (await bcrypt.compare(password, user.password))) {
-    res.status(200).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      token: generateToken(user._id),
-    });
-  } else {
-    res.status(401);
-    throw new Error("Invalid credentials!");
-  }
-});
+const User = require("../models/studentModel");
 
 //@desc register a new user
-//@route /api/admin
+//@route /api/student
 //@access public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, phn_no, role } = req.body;
+  const { name, email, password, phn_no, address, registration_no, program } =
+    req.body;
   console.log(req.body);
 
   if (!name) {
@@ -38,19 +17,25 @@ const registerUser = asyncHandler(async (req, res) => {
   } else if (!email) {
     res.status(400);
     throw new Error("Please include email");
-  } else if (!role) {
+  } else if (!address) {
     res.status(400);
-    throw new Error("Please include role");
+    throw new Error("Please include address");
   } else if (!phn_no) {
     res.status(400);
     throw new Error("Please include phone number");
   } else if (!password) {
     res.status(400);
     throw new Error("Please include password");
+  } else if (!registration_no) {
+    res.status(400);
+    throw new Error("Please include registration number");
+  } else if (!program) {
+    res.status(400);
+    throw new Error("Please include program");
   }
 
   //find if user exists
-  const userExists = await User.findOne({ email });
+  const userExists = await User.findOne({ registration_no });
 
   if (userExists) {
     res.status(400);
@@ -65,9 +50,11 @@ const registerUser = asyncHandler(async (req, res) => {
   const user = await User.create({
     name,
     email,
+    registration_no,
+    address,
     password: hashedPassword,
     phn_no,
-    role,
+    program,
   });
 
   if (user) {
@@ -76,7 +63,9 @@ const registerUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       phn_no: user.phn_no,
-      role: user.role,
+      address: user.address,
+      program: user.program,
+      registration_no: user.registration_no,
       token: generateToken(user._id),
     });
   } else {
@@ -85,6 +74,28 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   res.send("Register Route");
+});
+
+//@desc user login
+//@route /api/student/login
+//@access public
+const loginUser = asyncHandler(async (req, res) => {
+  const { registration_no, password } = req.body;
+
+  const user = await User.findOne({ registration_no });
+
+  //check if user and password match
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      registration_no: user.registration_no,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(401);
+    throw new Error("Invalid credentials!");
+  }
 });
 
 const generateToken = (id) => {
