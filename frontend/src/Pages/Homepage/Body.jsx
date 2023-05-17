@@ -1,8 +1,6 @@
 import React from "react";
 import classes from "./css/Body.module.css";
-import homepage from "../../assets/homepage.png";
-import announcement from "../../assets/announcement1.png";
-import pin from "../../assets/paperPin.jpg";
+import homepage from "../../assets/homepage1.jpg";
 const Body = () => {
   return (
     <React.Fragment>
@@ -44,8 +42,6 @@ const Body = () => {
         </div>
 
         <div className={classes.announcement}>
-          <img src={pin} width="80px" />
-
           <div className={classes.textannouncement}>
             <p>Announcements</p>
           </div>

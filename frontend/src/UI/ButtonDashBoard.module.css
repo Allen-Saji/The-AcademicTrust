@@ -15,33 +15,21 @@
     color: rgb(26, 25, 25);
 }
 @media (max-width: 1049px) {
-    body{
-        background-color: rgb(182, 29, 75);
-    }
     .button{
         font-size: 26px;
     }
 }
 @media (max-width: 983px) {
-    body{
-        background-color: rgb(182, 29, 75);
-    }
     .button{
         font-size: 24px;
     }
 }
 @media (max-width: 973px) {
-    body{
-        background-color: rgb(182, 29, 75);
-    }
     .button{
         font-size: 21px;
     }
 }
 @media (max-width: 811px) {
-    body{
-        background-color: rgb(182, 29, 75);
-    }
     .button{
         font-size: 17px;
     }

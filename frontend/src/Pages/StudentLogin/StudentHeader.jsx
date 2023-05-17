@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../assets/logo/logo1.png'
+import logo from '../../assets/logo/ktulogo.png'
 import classes from './StudentHeader.module.css'
 import Navbar from "./Navbar";
 const StudentHeader = () =>{

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../../assets/logo/logo1.png'
+import logo from '../../assets/logo/ktulogo.png'
 import student from '../../assets/logo/school.png'
 import university from '../../assets/logo/university.png'
 import institution from '../../assets/logo/institution.png'
@@ -8,7 +8,7 @@ const LoginHeader = ()=>{
     return (
       <React.Fragment>
         <div className={classes.mainLogo}>
-        <img src={logo} className={classes.logo} alt="" />
+        <img src={logo} height='120px' className={classes.logo} alt="" />
         </div>
         <div className={classes.logos}>
           <div>

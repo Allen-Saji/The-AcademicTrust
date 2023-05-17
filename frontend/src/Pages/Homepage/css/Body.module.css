@@ -51,13 +51,16 @@
     margin-top: 3%;
     background-color:white;
     width: 20%;
-    height: 500px;   
+    height: 480px; 
+    border:5px rgb(3, 82, 134) solid;  
+    word-wrap: normal;
 }
 .textannouncement{
-    color: #880808;
+    color: #ffffff;
     font-size: 35px;
     font-weight:800;
     text-align: center;
+    background-color: rgb(3, 82, 134);
 }
 .announcementdetails{
     font-weight: 700;
@@ -67,6 +70,10 @@
 .announcementdetails1{
     width:100%;
     overflow-y: auto;
+    overflow-wrap: break-word;
+    line-height: 32px;
+    margin-left: -2%;
+    height: 450px;
 }
 .footername{
     
@@ -76,12 +83,10 @@
 }
 .welcomemessage{
     text-align: center;
+    font-size: 38px;
 }
 
 @media (max-width: 1863px) {
-    body{
-        background-color: aquamarine;
-    }
     .image{
         width: 90%;
         margin-left: 3%;
@@ -90,13 +95,10 @@
         width: 14%;
     }
     .welcomemessage{
-        font-size: 2.5rem;
+        font-size: 36px;
       }
 }
 @media (max-width: 1276px) {
-    body{
-        background-color: rgb(139, 29, 182);
-    }
     .leftsidebar{
         width: 16%;
     }
@@ -104,13 +106,15 @@
         font-size: 30px;
     }
     .welcomemessage{
-      font-size: 2rem;
+      font-size: 33px;
     }
 }
+@media (max-width: 1143px) {
+    .welcomemessage{
+        font-size: 31px;
+      }
+}
 @media (max-width: 1079px) {
-    body{
-        background-color: rgb(139, 29, 182);
-    }
     .leftsidebar{
         width: 18%;
     }
@@ -119,10 +123,6 @@
     }
 }
 @media (max-width: 962px) {
-    body{
-        background-color: rgb(139, 29, 182);
-    }
-   
     .textannouncement{
         font-size: 24px;
     }
@@ -131,9 +131,6 @@
     }
 }
 @media (max-width: 811px) {
-    body{
-        background-color: rgb(182, 29, 75);
-    }
     .leftinfonumber{
         font-size: 21px;
     }
