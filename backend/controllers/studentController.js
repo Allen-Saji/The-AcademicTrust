@@ -9,7 +9,6 @@ const User = require("../models/studentModel");
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, phn_no, address, registration_no, program } =
     req.body;
-  console.log(req.body);
 
   if (!name) {
     res.status(400);
