@@ -36,7 +36,8 @@ const Body = () => {
           />
           <div className={classes.footername}>
             <h2 className={classes.welcomemessage}>
-              Welcome To The Official Website of APJ Technological University
+              Welcome To The Official Website of APJ Abdul Kalam Technological
+              University
             </h2>
           </div>
         </div>
