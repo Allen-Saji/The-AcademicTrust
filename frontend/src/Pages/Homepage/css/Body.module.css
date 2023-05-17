@@ -9,8 +9,10 @@
     background-color: #3e4b53;
     margin-top: 2%;
     text-align: center;
-    height:640px;
+    max-height: max-content;
+    height: 68vh;
     overflow-x: hidden;
+    width: 12%;
 }
 .leftsidebar > div{
     margin-top: 20%;
@@ -24,7 +26,7 @@
 }
 .leftinfonumber{
     color:#FAFA33;
-    font-size: 32px;
+    font-size: 1.8rem;
 }
 .leftinfotext{
     color: white;
@@ -41,6 +43,7 @@
 
 .bodyimage{
     margin-top: 3%;
+   height: fit-content;
 }
 
 .announcement{
@@ -69,5 +72,82 @@
     
     font-size: 28px;
     font-weight: 700;
-    margin-top: 10%;
+    margin-top: 5%;
+}
+.welcomemessage{
+    text-align: center;
+}
+
+@media (max-width: 1863px) {
+    body{
+        background-color: aquamarine;
+    }
+    .image{
+        width: 90%;
+        margin-left: 3%;
+    }
+    .leftsidebar{
+        width: 14%;
+    }
+    .welcomemessage{
+        font-size: 2.5rem;
+      }
+}
+@media (max-width: 1276px) {
+    body{
+        background-color: rgb(139, 29, 182);
+    }
+    .leftsidebar{
+        width: 16%;
+    }
+    .textannouncement{
+        font-size: 30px;
+    }
+    .welcomemessage{
+      font-size: 2rem;
+    }
+}
+@media (max-width: 1079px) {
+    body{
+        background-color: rgb(139, 29, 182);
+    }
+    .leftsidebar{
+        width: 18%;
+    }
+    .textannouncement{
+        font-size: 28px;
+    }
+}
+@media (max-width: 962px) {
+    body{
+        background-color: rgb(139, 29, 182);
+    }
+   
+    .textannouncement{
+        font-size: 24px;
+    }
+    .leftinfonumber{
+        font-size: 25px;
+    }
+}
+@media (max-width: 811px) {
+    body{
+        background-color: rgb(182, 29, 75);
+    }
+    .leftinfonumber{
+        font-size: 21px;
+    }
+    .image{
+        height: 350px;
+        
+    }
+    .leftsidebar{
+        width: 24%;
+    }
+    .leftinfotext{
+        font-size: 15px;
+    }
+    .textannouncement{
+        font-size: 22px;
+    }
 }

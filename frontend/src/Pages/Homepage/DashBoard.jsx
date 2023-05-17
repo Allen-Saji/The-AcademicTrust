@@ -9,7 +9,7 @@ const DashBoard = props=>{
             <ButtonDashBoard btnName={'Login'} routing={'login'} />
             <ButtonDashBoard btnName={'Home'}/>
             <ButtonDashBoard btnName={'Organization'}/>
-            <ButtonDashBoard btnName={'Affiliatioon'}/>
+            <ButtonDashBoard btnName={'Affiliation'}/>
             <ButtonDashBoard btnName={'Academics'}/>
             <ButtonDashBoard btnName={'Research'}/>
             <ButtonDashBoard btnName={'Examination'}/>
