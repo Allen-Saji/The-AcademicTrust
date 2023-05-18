@@ -11,7 +11,7 @@ const UniversityLoginHeader = ()=>{
         <div className={classes.logos}>
           <div>
             <img src={university} className={classes.university} alt="" />
-            <p className={classes.universitylogoname}>University</p>
+            <p className={classes.universitylogoname}>University Sign In</p>
           </div>
           <div>
             <label className={classes.labelsignin}>Sign In</label>
