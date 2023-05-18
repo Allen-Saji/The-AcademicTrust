@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import Header from './Pages/Homepage/Header'
-import LoginPage from './Pages/Login/LoginPage';
 import About from './Pages/About/About';
-import StudentHeader from './Pages/StudentLogin/StudentHeader';
+import StudentHeader from './Pages/StudentModule/StudentHeader';
+import StudentLoginPage from './Pages/Login/StudentLogin/StudentLoginPage';
+import UniversityLoginPage from './Pages/Login/UniversityLogin/UniversityLoginPage';
+import EmployerLoginPage from './Pages/Login/EmployerLogin/EmployerLoginPage';
 
 function App() {
  
@@ -11,7 +13,9 @@ function App() {
     <Fragment>
       <Routes>
         <Route path='/' element={<Header />} />
-        <Route path='/login' element={<LoginPage />} />
+        <Route path='/StudentLogin' element={<StudentLoginPage />} />
+        <Route path='/UniversityLogin' element={<UniversityLoginPage />} />
+        <Route path='/EmployerLogin' element={<EmployerLoginPage />} />
         <Route path='/about' element={<About />} />
         <Route path='/studentlogin' element={<StudentHeader />} />
       </Routes>

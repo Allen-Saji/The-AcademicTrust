@@ -28,9 +28,8 @@ const Body = () => {
         <div className={classes.bodyimage}>
           <img
             className={classes.image}
-            width="100%"
+            width="90%"
             height="400px"
-            margin-left="5%"
             src={homepage}
             alt="homepage"
           />

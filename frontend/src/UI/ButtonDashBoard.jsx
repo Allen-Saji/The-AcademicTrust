@@ -3,9 +3,8 @@ import classes from './ButtonDashBoard.module.css';
 import {useNavigate } from "react-router-dom";
 const ButtonDashBoard = (props)=>{ 
   const navigate = useNavigate()
-  function clickHandler(){
-    
-     navigate(props.routing);
+  function clickHandler(){  
+   navigate(props.routing);
   }
     return(
         <button onClick={clickHandler}  className={classes.button}>{props.btnName}</button>

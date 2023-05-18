@@ -1,41 +1,24 @@
 .mainLogo{
-    position: absolute;
-    left: 20px;
-    top: 20px;
+margin-top: 1%;
+margin-left: 1%;
 }
 .logos{
-    position: absolute;
-    display: flex;
-    margin-left: 25%;
-    margin-top: -20%;
-    
-}
-.logos > div{
-    margin: 25%;
-}
-.institution{
-    margin-top: 10%;
-}
-.student{
-    margin-top: 10%;
-}
-.studentlogoname{
-    margin-top:10%;
-    font-size: 32px;
+    margin-left: 45%;
 }
 
-.universitylogoname{
-    margin-top:4%;
-    font-size: 32px;
+.institution{
+    margin-top: 5%;
 }
+
 .institutionnlogoname{
-    margin-top:7%;
+    margin-top:1%;
+    margin-left: 1%;
     font-size: 32px;
 }
 
 .form{
     position: relative;
-    margin-top: 25%;
+    margin-top: 2%;
     margin-right: 8%;
 }
 .labelsignin{
@@ -76,7 +59,7 @@ input[type=text] {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    margin-left: 49%;
+    margin-left: 50%;
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 25px;

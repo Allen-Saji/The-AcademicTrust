@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./loginPageCss.module.css"
+import classes from "./UniversityLoginPageCss.module.css"
 
-const LoginForm = () => {
+const UniversityLoginForm = () => {
   return (
     <React.Fragment>
       <div>
@@ -25,4 +25,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default UniversityLoginForm;
