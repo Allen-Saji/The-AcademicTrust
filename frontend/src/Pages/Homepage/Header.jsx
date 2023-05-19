@@ -9,7 +9,7 @@ const Header = props =>{
     return (
       <React.Fragment>
         <div className={classes.heading}>
-          <img src={logo} height='140px' alt="logo" />
+          <img src={logo} height='110px' alt="logo" />
           <h1 className={classes.mainheading}>
            APJ ABDUL KALAM TECHNOLOGICAL UNIVERSITY
           </h1>

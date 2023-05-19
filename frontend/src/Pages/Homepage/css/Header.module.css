@@ -13,8 +13,11 @@ body{
 h1{
     font-family: 'Graduate';
     font-weight: 400;
-    font-size: 40px;
+    font-size: 33px;
    
+}
+.heading img{
+    margin-left: 1%;
 }
 
 .headerP1{

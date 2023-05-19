@@ -2,7 +2,7 @@
 
 .mainbody{
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     /* margin-right: 29%; */
 }
 .leftsidebar{
@@ -83,7 +83,33 @@
 }
 .welcomemessage{
     text-align: center;
-    font-size: 38px;
+    font-size: 34px;
+}
+.mainHeading{
+    font-size: 28px;
+    text-align: center;
+    margin-top: 3%;
+    border: #ADD8E6 solid;
+    background-color: #ADD8E6;
+    margin-left: 25%;
+    margin-right: 25%;
+
+}
+.mainMissions{
+    border: #ADD8E6 solid 2px;
+    margin: 1% 25% 3% 25%;
+}
+.missions{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    gap: 2%;
+    width: 100%;
+    
+    border: #ADD8E6 solid 2px;
+    border-right: none;
+    border-left: none;
+    background-color: aliceblue;
 }
 
 @media (max-width: 1863px) {
@@ -146,5 +172,11 @@
     }
     .textannouncement{
         font-size: 22px;
+    }
+}
+
+@media (max-width: 1626px) {
+    .images{
+        width: 90%;
     }
 }
