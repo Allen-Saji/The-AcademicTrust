@@ -18,7 +18,7 @@ const Body = () => {
   ];
   const containerStyles = {
     width: "100%",
-    height: "400px",
+    height: "485px",
     margin: "0 auto",
   };
   return (

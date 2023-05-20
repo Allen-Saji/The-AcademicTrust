@@ -175,8 +175,9 @@
     }
 }
 
-@media (max-width: 1626px) {
+@media (max-width: 1640px) {
     .images{
         width: 90%;
+        margin-left: 3%;
     }
 }

@@ -1,7 +1,7 @@
 .dashboard{
-    margin-top: 2%;
+    margin-top: 1%;
     background-color:#ADD8E6;
     display: flex;
     justify-content:space-between ;
-    padding:1rem;
+    padding:0.5rem;
 }

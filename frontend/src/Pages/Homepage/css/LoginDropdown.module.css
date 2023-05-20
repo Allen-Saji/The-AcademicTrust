@@ -43,6 +43,17 @@
   .dropdown:hover .dropbtn {
     background-color: #e7e7e7;
   }
+
+  .btnimage{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1%;
+    padding: 1%;
+  }
+  .btnimage img{
+    width: 30px;
+  }
+
   @media (max-width: 1049px) {
     .dropbtn{
         font-size: 26px;
