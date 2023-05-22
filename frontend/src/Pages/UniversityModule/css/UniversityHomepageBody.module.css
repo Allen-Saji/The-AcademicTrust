@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+}
+
+.universityhomepagebody {
+  display: flex;
+  height: 83vh;
+  margin-top: 1%;
+}
+.universityhomepagesidebar {
+  background-color: #536674;
+  height: 100%;
+  width: 19%;
+  border-top-right-radius: 20px;
+}
+
+.sidebartext1 button {
+  font-size: 28px;
+  width: 100%;
+  border: none;
+  background-color: #536674;
+  color: whitesmoke;
+  cursor: pointer;
+  padding-top: 1%;
+  border-top-right-radius: 20px;
+}
+.sidebartext1 button:hover {
+  background-color: #ebe2e2d3;
+  color: black;
+}
+.spacebetween1 {
+  margin-top: 1.5%;
+  background-color: aliceblue;
+  border: white solid 1px;
+}
+
+.navbar {
+  background-color: #add8e6;
+  height: 36px;
+  margin-left: 5%;
+  width: 80%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  display: flex;
+}
+
+.navbar > div {
+  margin-left: 8%;
+}
+.navbarbutton button {
+  border: none;
+  border-radius: 10px;
+  font-size: 22px;
+  margin-top: 4%;
+}
+.homeButton {
+  background-color: #add8e6;
+}
+.navbarbutton button:hover {
+  background-color: #536674;
+  color: white;
+}
+
+.navbarlogobutton {
+  margin-left: 90%;
+  position: fixed;
+  display: inline-block;
+}
+.navbarlogobutton img {
+  width: 25px;
+}
+.generatemenu {
+  /* position: absolute; */
+  margin-top: -28%;
+  margin-left: 37%;
+}
+.generatemenu button {
+  margin-left: 5%;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #d9d9d9;
+}
+
+.generatemenu p {
+  margin-top: 1.5%;
+  margin-left: 5%;
+}
+
+.dropbtn {
+  background-color: #add8e6;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  font-family: "Abhaya Libre";
+  font-weight: 600;
+  line-height: 33px;
+  transition-duration: 1s;
+}
+
+.dropdowncontent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdowncontent button {
+  width: 100%;
+  background-color: #add8e6;
+  color: rgb(0, 0, 0);
+  padding: 12px 12px;
+  font-weight: 500;
+  display: block;
+  border: none;
+  margin-left: -50%;
+}
+
+.dropdowncontent button:hover {
+  background-color: #f1f1f1;
+}
+
+.navbarlogobutton:hover .dropdowncontent {
+  display: block;
+}
+
+.navbarlogobutton:hover .dropbtn {
+  background-color: #e7e7e7;
+}
+
+.btnimage {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1%;
+  padding: 1%;
+}
+.btnimage img {
+  width: 30px;
+}
+
+@media (max-width: 1049px) {
+  .dropbtn {
+    font-size: 26px;
+  }
+}
+@media (max-width: 983px) {
+  .dropbtn {
+    font-size: 24px;
+  }
+}
+@media (max-width: 973px) {
+  .dropbtn {
+    font-size: 21px;
+  }
+}
+@media (max-width: 811px) {
+  .dropbtn {
+    font-size: 17px;
+  }
+}
+@media (max-width: 1508px) {
+  .generatemenu {
+    margin-top: -40%;
+    margin-left: 37%;
+  }
+}
+@media (max-width: 1432px) {
+  .sidebartext1 button {
+    font-size: 27px;
+  }
+  .universityhomepagebody {
+    height: 88vh;
+  }
+  .universityhomepagesidebar {
+    width: 21%;
+  }
+  .navbarlogobutton {
+    margin-left: 95%;
+  }
+}
+@media (max-width: 1380px) {
+  .sidebartext1 button {
+    font-size: 25px;
+  }
+  .universityhomepagebody {
+    height: 86vh;
+  }
+  .universityhomepagesidebar {
+    width: 20%;
+  }
+  .navbarlogobutton {
+    margin-left: 93%;
+  }
+}
+@media (max-width: 1277px) {
+  .generatemenu {
+    margin-top: -40%;
+    margin-left: 37%;
+  }
+}
+@media (max-width: 1242px) {
+  .sidebartext1 button {
+    font-size: 25px;
+  }
+  .universityhomepagebody {
+    height: 88vh;
+  }
+  .universityhomepagesidebar {
+    width: 21%;
+  }
+  .navbarlogobutton {
+    margin-left: 95%;
+  }
+  .navbar > div {
+    margin-left: 6%;
+  }
+  .generatemenu {
+    margin-top: -41%;
+    margin-left: 37%;
+  }
+}
+@media (max-width: 1193px) {
+  .sidebartext1 button {
+    font-size: 22px;
+  }
+  .universityhomepagebody {
+    height: 89vh;
+  }
+  .universityhomepagesidebar {
+    width: 21%;
+  }
+  .navbarlogobutton {
+    margin-left: 91%;
+  }
+  .navbar > div {
+    margin-left: 4%;
+  }
+  .generatemenu {
+    margin-top: -46%;
+    margin-left: 37%;
+  }
+}
+@media (max-width: 1058px) {
+  .sidebartext1 button {
+    font-size: 19px;
+  }
+  .universityhomepagebody {
+    height: 89vh;
+  }
+  .universityhomepagesidebar {
+    width: 21%;
+  }
+  .navbarlogobutton {
+    margin-left: 91%;
+  }
+  .navbar > div {
+    margin-left: 4%;
+  }
+  .generatemenu {
+    margin-top: -46%;
+    margin-left: 37%;
+  }
+  .navbarbutton button {
+    font-size: 20px;
+  }
+}
+@media (max-width: 1058px) {
+  .sidebartext1 button {
+    font-size: 17px;
+  }
+  .universityhomepagebody {
+    height: 90vh;
+  }
+  .universityhomepagesidebar {
+    width: 26%;
+  }
+  .navbarlogobutton {
+    margin-left: 91%;
+  }
+  .navbar > div {
+    margin-left: 4%;
+  }
+  .generatemenu {
+    margin-top: -53%;
+    margin-left: 37%;
+  }
+  .navbarbutton button {
+    font-size: 19px;
+  }
+}
