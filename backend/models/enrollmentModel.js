@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 
 const enrollmentSchema = new mongoose.Schema({
   course_id: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     required: true,
     ref: "Course",
   },
   student_id: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     required: true,
     ref: "Student",
   },
