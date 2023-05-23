@@ -21,6 +21,7 @@ app.use("/api/admin", require("./routes/univAdminRoutes"));
 app.use("/api/student", require("./routes/studentRoutes"));
 app.use("/api/student/homepage", require("./routes/studentRoutes"));
 app.use("/api/student/result", require("./routes/studentRoutes"));
+app.use("/api/student/certificate", require("./routes/certificateRoutes"));
 app.use("/api/course", require("./routes/courseRoutes"));
 app.use("/api/admin/exam", require("./routes/examRoutes"));
 app.use("/api/enrollment", require("./routes/enrollmentRoutes"));
