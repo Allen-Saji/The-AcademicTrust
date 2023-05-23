@@ -101,7 +101,31 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
 };
 
+//@desc get student info
+//@route /api/student/homepage
+//@access private
+const getStudent = asyncHandler(async (req, res) => {
+  const { id } = req.body;
+
+  const student = await User.findById(id);
+
+  if (!student) {
+    res.status(404).json({
+      message: "Student not found!",
+    });
+    return;
+  }
+
+  // Remove password from student object
+  delete student.password;
+
+  res.status(200).json({
+    student,
+  });
+});
+
 module.exports = {
   loginUser,
   registerUser,
+  getStudent,
 };
