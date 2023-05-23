@@ -23,7 +23,7 @@ app.use("/api/course", require("./routes/courseRoutes"));
 app.use("/api/exam", require("./routes/examRoutes"));
 app.use("/api/enrollment", require("./routes/enrollmentRoutes"));
 app.use("/api/result", require("./routes/resultRoutes"));
-
+app.use("/api/program", require("./routes/programRoutes"));
 // Serve Frontend
 if (process.env.NODE_ENV === "production") {
   // Set build folder as static
