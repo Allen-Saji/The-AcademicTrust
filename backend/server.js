@@ -20,10 +20,11 @@ app.use(
 app.use("/api/admin", require("./routes/univAdminRoutes"));
 app.use("/api/student", require("./routes/studentRoutes"));
 app.use("/api/course", require("./routes/courseRoutes"));
-app.use("/api/exam", require("./routes/examRoutes"));
+app.use("/api/admin/exam", require("./routes/examRoutes"));
 app.use("/api/enrollment", require("./routes/enrollmentRoutes"));
-app.use("/api/result", require("./routes/resultRoutes"));
-app.use("/api/program", require("./routes/programRoutes"));
+app.use("/api/admin/result", require("./routes/resultRoutes"));
+app.use("/api/admin/program", require("./routes/programRoutes"));
+app.use("/api/admin/organization", require("./routes/organizationRoutes"));
 // Serve Frontend
 if (process.env.NODE_ENV === "production") {
   // Set build folder as static
