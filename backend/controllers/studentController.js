@@ -2,6 +2,8 @@ const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/studentModel");
+const Enrollment = require("../models/enrollmentModel");
+const Result = require("../models/resultModel");
 
 //@desc register a new user
 //@route /api/student
@@ -124,8 +126,59 @@ const getStudent = asyncHandler(async (req, res) => {
   });
 });
 
+//@desc get student marks
+//@route /api/student/result
+//@access private
+const getGradeAndMarks = asyncHandler(async (req, res) => {
+  const { student_id, semester } = req.body;
+
+  // Get enrollments for student
+  const enrollments = await Enrollment.find({
+    student_id,
+    semester,
+  });
+
+  // Check if enrollments exist
+  if (!enrollments.length) {
+    res.status(404).json({
+      message: "No enrollments found for student!",
+    });
+    return;
+  }
+
+  // Get results for enrollments
+  const results = await Result.find({
+    enrollment_id: enrollments.map((enrollment) => enrollment.id),
+  });
+
+  // Check if results exist
+  if (!results.length) {
+    res.status(404).json({
+      message: "No results found for student!",
+    });
+    return;
+  }
+
+  // Create object to store grade and marks
+  const gradeAndMarks = {};
+
+  // Iterate through results and add grade and marks to object
+  results.forEach((result) => {
+    gradeAndMarks[result.course_id] = {
+      grade: result.grade,
+      marks: result.marks,
+    };
+  });
+
+  // Return grade and marks object
+  res.status(200).json({
+    gradeAndMarks,
+  });
+});
+
 module.exports = {
   loginUser,
   registerUser,
   getStudent,
+  getGradeAndMarks,
 };

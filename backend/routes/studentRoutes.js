@@ -9,5 +9,5 @@ const {
 router.post("/", registerUser);
 router.post("/login", loginUser);
 router.get("/homepage", getStudent);
-
+router.get("/result", getStudent);
 module.exports = router;
