@@ -1,2 +1,2 @@
-# S6-Mini-Project
-The name of the project is **The AcademicTrust** which is a university website built on top of a university registry system, the added feature being that once a student completes his respective program, his degree certificate will be published on the ethereum blockchain(sepolia tesnet in this project), and also this wesite contains a verification module for the employers who can verify the authenticity of the student certificates before hiring.
+# S6-Mini-Project (The AcademicTrust)
+**The AcademicTrust** which is a university website built on top of a university registry system, the added feature being that once a student completes his respective programme, his degree certificate will be published on the ethereum blockchain(sepolia tesnet in this project), and also this wesite contains a verification module for the employers who can verify the authenticity of the student certificates before hiring.
