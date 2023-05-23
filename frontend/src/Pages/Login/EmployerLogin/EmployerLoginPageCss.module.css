@@ -1,3 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Graduate&display=swap');
+body{
+    background-color:#FFFFF0;
+}
+.heading{
+    display: flex;
+    justify-content:space-between;
+    text-align: center;
+    align-items: center;
+    margin-top: 1%;
+    width: 100%;
+}
+h1{
+    font-family: 'Graduate';
+    font-weight: 400;
+    font-size: 33px;
+   
+}
+.heading img{
+    margin-left: 1%;
+}
+
+.headerP1{
+    width:8%;
+    font-size: 23px;
+    position: relative;
+    margin-right: 2%;
+    margin-top: -2%;
+    line-height:1.7rem;
+    color: rgb(32, 110, 211);
+}
+@media (max-width: 1563px) {
+    .mainheading{
+        font-size: 35px;
+    }
+}
+@media (max-width: 1143px) {
+    .mainheading{
+        font-size: 32px;
+    }
+}
+@media (max-width: 811px) {
+    .mainheading{
+        font-size: 29px;
+    }
+    
+}
 .mainLogo{
 margin-top: 1%;
 margin-left: 1%;
