@@ -25,6 +25,7 @@ app.use("/api/enrollment", require("./routes/enrollmentRoutes"));
 app.use("/api/admin/result", require("./routes/resultRoutes"));
 app.use("/api/admin/program", require("./routes/programRoutes"));
 app.use("/api/admin/organization", require("./routes/organizationRoutes"));
+app.use("/api/admin/institution", require("./routes/institutionRoutes"));
 // Serve Frontend
 if (process.env.NODE_ENV === "production") {
   // Set build folder as static
