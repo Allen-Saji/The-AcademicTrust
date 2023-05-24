@@ -6,3 +6,61 @@
     background-color: #536674;
     color: whitesmoke;
 }
+.selectedSidebarButton{
+    background-color: #C0C0C0;
+    color: black;
+    font-size: 22px;
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 2.5%;
+    border: none;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+}
+.notSelectedSidebarButton{
+    background-color: #536674;
+    color: whitesmoke;
+    font-size: 22px;
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: none;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+}
+.sidebarButton{
+    font-size: 22px;
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: none;
+    border-top-right-radius: 10px;
+    background-color: #536674;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.welcomeName{
+    margin-left: 30%;
+    padding-top: 0.5%;
+    font-size: 20px;
+}
+@media (max-width:1254px) {
+    .welcomeName{
+        margin-left: 25%;
+    }
+}
+@media (max-width:1148px) {
+    .welcomeName{
+        margin-left: 19%;
+    }
+}
+@media (max-width:1068px) {
+    .welcomeName{
+        margin-left: 11%;
+        font-size: 19px;
+    }
+    .sidebarButton{
+        font-size: 20px;
+    }
+}

@@ -10,10 +10,11 @@ body{
     margin-top: 1%;
     width: 100%;
 }
-h1{
+.mainheading{
     font-family: 'Graduate';
     font-weight: 400;
     font-size: 33px;
+    margin-left: 3%;
    
 }
 .heading img{
@@ -36,7 +37,7 @@ h1{
 }
 @media (max-width: 1143px) {
     .mainheading{
-        font-size: 32px;
+        font-size: 31px;
     }
 }
 @media (max-width: 811px) {

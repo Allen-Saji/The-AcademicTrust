@@ -2,6 +2,29 @@
   display: flex;
   height: 83vh;
   margin-top: 1%;
+  justify-content: space-between;
+}
+.sidebartext button:hover{
+  background-color: #C0C0C0;
+  color: black;
+}
+.tables{
+  display: flex;
+}
+table{
+  margin-left: 1%;
+  margin-top: 2%;
+  border-collapse: collapse;
+  font-size: 18px;
+  width: 48%;
+}
+td{
+  border: 2px solid #dddddd;
+  text-align: left;
+  padding-top: 3%;
+}
+tr:nth-child(even){
+  background-color: #a0a7ac;
 }
 .studenthomepagesidebar {
   background-color: #536674;
@@ -9,14 +32,9 @@
   width: 19%;
   border-top-right-radius: 20px;
 }
-.sidebartext p {
-  color: whitesmoke;
-  font-size: 30px;
-  padding-left: 8%;
-  padding-top: 5%;
-}
+
 .spacebetween {
-  margin-top: 3%;
+  margin-top: 2%;
   background-color: aliceblue;
   border: white solid 1px;
 }
@@ -24,16 +42,23 @@
   margin-top: 5%;
   margin-left: 23%;
   position: absolute;
+  background-color: #C0C0C0;
+  width: 70%;
+  text-align: center;
 }
 .semesterselecttext {
   font-size: 23px;
+  margin-left:1.5% ;
 }
 .semesterselector select {
-  width: 80%;
+  width: 10%;
   height: 26px;
   font-size: 18px;
 }
 .selectorbutton {
+  margin-top: 1%;
+}
+.setHeight{
   margin-top: 5%;
 }
 .selectorbutton button {
@@ -41,9 +66,10 @@
   background-color: #536674;
   border: none;
   color: aliceblue;
-  width: 48%;
+  width: 60px;
   height: 28px;
   border-radius: 7px;
+  margin-left: -4.5%;
 }
 .selectorbutton button:hover {
   background-color: rgba(156, 191, 224, 0.781);
@@ -52,98 +78,77 @@
 .navbar {
   background-color: #add8e6;
   height: 36px;
-  margin-left: 5%;
   width: 80%;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   display: flex;
+  justify-content: space-between;
 }
 
-.navbar > div {
-  margin-left: 8%;
-}
-
-.navbarbutton button {
+.navbar button{
   cursor: pointer;
   border: none;
   border-radius: 10px;
   font-size: 22px;
-  margin-top: 4%;
 }
 .homeButton {
   background-color: #add8e6;
 }
-.navbarbutton button:hover {
+.navbar button:hover {
   background-color: #536674;
   color: whitesmoke;
 }
 
-.navbarlogobutton {
-  margin-top: 0.1%;
-  margin-left: 90%;
-  position: fixed;
-  display: inline-block;
-}
 .navbarlogobutton img {
   width: 23px;
 }
 
 .dropbtn {
-  background-color: #add8e6;
-  color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
-  font-size: 25px;
-  font-family: "Abhaya Libre";
-  font-weight: 600;
-  line-height: 33px;
   transition-duration: 1s;
+  margin-left: -100%;
+}
+.dropbtn img{
+  width: 28px;
 }
 
 .dropdowncontent {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  margin-left: -8%;
 }
 
 .dropdowncontent button {
   width: 100%;
   background-color: #add8e6;
   color: rgb(0, 0, 0);
-  padding: 12px 16px;
-  font-weight: 500;
   display: block;
   border: none;
+  
 }
 
-.dropdowncontent button:hover {
-  background-color: #f1f1f1;
-}
-
-.navbarlogobutton:hover .dropdowncontent {
+.logo:hover .dropdowncontent {
   display: block;
 }
-
-.navbarlogobutton:hover .dropbtn {
-  background-color: #e7e7e7;
-}
-
 .btnimage {
   display: flex;
   justify-content: flex-start;
-  margin-top: 1%;
-  padding: 1%;
+  margin-top: 5%;
+ 
 }
-.btnimage img {
-  width: 30px;
-}
+
 
 @media (max-width: 1049px) {
   .dropbtn {
     font-size: 26px;
+  }
+  .navbar button{
+
+    font-size: 19px;
   }
 }
 @media (max-width: 983px) {
@@ -161,3 +166,5 @@
     font-size: 17px;
   }
 }
+
+
