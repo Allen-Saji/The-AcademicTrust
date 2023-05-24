@@ -2,6 +2,13 @@
   display: flex;
   height: 83vh;
   margin-top: 1%;
+}table{
+  margin-left: 23%;
+  margin-bottom: 4%;
+}
+.semesterselectorbody p{
+
+  font-size: 1.5rem;
 }
 .studenthomepagesidebar {
   background-color: #536674;
@@ -9,14 +16,18 @@
   width: 19%;
   border-top-right-radius: 20px;
 }
-.sidebartext p {
-  color: whitesmoke;
-  font-size: 30px;
-  padding-left: 8%;
-  padding-top: 5%;
+.sidebartext button {
+  color: black;
+  font-size: 28px;
+  width: 100%;
+  border: none;
+  border-top-right-radius: 10px;
+  background-color:#c0c0c0;
+  padding-top: 2%;
+  cursor: pointer;
 }
 .spacebetween {
-  margin-top: 3%;
+  margin-top: 2%;
   background-color: aliceblue;
   border: white solid 1px;
 }
@@ -24,25 +35,30 @@
   margin-top: 5%;
   margin-left: 24%;
   position: absolute;
+  background-color: #c0c0c0;
+  width: 70%;
+  border-radius: 10px;
+  text-align: center;
 }
 .semesterselecttext {
   font-size: 24px;
 }
 .semesterselector input {
-  width: 100%;
+  margin-top: 0.5%;
+  width: 16%;
   height: 10px;
   border-radius: 10px;
 }
 .selectorbutton {
-  margin-top: 5%;
-  margin-left: 30%;
+  margin-top: -2%;
+  margin-left: -7%;
 }
 .selectorbutton button {
   font-size: 16px;
   background-color: #536674;
   border: none;
   color: aliceblue;
-  width: 48%;
+  width: 8%;
   height: 28px;
   border-radius: 7px;
 }
@@ -76,7 +92,7 @@
   border-radius: 10px;
   font-size: 22px;
   margin-top: 4%;
-  /* background-color:#ADD8E6; */
+
 }
 
 .navbarbutton button:hover {
@@ -91,7 +107,7 @@
   display: inline-block;
 }
 .navbarlogobutton img {
-  width: 23px;
+  width: 24px;
 }
 
 .dropbtn {
@@ -100,9 +116,6 @@
   border: none;
   cursor: pointer;
   font-size: 25px;
-  font-family: "Abhaya Libre";
-  font-weight: 600;
-  line-height: 33px;
   transition-duration: 1s;
   margin-left: -40%;
 }
@@ -114,6 +127,7 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  margin-left: -100%;
 }
 
 .dropdowncontent button {
@@ -124,7 +138,6 @@
   font-weight: 500;
   display: block;
   border: none;
-  margin-left: -40%;
 }
 
 .dropdowncontent button:hover {
@@ -194,6 +207,9 @@
   .studenthomepagebody {
     height: 89vh;
   }
+  .semesterselectorbody{
+    margin-top: 8%;
+  }
 }
 @media (max-width: 1206px) {
   .studenthomepagebody {
@@ -227,5 +243,8 @@
   }
   .studenthomepagebody {
     height: 92vh;
+  }
+  .semesterselectorbody{
+    margin-top: 9%;
   }
 }
