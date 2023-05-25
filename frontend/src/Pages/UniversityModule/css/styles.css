@@ -6,3 +6,58 @@
     background-color: #536674;
     color: whitesmoke;
 }
+.sidebarActive{
+    background-color: #c0c0c0;
+    color: black;
+}
+.sidebarNotActive{
+    background-color: #536674;
+    color: whitesmoke;
+}
+.maintableforinstitution{
+    margin-top: 4%;
+    margin-left: 20%;
+    position: absolute;
+    width: 78%;
+    background-color: #c0c0c0;
+    border-radius: 10px;
+    height: 73%;
+}
+
+.institutiontable{
+    width: 95%;
+    margin-left: 2%;
+}
+
+.maintableforhome{
+    width:50%;
+    position: absolute;
+    background-color: #c0c0c0;
+    margin-top: 4%;
+    margin-left: 35%;
+}
+
+
+@media (max-width:1432px) {
+    .maintableforinstitution{
+        width: 70%;
+        margin-left: 25%;
+    }
+}
+@media (max-width:1350px) {
+    .maintableforinstitution{
+       margin-top: 6%;
+    }
+}
+@media (max-width:1037px) {
+    .maintableforinstitution{
+       margin-top: 7%;
+       margin-left: 28%;
+    }
+}
+@media (max-width:894px) {
+    .maintableforinstitution{
+       width: 60%;
+       margin-left: 34%;
+    }
+}

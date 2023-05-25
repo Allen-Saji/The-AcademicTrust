@@ -15,11 +15,10 @@
 }
 
 .sidebartext1 button {
-  font-size: 28px;
+  font-size: 26px;
   width: 100%;
   border: none;
-  background-color: #536674;
-  color: whitesmoke;
+
   cursor: pointer;
   padding-top: 1%;
   border-top-right-radius: 20px;
@@ -37,26 +36,25 @@
 .navbar {
   background-color: #add8e6;
   height: 36px;
-  margin-left: 5%;
+  margin-left: 3%;
   width: 80%;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   display: flex;
+
 }
 
-.navbar > div {
-  margin-left: 8%;
-}
-.navbarbutton button {
+.navbar button {
   border: none;
   border-radius: 10px;
   font-size: 22px;
-  margin-top: 4%;
+  margin-right:5% ;
 }
+
 .homeButton {
   background-color: #add8e6;
 }
-.navbarbutton button:hover {
+.navbar button:hover {
   background-color: #536674;
   color: white;
 }
@@ -88,59 +86,29 @@
   margin-left: 5%;
 }
 
-.dropbtn {
-  background-color: #add8e6;
-  color: rgb(0, 0, 0);
-  border: none;
-  cursor: pointer;
-  font-size: 25px;
-  font-family: "Abhaya Libre";
-  font-weight: 600;
-  line-height: 33px;
-  transition-duration: 1s;
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 32%;
 }
-
 .dropdowncontent {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin-top: 5%;
   z-index: 1;
 }
-
-.dropdowncontent button {
-  width: 100%;
-  background-color: #add8e6;
-  color: rgb(0, 0, 0);
-  padding: 12px 12px;
-  font-weight: 500;
+.dropdown:hover .dropdowncontent {
   display: block;
-  border: none;
-  margin-left: -50%;
+
+}
+.dropbtn img{
+  width: 27px;
 }
 
-.dropdowncontent button:hover {
-  background-color: #f1f1f1;
-}
 
-.navbarlogobutton:hover .dropdowncontent {
-  display: block;
-}
-
-.navbarlogobutton:hover .dropbtn {
-  background-color: #e7e7e7;
-}
-
-.btnimage {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 1%;
-  padding: 1%;
-}
-.btnimage img {
-  width: 30px;
-}
 
 @media (max-width: 1049px) {
   .dropbtn {
@@ -162,24 +130,49 @@
     font-size: 17px;
   }
 }
+@media (max-width: 1565px) {
+  
+  .dropbtn{
+    margin-left: -200%;
+  }
+  .dropdowncontent{
+    margin-left: -200%;
+  }
+
+}
 @media (max-width: 1508px) {
   .generatemenu {
     margin-top: -40%;
     margin-left: 37%;
+  }
+  .dropbtn{
+    margin-left: -200%;
+  }
+  .dropdowncontent{
+    margin-left: -200%;
+  }
+
+}
+@media (max-width:1481px){
+  .dropbtn{
+    margin-left: -200%;
+  }
+  .dropdowncontent{
+    margin-left: -200%;
   }
 }
 @media (max-width: 1432px) {
   .sidebartext1 button {
     font-size: 27px;
   }
+  .dropbtn{
+    margin-left: -204%;
+  }
   .universityhomepagebody {
     height: 88vh;
   }
   .universityhomepagesidebar {
     width: 21%;
-  }
-  .navbarlogobutton {
-    margin-left: 95%;
   }
 }
 @media (max-width: 1380px) {
@@ -192,9 +185,22 @@
   .universityhomepagesidebar {
     width: 20%;
   }
-  .navbarlogobutton {
-    margin-left: 93%;
+  .dropbtn{
+    margin-left: -250%;
   }
+  .dropdowncontent{
+    margin-left: -250%;
+  }
+ 
+}
+@media (max-width: 1307px) {
+  .dropbtn{
+    margin-left: -350%;
+  }
+  .dropdowncontent{
+    margin-left: -350%;
+  }
+ 
 }
 @media (max-width: 1277px) {
   .generatemenu {
@@ -212,12 +218,8 @@
   .universityhomepagesidebar {
     width: 21%;
   }
-  .navbarlogobutton {
-    margin-left: 95%;
-  }
-  .navbar > div {
-    margin-left: 6%;
-  }
+ 
+
   .generatemenu {
     margin-top: -41%;
     margin-left: 37%;
@@ -233,12 +235,14 @@
   .universityhomepagesidebar {
     width: 21%;
   }
-  .navbarlogobutton {
-    margin-left: 91%;
+  .dropbtn{
+    margin-left: -450%;
   }
-  .navbar > div {
-    margin-left: 4%;
+  .dropdowncontent{
+    margin-left: -450%;
   }
+ 
+
   .generatemenu {
     margin-top: -46%;
     margin-left: 37%;
@@ -246,7 +250,7 @@
 }
 @media (max-width: 1058px) {
   .sidebartext1 button {
-    font-size: 19px;
+    font-size: 21px;
   }
   .universityhomepagebody {
     height: 89vh;
@@ -254,21 +258,23 @@
   .universityhomepagesidebar {
     width: 21%;
   }
-  .navbarlogobutton {
-    margin-left: 91%;
+  .dropbtn{
+    margin-left: -300%;
   }
-  .navbar > div {
-    margin-left: 4%;
+  .dropdowncontent{
+    margin-left: -300%;
   }
+
   .generatemenu {
     margin-top: -46%;
     margin-left: 37%;
   }
-  .navbarbutton button {
-    font-size: 20px;
+  .navbar button {
+    font-size: 18px;
+    margin-right: 1.5%;
   }
 }
-@media (max-width: 1058px) {
+@media (max-width: 894px) {
   .sidebartext1 button {
     font-size: 17px;
   }
@@ -276,19 +282,14 @@
     height: 90vh;
   }
   .universityhomepagesidebar {
-    width: 26%;
+    width: 34%;
   }
-  .navbarlogobutton {
-    margin-left: 91%;
-  }
-  .navbar > div {
-    margin-left: 4%;
-  }
+
   .generatemenu {
     margin-top: -53%;
     margin-left: 37%;
   }
-  .navbarbutton button {
-    font-size: 19px;
+  .navbar button {
+    font-size: 17px;
   }
 }
