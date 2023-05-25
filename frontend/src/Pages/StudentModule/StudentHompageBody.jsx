@@ -74,8 +74,8 @@ const StudentHomepageBody = () => {
   <div className={classes.semesterselecttext}>
     <p>Student Details </p>
   </div>
-  <div className={classes.tables}>
-    <table>
+  <div className={classes.mainstudentDetailsTable}>
+    <table className={classes.studentdetailstable1}>
       <tr>
         <td>Gender</td>
         <td>Male</td>
@@ -97,7 +97,7 @@ const StudentHomepageBody = () => {
         <td>General</td>
       </tr>
     </table>
-    <table>
+    <table className={classes.studentdetailstable1}>
       <tr>
         <td>Religion</td>
         <td>Hindu</td>
@@ -144,12 +144,12 @@ const StudentHomepageBody = () => {
     </div>
   );
   const certificateMenu = (
-    <div className={classes.semesterselectorbody}>
-      <div className={classes.semesterselecttext}>
+    <div className={classes.certificateselectorbody}>
+      <div className={classes.certificateselecttext}>
         <p>View Graduation Certificate </p>
       </div>
-      <div className={classes.selectorbutton}>
-        <button>View</button>
+      <div className={classes.certificatebutton1}>
+        <button className={classes.certificatebutton}>View</button>
       </div>
     </div>
   );

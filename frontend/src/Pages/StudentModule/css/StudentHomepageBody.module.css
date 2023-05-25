@@ -8,10 +8,10 @@
   background-color: #C0C0C0;
   color: black;
 }
-.tables{
+.mainstudentDetailsTable{
   display: flex;
 }
-table{
+.studentdetailstable1{
   margin-left: 1%;
   margin-top: 2%;
   border-collapse: collapse;
@@ -45,18 +45,29 @@ tr:nth-child(even){
   background-color: #C0C0C0;
   width: 70%;
   text-align: center;
+  display: flex;
+  
+}
+.semesterselectorbody > div{
+  margin-right: 4%;
 }
 .semesterselecttext {
   font-size: 23px;
   margin-left:1.5% ;
+  margin-top: 1.5%;
+}
+.semesterselector{
+  width: 8%;
+  margin-top: 1.5%;
 }
 .semesterselector select {
-  width: 10%;
+  width: 100%;
   height: 26px;
   font-size: 18px;
+  margin-left: 5%;
 }
 .selectorbutton {
-  margin-top: 1%;
+  margin-top: 1.5%;
 }
 .setHeight{
   margin-top: 5%;
@@ -72,6 +83,42 @@ tr:nth-child(even){
   margin-left: -4.5%;
 }
 .selectorbutton button:hover {
+  background-color: rgba(156, 191, 224, 0.781);
+  color: black;
+}
+.certificateselectorbody{
+  margin-top: 5%;
+  margin-left: 23%;
+  position: absolute;
+  background-color: #C0C0C0;
+  width: 70%;
+  text-align: center;
+  height: 5%;
+  display: flex;
+}
+.certificateselecttext{
+  font-size: 23px;
+  margin-left:1.5% ;
+  margin-top: 0.5%;
+}
+.certificateselectorbody > div{
+  margin-right: 4%;
+}
+.certificatebutton1{
+  margin-top: 0.5%;
+}
+.certificatebutton {
+  font-size: 16px;
+  background-color: #536674;
+  border: none;
+  color: aliceblue;
+  width: 60px;
+  height: 28px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin-top: 0.5%;
+}
+.certificatebutton:hover {
   background-color: rgba(156, 191, 224, 0.781);
   color: black;
 }
