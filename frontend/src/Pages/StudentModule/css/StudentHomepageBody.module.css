@@ -19,13 +19,9 @@
   margin-top: 2%;
   border-collapse: collapse;
   font-size: 21px;
-  width: 48%;
+  width: 100%;
 }
-.studentdetailstable2{
-  margin-top: 2%;
-  width: 48%;
-  font-size: 21px;
-}
+
 .studentDetailstext{
   font-size: 1.6rem;
 }

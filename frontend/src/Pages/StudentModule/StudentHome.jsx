@@ -17,43 +17,31 @@ const StudentHome = () => {
         <div className={classes.mainstudentDetailsTable}>
           <table className={classes.studentdetailstable1}>
             <tr>
-              <td>Gender</td>
-              <td>Male</td>
+              <td>Name :PARVATHY T.B</td>
+              <td>Register Number :SJC18C202</td>
             </tr>
             <tr>
-              <td>Date of Birth</td>
-              <td>28-10-2002</td>
+              <td>Institution :ST JOSEPHS COLLEGE OF ENGINEERING AND TECHNOLOGY PALAI</td>
+              
             </tr>
             <tr>
-              <td>Aadhar Number</td>
-              <td>2105520178924</td>
+            <td>Branch: Computer Science and Engineering</td>
+              <td>Mode of study:Regular</td>
             </tr>
             <tr>
-              <td>Mother Toungue</td>
-              <td>Malayalam</td>
+              <td>Year of Admission: 2018</td>
+              <td>Duration of the programme : 4 Years</td>
             </tr>
             <tr>
-              <td>Catagory</td>
-              <td>General</td>
+              <td>Month and Year of Passing : JUNE-2022</td>
+              <td>Medium of Instruction: English</td>
+            </tr>
+            <tr>
+              <td>Total Credits :190</td>
+              <td>CGPA :8.61</td>
             </tr>
           </table>
-          <table className={classes.studentdetailstable2}>
-            <tr>
-              <td>Religion</td>
-              <td>Hindu</td>
-            </tr>
-            <tr>
-              <td>Nationality</td>
-              <td>India</td>
-            </tr>
-            <tr>
-              <td>Additional Information</td>
-            </tr>
-            <tr>
-              <td>Blood Group</td>
-              <td>O+ve</td>
-            </tr>
-          </table>
+          
         </div>
 
         <div className={classes.setHeight}></div>
