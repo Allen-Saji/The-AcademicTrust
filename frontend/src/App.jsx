@@ -10,6 +10,7 @@ import EmployerLoginPage from "./Pages/Login/EmployerLogin/EmployerLoginPage";
 import StudentHomepage from "./Pages/StudentModule/StudentHomepage";
 import UniversityHomepage from "./Pages/UniversityModule/UniversityHomepage";
 import EmployeeHomepage from "./Pages/EmployeeModule/EmployeeHomepage";
+import StudentHome from "./Pages/StudentModule/StudentHome";
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
         <Route path="/student/login" element={<StudentLoginPage />} />
         <Route path="/university/login" element={<UniversityLoginPage />} />
         <Route path="/employer/login" element={<EmployerLoginPage />} />
-        <Route path="/student/homepage" element={<StudentHomepage />} />
+     
+        <Route path="/student/:result" element={<StudentHomepage />}/>
+  
         <Route path="/university/homepage" element={<UniversityHomepage />} />
         <Route path="/employee/homepage" element={<EmployeeHomepage />} />
         <Route path="/about" element={<About />} />

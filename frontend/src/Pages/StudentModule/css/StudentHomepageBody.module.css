@@ -10,13 +10,27 @@
 }
 .mainstudentDetailsTable{
   display: flex;
+  margin-left: 5%;
 }
+
 .studentdetailstable1{
   margin-left: 1%;
+
   margin-top: 2%;
   border-collapse: collapse;
-  font-size: 18px;
+  font-size: 21px;
   width: 48%;
+}
+.studentdetailstable2{
+  margin-top: 2%;
+  width: 48%;
+  font-size: 21px;
+}
+.studentDetailstext{
+  font-size: 1.6rem;
+}
+.studentInfoContainer{
+  margin: 1rem;
 }
 td{
   border: 2px solid #dddddd;
@@ -39,14 +53,13 @@ tr:nth-child(even){
   border: white solid 1px;
 }
 .semesterselectorbody {
+  
   margin-top: 5%;
   margin-left: 23%;
   position: absolute;
   background-color: #C0C0C0;
   width: 70%;
-  text-align: center;
-  display: flex;
-  
+  text-align: center;  
 }
 .semesterselectorbody > div{
   margin-right: 4%;
