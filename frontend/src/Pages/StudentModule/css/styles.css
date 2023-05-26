@@ -45,6 +45,12 @@
     padding-top: 0.5%;
     font-size: 20px;
 }
+.logobutton{
+    margin-left: 1%;
+    border: none;
+    background-color:#FFFFF0;
+    cursor: pointer;
+}
 @media (max-width:1254px) {
     .welcomeName{
         margin-left: 25%;
