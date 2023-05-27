@@ -4,16 +4,21 @@ import React, { useEffect, useState } from "react";
 import "./css/styles.css";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import StudentHome from "./StudentHome";
 import StudentResults from "./StudentResults";
 import StudentCertificate from "./StudentCertificate";
+import { logout } from "../../features/auth/authSlice";
+
 const StudentHomepageBody = () => {
+  const { user } = useSelector((state) => state.auth);
   //This states for top Navbar
   const [selectSemester, setSelectSemester] = useState(false);
   const [certificateNavbar, setCertificateNavbar] = useState(false);
   const [profile, setProfile] = useState(true);
 
   const Navigate = useNavigate();
+  const Dispatch = useDispatch();
 
   const resultClickHandler = () => {
     setSelectSemester(true);
@@ -35,6 +40,11 @@ const StudentHomepageBody = () => {
   };
 
   const homeClickHandler = () => {
+    Navigate("/");
+  };
+
+  const onLogout = () => {
+    Dispatch(logout());
     Navigate("/");
   };
 
@@ -86,7 +96,7 @@ const StudentHomepageBody = () => {
             Certificate
           </button>
 
-          <p className="welcomeName">Welcome Krishnaprasad</p>
+          <p className="welcomeName">Welcome {user.name}</p>
           <div className={classes.logo}>
             <button className={classes.dropbtn}>
               <img src={logo} alt="" />
@@ -94,7 +104,7 @@ const StudentHomepageBody = () => {
 
             <div className={classes.dropdowncontent}>
               <div className={classes.btnimage}>
-                <button onClick={homeClickHandler}>Logout</button>
+                <button onClick={onLogout}>Logout</button>
               </div>
             </div>
           </div>
