@@ -83,7 +83,7 @@ h1{
     font-size: 22px;
     margin-left: 33%;
 }
-input[type=text] {
+.studentforminput{
     width: 63%;
   padding: 12px 20px;
   margin: 3% 0;
@@ -91,6 +91,9 @@ input[type=text] {
   border: none;
   border-bottom: 3px solid #C0C0C0;
 }
+
+
+    
 .usernamelabel{
     position: absolute;
 

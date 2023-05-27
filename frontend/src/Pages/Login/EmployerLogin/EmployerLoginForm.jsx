@@ -10,13 +10,13 @@ const EmployerLoginForm = () => {
             <div className={classes.usernamelabel}>
               <label htmlFor="username">Username</label>
             </div>
-            <input type="text" id="username" />
+            <input className={classes.employerlogininput} type="text" id="username" />
           </div>
           <div className={classes.password}>
             <div className={classes.passwordnamelabel}>
               <label htmlFor="password">Password</label>
             </div>
-            <input type="text" id="password" />
+            <input className={classes.employerlogininput} type="text" id="password" />
           </div>
           <button className={classes.loginbutton}>Login</button>
         </form>

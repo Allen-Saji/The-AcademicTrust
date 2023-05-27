@@ -36,7 +36,88 @@
     margin-top: 4%;
     margin-left: 35%;
 }
-
+.maintableforaddinstitution{
+    width:50%;
+    background-color: #c0c0c0;
+    position: absolute;
+    margin-left: 35%;
+    margin-top: 5%;
+  }
+  .formdivs{
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+  }
+  .addinstitutionform{
+    margin-left: 3rem;
+    margin-top: 1rem;
+  }
+  .institutionnameinput{
+    margin-left: 6rem;
+    width: 40%;
+    line-height: 1.5rem;
+    border-radius: 15px;
+    border: none;
+    background-color:#D9D9D3;
+  }
+  .institutionaddressinput{
+    margin-left: 4.7rem;
+    width: 40%;
+    line-height: 1.5rem;
+    border-radius: 15px;
+    border: none;
+    background-color:#D9D9D3;
+  }
+  .institutionemailinput{
+    margin-left: 6rem;
+    width: 40%;
+    line-height: 1.5rem;
+    border-radius: 15px;
+    border: none;
+    background-color:#D9D9D3;
+  }
+  .institutioncontactnoinput{
+    margin-left: 2.7rem;
+    width: 40%;
+    line-height: 1.5rem;
+    border-radius: 15px;
+    border: none;
+    background-color:#D9D9D3;
+  }
+  .institutioncollegeidinput{
+    margin-left: 3.4rem;
+    width: 40%;
+    line-height: 1.5rem;
+    border-radius: 15px;
+    border: none;
+    background-color:#D9D9D3;
+  }
+  .institutionyearofreginput{
+    margin-left: 2.6rem;
+    width: 40%;
+    line-height: 1.5rem;
+    border-radius: 15px;
+    border: none;
+    background-color:#D9D9D3;
+  }
+  .addinstitutionbutton{
+    background-color: #536674;
+    color: whitesmoke;
+    cursor: pointer;
+    margin-left: 30%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 10px;
+  }
+  .addinstitutionbutton:hover{
+    background-color: #c0c0c0;
+    color: black
+  }
+  .addinstitutionheading{
+    font-size: 1.5rem;
+    margin-left: 3rem;
+  }
 
 @media (max-width:1432px) {
     .maintableforinstitution{

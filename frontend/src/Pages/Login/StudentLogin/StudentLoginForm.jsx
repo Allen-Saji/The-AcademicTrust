@@ -51,7 +51,7 @@ const StudentLoginForm = () => {
             <div className={classes.usernamelabel}>
               <label htmlFor="username">Registration No:</label>
             </div>
-            <input
+            <input className={classes.studentforminput}
               type="text"
               id="username"
               onChange={onChange}
@@ -63,7 +63,7 @@ const StudentLoginForm = () => {
             <div className={classes.passwordnamelabel}>
               <label htmlFor="password">Password:</label>
             </div>
-            <input
+            <input className={classes.studentforminput}
               type="text"
               id="password"
               name="password"

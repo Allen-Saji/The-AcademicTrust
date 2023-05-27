@@ -112,6 +112,38 @@ const UniversityAllInstitution = () => {
           </table>
         </div>
       )}
+      {addInstitutionButton && (
+        <div className="maintableforaddinstitution">
+            <h3 className="addinstitutionheading">Add new institution to the university</h3>
+        <form className="addinstitutionform">
+            <div className="formdivs">
+            <label htmlFor="nameinput">Name:</label>
+            <input className="institutionnameinput" id="nameinput" type="text" />
+            </div>
+            <div className="formdivs">
+            <label htmlFor="">Address:</label>
+            <input className="institutionaddressinput" type="text" />
+            </div>
+            <div className="formdivs">
+            <label htmlFor="">Email:</label>
+            <input className="institutionemailinput" type="text" />
+            </div>
+            <div className="formdivs">
+            <label htmlFor="">Contact No:</label>
+            <input className="institutioncontactnoinput" type="text" />
+            </div>
+            <div className="formdivs">
+            <label htmlFor="">College Id:</label>
+            <input className="institutioncollegeidinput" type="text" />
+            </div>
+            <div className="formdivs">
+            <label htmlFor="">Year of Reg:</label>
+            <input className="institutionyearofreginput" type="text" />
+            </div>
+            <button className="addinstitutionbutton" type="submit">Save</button>
+        </form>
+      </div>
+      )}
     </Fragment>
   );
 };
