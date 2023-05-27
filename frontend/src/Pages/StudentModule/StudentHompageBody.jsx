@@ -46,8 +46,7 @@ const StudentHomepageBody = () => {
   const selectedClass2 = profile ? "resultButtonActive" : "resultButton";
 
   const { result } = useParams();
-  // const {home} = useParams();
-  // const {certificate} = useParams();
+
   useEffect(() => {
     if (result === "result") {
       setSelectSemester(true);
