@@ -43,6 +43,14 @@
     margin-left: 35%;
     margin-top: 5%;
   }
+  .maintableforupdateinstitution{
+    width:60%;
+    background-color: #c0c0c0;
+    position: absolute;
+    margin-left: 30%;
+    margin-top: 5%;
+    height: 70%;
+  }
   .formdivs{
     font-size: 1.5rem;
     line-height: 2.5rem;
@@ -50,6 +58,10 @@
   .addinstitutionform{
     margin-left: 3rem;
     margin-top: 1rem;
+  }
+  .updateinstitutionform{
+    margin-top: 4%;
+    margin-left: 10%;
   }
   .institutionnameinput{
     margin-left: 6rem;
@@ -110,6 +122,17 @@
     border: none;
     border-radius: 10px;
   }
+  .addinstitutioncancelbutton{
+    background-color: #536674;
+    color: whitesmoke;
+    cursor: pointer;
+    margin-left: 3%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 10px;
+  }
   .addinstitutionbutton:hover{
     background-color: #c0c0c0;
     color: black
@@ -118,7 +141,140 @@
     font-size: 1.5rem;
     margin-left: 3rem;
   }
+  .maininstitution{
+    position: absolute;
+    margin-left: 23%;
+    margin-top: 4%;
+    width: 75%;
+    height: 70%;
+    background-color: #c0c0c0;
+  }
+  .maininstitutionsearchinputbutton{
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+  }
+  .maininstitutionsearchinput{
+    width: 25%;
+    border: none;
+    border-radius: 10px;
+    background-color: #ebebe1;
+  }
+  .maininstitutionsearchbutton{
+    background-color: #536674;
+    border: none;
+    margin-left: 2%;
+  }
+  .searchbuttonimg{
+    width: 23px;
+  }
+  .allinstitutiontext{
+    font-size: 1.4rem;
+    margin-left: 2%;
+  }
+  .spacebetween{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.719);
+    border: solid 1px;
+    margin-top: 1%;
+  }
+  .updatecollegemainbutton{
+    display: flex;
+    margin-top: 1%;
+ 
+  }
+  .updatecollegemainbuttonname{
+    font-size: 1.3rem;
+    background-color: #c0c0c0;
+    border: none;
+    margin-left: 2%;
+    cursor: pointer;
+  }
+  .updatecollegemainbuttonsymbol{
+    background-color: #c0c0c0;
+    border: none;
+    cursor: pointer;
+    margin-left: 60%;
+  }
+  .editpencilbuttonimg{
+    width: 20px;
+  
+  }
+  .savechangesmainwindow{
+    position: absolute;
+    border: solid 1px black;
+    width: 40%;
+    background-color: #ebebe1;
+    margin-top: 15%;
+    margin-left: 36%;
+    text-align: center;
+  }
+  .savechangestext{
+    margin-top: 8%;
+    font-size: 20px;
+  }
+  .savechangestickbutton{
+    margin-top: 20%;
+    margin-bottom: 10%;
+    background-color:#ebebe1;
+    border: none;
+    cursor: pointer;
+  }
+  .savechangescancelbutton{
+    margin-left: 10%;
+    background-color:#ebebe1;
+    border: none;
+    cursor: pointer;
+  }
+  .savechangesticksymbol{
+    width: 25px;
+  }
+  .savechangescancelsymbol{
+    width: 27px;
+  }
 
+  .addCoursesMainLogin{
+    width:50%;
+    background-color: #c0c0c0;
+    position: absolute;
+    margin-left: 35%;
+  }
+.addCoursesText{
+  font-size: 1.3rem;
+  margin-left: 7%;
+}
+.coursenameinput{
+  margin-left: 4rem;
+  width: 40%;
+  line-height: 1.5rem;
+  border-radius: 15px;
+  border: none;
+  background-color:#D9D9D3;
+}
+.courseidinput{
+  margin-left: 1.7rem;
+  width: 40%;
+  line-height: 1.5rem;
+  border-radius: 15px;
+  border: none;
+  background-color:#D9D9D3;
+}
+.creditcourseinput{
+  margin-left: 3.3rem;
+  width: 40%;
+  line-height: 1.5rem;
+  border-radius: 15px;
+  border: none;
+  background-color:#D9D9D3;
+}
+.maincourses{
+  position: absolute;
+  margin-left: 23%;
+  margin-top: -2%;
+  width: 75%;
+  height: 70%;
+  background-color: #c0c0c0;
+}
 @media (max-width:1432px) {
     .maintableforinstitution{
         width: 70%;
@@ -141,4 +297,38 @@
        width: 60%;
        margin-left: 34%;
     }
+}
+@media (max-width:1442px) {
+  .updatecollegemainbuttonsymbol{
+    margin-left: 50%;
+  }
+}
+@media (max-width:1163px) {
+  .updatecollegemainbuttonsymbol{
+    margin-left: 40%;
+
+  }
+  .maininstitution{
+    margin-top: 6%;
+  }
+}
+@media (max-width:950px) {
+  .updatecollegemainbuttonsymbol{
+    margin-left: 30%;
+  }
+}
+@media (max-width:895px) {
+  .maininstitution{
+    width: 65%;
+    margin-left: 32%;
+    margin-top: 7%;
+  }
+  .updatecollegemainbuttonsymbol{
+    margin-left: 20%;
+  }
+}
+@media (max-width:817px) {
+  .updatecollegemainbuttonsymbol{
+    margin-left: 10%;
+  }
 }
