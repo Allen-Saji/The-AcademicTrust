@@ -18,6 +18,7 @@ app.use(
 );
 
 app.use("/api/admin", require("./routes/univAdminRoutes"));
+app.use("/api/admin/department", require("./routes/departmentRoutes"));
 app.use("/api/student", require("./routes/studentRoutes"));
 app.use("/api/student/homepage", require("./routes/studentRoutes"));
 app.use("/api/student/result", require("./routes/studentRoutes"));
@@ -44,5 +45,5 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.use(errorHandler)
+app.use(errorHandler);
 app.listen(port, () => console.log(`Server started on port ${port}`));
