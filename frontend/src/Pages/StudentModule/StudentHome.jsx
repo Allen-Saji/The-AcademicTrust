@@ -9,6 +9,10 @@ const StudentHome = () => {
   const { user } = useSelector((state) => state.auth);
   const { student } = useSelector((state) => state.student);
   const Dispatch = useDispatch();
+  useEffect(() => {
+    Dispatch(getStudentDetails());
+  }, [Dispatch]);
+  console.log(user);
 
   function extractYear(string) {
     // Get the 4th and 5th characters of the string.
@@ -18,13 +22,6 @@ const StudentHome = () => {
     // Return the year.
     return year;
   }
-  useEffect(() => {
-    Dispatch(getStudentDetails());
-  }, []);
-
-  // const program = student.student[0].program;
-
-  // console.log(program); // "B.Tech"
 
   const year = extractYear(user.registration_no);
 
@@ -51,7 +48,7 @@ const StudentHome = () => {
                   Institution : St. Joseph's College of Engineering and
                   Technology , Palai
                 </td>
-                <td>Program:</td>
+                <td>Program: {}</td>
               </tr>
               <tr>
                 <td>Branch: Computer Science and Engineering</td>

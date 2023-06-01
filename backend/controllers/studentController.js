@@ -91,6 +91,10 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       registration_no: user.registration_no,
+      email: user.email,
+      phn_no: user.phn_no,
+      address: user.address,
+      program: user.program,
       token: generateToken(user._id),
     });
   } else {
@@ -107,7 +111,7 @@ const generateToken = (id) => {
 //@route /api/student/homepage
 //@access private
 const getStudent = asyncHandler(async (req, res) => {
-  const student = await User.find({ userId: req.user.id });
+  const student = await User.findOne({ _id: req.user._id }).select("-password");
 
   if (!student) {
     res.status(404).json({
@@ -116,12 +120,7 @@ const getStudent = asyncHandler(async (req, res) => {
     return;
   }
 
-  // Remove password from student object
-  delete student.password;
-
-  res.status(200).json({
-    student,
-  });
+  res.status(200).json(student);
 });
 
 //@desc get student marks

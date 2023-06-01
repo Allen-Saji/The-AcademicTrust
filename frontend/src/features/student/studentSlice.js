@@ -3,17 +3,14 @@ import studentService from "./studentService";
 
 const initialState = {
   student: null,
-  isError: false,
-  isSuccess: false,
-  isLoading: false,
-  message: "",
 };
 
 export const getStudentDetails = createAsyncThunk(
   "student/getStudentDetails",
   async (_, thunkAPI) => {
     try {
-      return await studentService.getStudentDetails();
+      const token = thunkAPI.getState().auth.user.token;
+      return await studentService.getStudentDetails(token);
     } catch (error) {
       const message =
         (error.response &&
@@ -41,14 +38,10 @@ export const studentSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getStudentDetails.pending, (state) => {
-        state.isLoading = true;
+        state.student = null;
       })
       .addCase(getStudentDetails.fulfilled, (state, action) => {
         state.student = action.payload;
-        state.isLoading = false;
-      })
-      .addCase(getStudentDetails.rejected, (state) => {
-        state.isLoading = false;
       });
   },
 });
