@@ -2,7 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const cors = require("cors");
 require("colors");
-//const { errorHandler } = require('./middleware/errorMiddleware')
+const { errorHandler } = require("./middleware/errorMiddleware");
 const connectDB = require("./config/db");
 const port = process.env.PORT || 5000;
 
@@ -44,5 +44,5 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-//app.use(errorHandler)
+app.use(errorHandler)
 app.listen(port, () => console.log(`Server started on port ${port}`));

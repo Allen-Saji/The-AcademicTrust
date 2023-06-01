@@ -107,9 +107,7 @@ const generateToken = (id) => {
 //@route /api/student/homepage
 //@access private
 const getStudent = asyncHandler(async (req, res) => {
-  const { id } = req.body;
-
-  const student = await User.findById(id);
+  const student = await User.find({ userId: req.user.id });
 
   if (!student) {
     res.status(404).json({
