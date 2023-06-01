@@ -9,7 +9,6 @@ const addInstitution = asyncHandler(async (req, res) => {
     phn_no,
     email,
     institution_code,
-    password,
   } = req.body;
 
   // Check if institution exists
@@ -29,7 +28,6 @@ const addInstitution = asyncHandler(async (req, res) => {
     phn_no,
     email,
     institution_code,
-    password,
   });
 
   // Return response object
@@ -40,7 +38,6 @@ const addInstitution = asyncHandler(async (req, res) => {
     phn_no: institution.phn_no,
     email: institution.email,
     institution_code: institution.institution_code,
-    password: institution.password,
   });
 });
 
@@ -53,7 +50,6 @@ const editInstitution = asyncHandler(async (req, res) => {
     phn_no,
     email,
     institution_code,
-    password,
   } = req.body;
 
   // Check if institution exists
@@ -70,7 +66,6 @@ const editInstitution = asyncHandler(async (req, res) => {
   institution.phn_no = phn_no;
   institution.email = email;
   institution.institution_code = institution_code;
-  institution.password = password;
   await institution.save();
 
   // Return response object
@@ -81,7 +76,6 @@ const editInstitution = asyncHandler(async (req, res) => {
     phn_no: institution.phn_no,
     email: institution.email,
     institution_code: institution.institution_code,
-    password: institution.password,
   });
 });
 
