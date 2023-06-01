@@ -13,7 +13,7 @@ const studentSchema = new mongoose.Schema({
   },
   program: {
     type: String,
-    ref: "Program",
+    required: true,
   },
   phn_no: {
     type: [Number],
