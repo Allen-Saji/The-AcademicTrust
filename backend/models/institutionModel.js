@@ -29,6 +29,10 @@ const institutionSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  password: {
+    type: String,
+    required: true,
+  },
 });
 
 const Institution = mongoose.model("Institution", institutionSchema);

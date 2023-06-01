@@ -2,8 +2,15 @@ const asyncHandler = require("express-async-handler");
 const Institution = require("../models/institutionModel");
 
 const addInstitution = asyncHandler(async (req, res) => {
-  const { name, year_of_reg, address, phn_no, email, institution_code } =
-    req.body;
+  const {
+    name,
+    year_of_reg,
+    address,
+    phn_no,
+    email,
+    institution_code,
+    password,
+  } = req.body;
 
   // Check if institution exists
   const institutionExists = await Institution.findOne({
@@ -36,8 +43,16 @@ const addInstitution = asyncHandler(async (req, res) => {
 });
 
 const editInstitution = asyncHandler(async (req, res) => {
-  const { id, name, year_of_reg, address, phn_no, email, institution_code } =
-    req.body;
+  const {
+    id,
+    name,
+    year_of_reg,
+    address,
+    phn_no,
+    email,
+    institution_code,
+    password,
+  } = req.body;
 
   // Check if institution exists
   const institution = await Institution.findById(id);
@@ -52,7 +67,9 @@ const editInstitution = asyncHandler(async (req, res) => {
   institution.address = address;
   institution.phn_no = phn_no;
   institution.email = email;
-  (institution.institution_code = institution_code), await institution.save();
+  institution.institution_code = institution_code;
+  institution.password = password;
+  await institution.save();
 
   // Return response object
   res.status(200).json({
