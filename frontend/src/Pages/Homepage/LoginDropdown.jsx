@@ -7,13 +7,13 @@ import employee from "../../assets/logo/employee.svg";
 const LoginDropdown = (props) => {
   const navigate = useNavigate();
   function University() {
-    navigate("/university/login");
+    navigate("/admin/login");
   }
   function Student() {
     navigate("/student/login");
   }
   function Employer() {
-    navigate("/employer/login");
+    navigate("/organization/login");
   }
   return (
     <div className={classes.dropdown}>
