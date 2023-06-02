@@ -15,8 +15,6 @@ const StudentLoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { isLoading } = useSelector((state) => state.auth);
-
   const onChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,

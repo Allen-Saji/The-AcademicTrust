@@ -3,7 +3,8 @@ import "./css/styles.css";
 import logo from "../../assets/logo/university.png";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { logout } from "../../features/auth/authSlice";
 import UniversityAllInstitution from "./UniversityAllInstitution";
 import UniversityHome from "./UniversityHome";
 import UniversityCourse from "./UniversityCourse";
@@ -12,6 +13,7 @@ import UniversityCertificate from "./UniversityCertificate";
 import UniversityCertificateGenerator from "./UniversityCertificateGenerator";
 const UniversityHomepageBody = () => {
   const Navigate = useNavigate();
+  const Dispatch = useDispatch();
   //states for top navbar
   const [home, setHome] = useState(false);
   const [institution, setInstitution] = useState(true);
@@ -20,6 +22,7 @@ const UniversityHomepageBody = () => {
   const [certificate, setCertificate] = useState(false);
 
   const logoutClickHandler = () => {
+    Dispatch(logout());
     Navigate("/");
   };
   //Handler for all top navbar
