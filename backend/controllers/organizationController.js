@@ -1,24 +1,35 @@
 const asyncHandler = require("express-async-handler");
 const Organization = require("../models/organizationModel");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
+const generateToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+};
 
 const addOrganization = asyncHandler(async (req, res) => {
-  const { name, headquarters, year_of_reg, password } = req.body;
+  const { name, headquarters, year_of_reg, password, email } = req.body;
 
   // Check if organization exists
   const organizationExists = await Organization.findOne({
-    name,
+    email,
   });
   if (organizationExists) {
     res.status(400);
     throw new Error("Organization already exists!");
   }
 
+  //Hash password
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
+
   // Create organization
   const organization = await Organization.create({
     name,
+    email,
     headquarters,
     year_of_reg,
-    password,
+    password: hashedPassword,
   });
 
   // Return response object
@@ -26,12 +37,33 @@ const addOrganization = asyncHandler(async (req, res) => {
     name: organization.name,
     headquarters: organization.headquarters,
     year_of_reg: organization.year_of_reg,
-    password: organization.password,
+    email,
   });
 });
 
+const login = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  const organization = await Organization.findOne({ email });
+
+  //check if user and password match
+  if (organization && (await bcrypt.compare(password, organization.password))) {
+    res.status(200).json({
+      _id: organization._id,
+      name: organization.name,
+      headquarters: organization.headquarters,
+      year_of_reg: organization.year_of_reg,
+      email: organization.email,
+      token: generateToken(organization._id),
+    });
+  } else {
+    res.status(401);
+    throw new Error("Invalid credentials!");
+  }
+});
+
 const editOrganization = asyncHandler(async (req, res) => {
-  const { id, name, headquarters, year_of_reg, password } = req.body;
+  const { id, name, headquarters, year_of_reg, password, email } = req.body;
 
   // Check if organization exists
   const organization = await Organization.findById(id);
@@ -45,6 +77,7 @@ const editOrganization = asyncHandler(async (req, res) => {
   organization.headquarters = headquarters;
   organization.year_of_reg = year_of_reg;
   organization.password = password;
+  organization.email = email;
   await organization.save();
 
   // Return response object
@@ -79,4 +112,5 @@ module.exports = {
   addOrganization,
   editOrganization,
   deleteOrganization,
+  login,
 };

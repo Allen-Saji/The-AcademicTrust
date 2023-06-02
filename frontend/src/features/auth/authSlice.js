@@ -62,6 +62,25 @@ export const loginAdmin = createAsyncThunk(
   }
 );
 
+// Login organization
+export const loginOrg = createAsyncThunk(
+  "auth/login",
+  async (user, thunkAPI) => {
+    try {
+      return await authService.loginOrg(user);
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 //logout user
 export const logout = createAction("auth/logout", () => {
   authService.logout();

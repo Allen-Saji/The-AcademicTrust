@@ -38,7 +38,7 @@ const EmployerLoginForm = () => {
         // getting a good response from our API or catch the AsyncThunkAction
         // rejection to show an error message
         toast.success(`Logged in as ${user.name}`);
-        navigate("/admin/homepage");
+        navigate("/organization/homepage");
       })
       .catch(toast.error);
   };

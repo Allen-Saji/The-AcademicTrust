@@ -29,7 +29,7 @@ const LoginDropdown = (props) => {
         </div>
         <div className={classes.btnimage}>
           <img src={employee} alt="" />
-          <button onClick={Employer}>Employer</button>
+          <button onClick={Employer}>Organization</button>
         </div>
       </div>
     </div>
