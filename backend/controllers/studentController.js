@@ -95,6 +95,8 @@ const loginUser = asyncHandler(async (req, res) => {
       phn_no: user.phn_no,
       address: user.address,
       program: user.program,
+      branch: user.branch,
+      institutioon: user.institution,
       token: generateToken(user._id),
     });
   } else {
