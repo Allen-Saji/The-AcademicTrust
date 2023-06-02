@@ -2,16 +2,14 @@ import classes from "./css/StudentHomepageBody.module.css";
 import React from "react";
 import "./css/styles.css";
 import { useSelector, useDispatch } from "react-redux";
-import { getStudentDetails } from "../../features/student/studentSlice";
+
 import { useEffect } from "react";
 
 const StudentHome = () => {
   const { user } = useSelector((state) => state.auth);
-  const { student } = useSelector((state) => state.student);
+
   const Dispatch = useDispatch();
-  useEffect(() => {
-    Dispatch(getStudentDetails());
-  }, [Dispatch]);
+
   console.log(user);
 
   function extractYear(string) {
@@ -48,7 +46,7 @@ const StudentHome = () => {
                   Institution : St. Joseph's College of Engineering and
                   Technology , Palai
                 </td>
-                <td>Program: {}</td>
+                <td>Program: {user.program}</td>
               </tr>
               <tr>
                 <td>Branch: Computer Science and Engineering</td>
