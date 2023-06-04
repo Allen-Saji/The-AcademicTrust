@@ -129,7 +129,6 @@ const getStudent = asyncHandler(async (req, res) => {
 //@route /api/student/result
 //@access private
 const getGradeAndMarks = asyncHandler(async (req, res) => {
-  console.log("student controller");
   const { student_id, semester } = req.body;
   // Get enrollments for student
   const enrollments = await Enrollment.find({
