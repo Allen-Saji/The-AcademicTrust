@@ -129,8 +129,8 @@ const getStudent = asyncHandler(async (req, res) => {
 //@route /api/student/result
 //@access private
 const getGradeAndMarks = asyncHandler(async (req, res) => {
+  console.log("student controller");
   const { student_id, semester } = req.body;
-
   // Get enrollments for student
   const enrollments = await Enrollment.find({
     student_id,
@@ -150,8 +150,6 @@ const getGradeAndMarks = asyncHandler(async (req, res) => {
     enrollment_id: enrollments.map((enrollment) => enrollment.id),
   });
 
-  console.log(results);
-
   // Check if results exist
   if (!results.length) {
     res.status(404).json({
@@ -166,11 +164,11 @@ const getGradeAndMarks = asyncHandler(async (req, res) => {
   // Iterate through results and add grade and marks to array
   results.forEach((result) => {
     gradeAndMarks.push({
-      course_id: result.course_id,
       grade: result.grade,
       marks: result.marks,
     });
   });
+  console.log(gradeAndMarks);
 
   // Return grade and marks object
   res.status(200).json({

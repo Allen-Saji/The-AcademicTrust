@@ -1,16 +1,10 @@
 import classes from "./css/StudentHomepageBody.module.css";
 import React from "react";
 import "./css/styles.css";
-import { useSelector, useDispatch } from "react-redux";
-
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const StudentHome = () => {
   const { user } = useSelector((state) => state.auth);
-
-  const Dispatch = useDispatch();
-
-  console.log(user);
 
   function extractYear(string) {
     // Get the 4th and 5th characters of the string.
