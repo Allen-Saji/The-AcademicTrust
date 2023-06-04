@@ -150,6 +150,8 @@ const getGradeAndMarks = asyncHandler(async (req, res) => {
     enrollment_id: enrollments.map((enrollment) => enrollment.id),
   });
 
+  console.log(results);
+
   // Check if results exist
   if (!results.length) {
     res.status(404).json({
@@ -158,15 +160,16 @@ const getGradeAndMarks = asyncHandler(async (req, res) => {
     return;
   }
 
-  // Create object to store grade and marks
-  const gradeAndMarks = {};
+  // Create array to store grade and marks
+  const gradeAndMarks = [];
 
-  // Iterate through results and add grade and marks to object
+  // Iterate through results and add grade and marks to array
   results.forEach((result) => {
-    gradeAndMarks[result.course_id] = {
+    gradeAndMarks.push({
+      course_id: result.course_id,
       grade: result.grade,
       marks: result.marks,
-    };
+    });
   });
 
   // Return grade and marks object
