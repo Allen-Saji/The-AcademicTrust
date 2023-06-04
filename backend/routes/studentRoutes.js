@@ -11,5 +11,5 @@ const {
 router.post("/", registerUser);
 router.post("/login", loginUser);
 router.get("/homepage", protect, getStudent);
-router.get("/result", getGradeAndMarks);
+router.get("/result", protect, getGradeAndMarks);
 module.exports = router;
