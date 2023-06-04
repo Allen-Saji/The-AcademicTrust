@@ -8,7 +8,6 @@ const getMarksandGrades = async (data, token) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  console.log("hello2");
   const response = await axios.post(API_URL, data, config);
   console.log(response.data);
   return response.data;

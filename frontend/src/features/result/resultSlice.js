@@ -13,7 +13,6 @@ export const fetchMarksAndGrades = createAsyncThunk(
   "result/fetchMarksAndGrades",
   async (data, thunkAPI) => {
     try {
-      console.log("hello");
       const token = thunkAPI.getState().auth.user.token;
       return await resultService.getMarksandGrades(data, token);
     } catch (error) {
