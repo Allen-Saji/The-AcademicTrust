@@ -101,12 +101,13 @@
   z-index: 1;
 }
 .dropdown:hover .dropdowncontent {
-  display: block;
+  display:contents;
 
 }
 .dropbtn img{
   width: 27px;
 }
+
 
 
 
@@ -149,7 +150,7 @@
     margin-left: -200%;
   }
   .dropdowncontent{
-    margin-left: -200%;
+    margin-left: -250%;
   }
 
 }
@@ -224,6 +225,9 @@
     margin-top: -41%;
     margin-left: 37%;
   }
+  .dropdowncontent{
+    margin-left: -350%;
+  }
 }
 @media (max-width: 1193px) {
   .sidebartext1 button {
@@ -236,16 +240,37 @@
     width: 21%;
   }
   .dropbtn{
-    margin-left: -450%;
+    margin-left: -350%;
   }
   .dropdowncontent{
-    margin-left: -450%;
+    margin-left: -350%;
+  }
+  .dropdown:hover .dropdowncontent {
+    display:block;
+  
   }
  
 
   .generatemenu {
     margin-top: -46%;
     margin-left: 37%;
+  }
+}
+@media (max-width: 1093px) {
+  .dropbtn{
+    margin-left: -250%;
+  }
+  .dropdowncontent{
+    margin-left: -250%;
+  }
+
+  .generatemenu {
+    margin-top: -46%;
+    margin-left: 37%;
+  }
+  .navbar button {
+    font-size: 18px;
+    margin-right: 1.5%;
   }
 }
 @media (max-width: 1058px) {
@@ -259,10 +284,10 @@
     width: 21%;
   }
   .dropbtn{
-    margin-left: -300%;
+    margin-left: -350%;
   }
   .dropdowncontent{
-    margin-left: -300%;
+    margin-left: -350%;
   }
 
   .generatemenu {
