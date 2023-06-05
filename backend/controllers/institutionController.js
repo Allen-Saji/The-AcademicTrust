@@ -85,8 +85,17 @@ const deleteInstitution = asyncHandler(async (req, res) => {
   });
 });
 
+const viewAllInstitutions = asyncHandler(async (req, res) => {
+  // Fetch all institutions from the database
+  const institutions = await Institution.find();
+
+  // Return response object with the list of institutions
+  res.status(200).json(institutions);
+});
+
 module.exports = {
   addInstitution,
   editInstitution,
   deleteInstitution,
+  viewAllInstitutions,
 };

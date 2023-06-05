@@ -91,6 +91,12 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       registration_no: user.registration_no,
+      email: user.email,
+      phn_no: user.phn_no,
+      address: user.address,
+      program: user.program,
+      branch: user.branch,
+      institution: user.institution,
       token: generateToken(user._id),
     });
   } else {
@@ -107,7 +113,7 @@ const generateToken = (id) => {
 //@route /api/student/homepage
 //@access private
 const getStudent = asyncHandler(async (req, res) => {
-  const student = await User.find({ userId: req.user.id });
+  const student = await User.findOne({ _id: req.user._id }).select("-password");
 
   if (!student) {
     res.status(404).json({
@@ -116,12 +122,7 @@ const getStudent = asyncHandler(async (req, res) => {
     return;
   }
 
-  // Remove password from student object
-  delete student.password;
-
-  res.status(200).json({
-    student,
-  });
+  res.status(200).json(student);
 });
 
 //@desc get student marks
@@ -129,7 +130,6 @@ const getStudent = asyncHandler(async (req, res) => {
 //@access private
 const getGradeAndMarks = asyncHandler(async (req, res) => {
   const { student_id, semester } = req.body;
-
   // Get enrollments for student
   const enrollments = await Enrollment.find({
     student_id,
@@ -157,16 +157,17 @@ const getGradeAndMarks = asyncHandler(async (req, res) => {
     return;
   }
 
-  // Create object to store grade and marks
-  const gradeAndMarks = {};
+  // Create array to store grade and marks
+  const gradeAndMarks = [];
 
-  // Iterate through results and add grade and marks to object
+  // Iterate through results and add grade and marks to array
   results.forEach((result) => {
-    gradeAndMarks[result.course_id] = {
+    gradeAndMarks.push({
       grade: result.grade,
       marks: result.marks,
-    };
+    });
   });
+  console.log(gradeAndMarks);
 
   // Return grade and marks object
   res.status(200).json({

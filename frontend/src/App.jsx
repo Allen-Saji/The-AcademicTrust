@@ -18,13 +18,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Header />} />
         <Route path="/student/login" element={<StudentLoginPage />} />
-        <Route path="/university/login" element={<UniversityLoginPage />} />
-        <Route path="/employer/login" element={<EmployerLoginPage />} />
-     
-        <Route path="/student/:result" element={<StudentHomepage />}/>
-  
-        <Route path="/university/homepage" element={<UniversityHomepage />} />
-        <Route path="/employee/homepage" element={<EmployeeHomepage />} />
+        <Route path="/admin/login" element={<UniversityLoginPage />} />
+        <Route path="/organization/login" element={<EmployerLoginPage />} />
+
+        <Route path="/student/:result" element={<StudentHomepage />} />
+
+        <Route path="/admin/homepage" element={<UniversityHomepage />} />
+        <Route path="/organization/homepage" element={<EmployeeHomepage />} />
         <Route path="/about" element={<About />} />
       </Routes>
       <ToastContainer />

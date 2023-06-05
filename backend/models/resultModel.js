@@ -19,6 +19,11 @@ const resultSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  isPublished: {
+    type: Boolean,
+    default: false,
+    required: true,
+  },
 });
 
 const Result = mongoose.model("Result", resultSchema);

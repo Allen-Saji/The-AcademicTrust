@@ -1,14 +1,10 @@
 import classes from "./css/StudentHomepageBody.module.css";
 import React from "react";
 import "./css/styles.css";
-import { useSelector, useDispatch } from "react-redux";
-import { getStudentDetails } from "../../features/student/studentSlice";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const StudentHome = () => {
   const { user } = useSelector((state) => state.auth);
-  const { student } = useSelector((state) => state.student);
-  const Dispatch = useDispatch();
 
   function extractYear(string) {
     // Get the 4th and 5th characters of the string.
@@ -18,13 +14,6 @@ const StudentHome = () => {
     // Return the year.
     return year;
   }
-  useEffect(() => {
-    Dispatch(getStudentDetails());
-  }, []);
-
-  // const program = student.student[0].program;
-
-  // console.log(program); // "B.Tech"
 
   const year = extractYear(user.registration_no);
 
@@ -47,14 +36,11 @@ const StudentHome = () => {
                 <td>Register Number : {user.registration_no}</td>
               </tr>
               <tr>
-                <td>
-                  Institution : St. Joseph's College of Engineering and
-                  Technology , Palai
-                </td>
-                <td>Program:</td>
+                <td>Institution : {user.institution}</td>
+                <td>Program: {user.program}</td>
               </tr>
               <tr>
-                <td>Branch: Computer Science and Engineering</td>
+                <td>Branch: {user.branch}</td>
                 <td>Mode of study:Regular</td>
               </tr>
               <tr>
