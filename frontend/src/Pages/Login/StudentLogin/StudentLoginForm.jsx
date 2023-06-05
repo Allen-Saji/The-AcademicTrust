@@ -2,7 +2,7 @@ import classes from "./StudentLoginPageCss.module.css";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../../../features/auth/authSlice";
 import React from "react";
 const StudentLoginForm = () => {
