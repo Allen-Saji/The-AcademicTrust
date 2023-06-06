@@ -126,7 +126,7 @@ const UniversityCourse = () => {
           <label htmlFor="nameinput">Name:</label>
           <input
             name="name"
-            className="coursenameinput"
+            className="addcoursenameinput"
             id="nameinput"
             type="text"
             onChange={onChange}
@@ -136,7 +136,7 @@ const UniversityCourse = () => {
           <label htmlFor="">Course Code:</label>
           <input
             name="courseCode"
-            className="courseidinput"
+            className="addcourseidinput"
             type="text"
             onChange={onChange}
           />
@@ -145,7 +145,7 @@ const UniversityCourse = () => {
           <label htmlFor="">Credits:</label>
           <input
             name="credits"
-            className="creditcourseinput"
+            className="addcreditcourseinput"
             type="text"
             onChange={onChange}
           />

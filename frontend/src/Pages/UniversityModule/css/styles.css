@@ -243,15 +243,15 @@
   font-size: 1.3rem;
   margin-left: 7%;
 }
-.coursenameinput{
-  margin-left: 4rem;
+.addcoursenameinput{
+  margin-left: 5.9rem;
   width: 40%;
   line-height: 1.5rem;
   border-radius: 15px;
   border: none;
   background-color:#D9D9D3;
 }
-.courseidinput{
+.addcourseidinput{
   margin-left: 1.7rem;
   width: 40%;
   line-height: 1.5rem;
@@ -259,8 +259,32 @@
   border: none;
   background-color:#D9D9D3;
 }
+.addcreditcourseinput{
+  margin-left: 5.2rem;
+  width: 40%;
+  line-height: 1.5rem;
+  border-radius: 15px;
+  border: none;
+  background-color:#D9D9D3;
+}
+.coursenameinput{
+  margin-left: 5.9rem;
+  width: 40%;
+  line-height: 1.5rem;
+  border-radius: 15px;
+  border: none;
+  background-color:#D9D9D3;
+}
+.courseidinput{
+  margin-left: 3.5rem;
+  width: 40%;
+  line-height: 1.5rem;
+  border-radius: 15px;
+  border: none;
+  background-color:#D9D9D3;
+}
 .creditcourseinput{
-  margin-left: 3.3rem;
+  margin-left: 5.2rem;
   width: 40%;
   line-height: 1.5rem;
   border-radius: 15px;
@@ -274,6 +298,18 @@
   width: 75%;
   height: 70%;
   background-color: #c0c0c0;
+}
+.dropdowncontent {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: fit-content;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin-top: 5%;
+  z-index: 1;
+}
+.setlogoutbutton{
+  display: block;
 }
 @media (max-width:1432px) {
     .maintableforinstitution{

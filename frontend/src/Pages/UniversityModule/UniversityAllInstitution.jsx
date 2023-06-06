@@ -9,6 +9,7 @@ import saveTick from '../../assets/saveTick.png';
 import cancelSymbol from '../../assets/cancelSaveButton.png';
 import Modal from "../../UI/Modal";
 import deletelogo from '../../assets/deleteButton.png';
+import AllInstitutionData from "./AllInstituionData";
 const UniversityAllInstitution = () => {
 
   const [closeSubmitOverlay,setCloseSubmitOverlay] = useState(false);
@@ -96,26 +97,7 @@ const deleteInstitutionSaveChangesCancelClickHandler = ()=>{
 
 
     const allInstitutionNamesTable = (<div className="maintableforinstitution">
-    <table className="institutiontable">
-      <tr>
-        <th>All Institution</th>
-        <th>Course Code</th>
-      </tr>
-      <tr>
-        <td>St Josephs College</td>
-        <td>SJC0001P</td>
-      </tr>
-      <tr>
-        <td>Aimil Bij University</td>
-        <td>Aimu999</td>
-      </tr>
-      <tr>
-        <td>College of engineering TVM</td>
-        <td>CET5542</td>
-      </tr>
-      <td>College of Kidangoor</td>
-      <td>CEK78945</td>
-    </table>
+    <AllInstitutionData />
   </div>);
     const addInstitutionHtml = (<div className="maintableforaddinstitution">
     <h3 className="addinstitutionheading">Add new institution to the university</h3>
