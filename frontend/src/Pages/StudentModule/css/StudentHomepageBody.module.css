@@ -68,6 +68,7 @@ tr:nth-child(even){
 .semesterselector{
   width: 8%;
   margin-top: 1.5%;
+  margin-left: 43%;  
 }
 .semesterselector select {
   width: 100%;
