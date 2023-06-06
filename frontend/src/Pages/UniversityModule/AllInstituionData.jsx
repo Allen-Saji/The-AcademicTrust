@@ -27,12 +27,12 @@ const AllInstitutionData = () => {
   return (
     <Fragment>
       <table className="institutiontable">
-        <tr>
+        <tr className="institutetabledataheading">
           <th>All Institution</th>
           <th>College Code</th>
         </tr>
         {DUMMY_DATA.map((data) => (
-          <tr>
+          <tr className="institutiontabledata">
             <th>{data.name}</th>
             <th>{data.code}</th>
           </tr>

@@ -311,6 +311,14 @@
 .setlogoutbutton{
   display: block;
 }
+.institutetabledataheading{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.institutiontabledata{
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+}
 @media (max-width:1432px) {
     .maintableforinstitution{
         width: 70%;
