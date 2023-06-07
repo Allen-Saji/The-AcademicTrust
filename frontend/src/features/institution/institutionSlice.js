@@ -23,12 +23,13 @@ export const fetchInstitutions = createAsyncThunk(
 
 export const addInstitution = createAsyncThunk(
   "institutions/addInstitution",
-  async ({ data, token }) => {
+  async (data, thunkAPI) => {
     try {
-      const response = await institutionService.addInstitution(data, token);
+      const response = await institutionService.addInstitution(data);
+      console.log(response);
       return response;
     } catch (error) {
-      throw new Error("Failed to add institution");
+      return thunkAPI.rejectWithValue(error.response.data.message);
     }
   }
 );
