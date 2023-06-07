@@ -5,8 +5,8 @@ export const addCourse = createAsyncThunk(
   "course/addCourse",
   async (data, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token;
-      const response = await courseService.addCourse(data, token);
+      // const token = thunkAPI.getState().auth.user.token;
+      const response = await courseService.addCourse(data);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
