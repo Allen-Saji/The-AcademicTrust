@@ -10,9 +10,10 @@ const initialState = {
 
 export const fetchInstitutions = createAsyncThunk(
   "institutions/fetchInstitutions",
-  async (token) => {
+  async () => {
     try {
-      const data = await institutionService.getInstitutions(token);
+      // const token = thunkAPI.getState().auth.user.token;
+      const data = await institutionService.getInstitutions();
       return data;
     } catch (error) {
       throw new Error("Failed to fetch institutions");

@@ -11,6 +11,6 @@ const {
 router.post("/", protect, addInstitution);
 router.put("/", protect, editInstitution);
 router.delete("/", protect, deleteInstitution);
-router.get("/", protect, viewAllInstitutions);
+router.get("/", viewAllInstitutions);
 
 module.exports = router;

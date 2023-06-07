@@ -45,14 +45,19 @@ const Body = () => {
           <div className={classes.announcementdetails}>
             <div className={classes.announcementdetails1}>
               <ul>
-                <li>uhwbuhebiuf</li>
-                <li>jhsdbvjchwvjhcvwjdhakdlsnwflKNWFWEKFNWEJFN</li>
-                <li>kdgddbdmnbmdnbvmndbvmnbdvdmnbvmdnbvmbdvm</li>
+                <li>
+                  B.Tech S5 (PT) (S,FE) Exam Jan 2023 (2015 scheme)-Publication
+                  of Results - Notified - Reg
+                </li>
+                <li>
+                  APJAKTU - Conduct of the course CST206- Operating Systems
+                  (Slot C & D) of B.Tech S4 Supplementary June 2023 Examinations
+                  - Notification - reg:
+                </li>
+                {/* <li>kdgddbdmnbmdnbvmndbvmnbdvdmnbvmdnbvmbdvm</li>
                 <li>kefbvkenfebvkndbkbek</li>
                 <li>ijndigjningiergergegnj</li>
-                <li>ijrngrijenr</li>
-                <li>ijenrrignrijgrnigjintrhlmhlretmlh</li>
-                <li>sHDqdvgQWLDV</li>
+                <li>ijrngrijenr</li> */}
               </ul>
             </div>
           </div>

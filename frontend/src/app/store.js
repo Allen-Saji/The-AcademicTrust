@@ -7,8 +7,8 @@ import courseReducer from "../features/course/courseSlice";
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    result: resultReducer,
-    institution: institutionReducer,
-    course: courseReducer,
+    results: resultReducer,
+    institutions: institutionReducer,
+    courses: courseReducer,
   },
 });

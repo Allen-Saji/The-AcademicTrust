@@ -3,12 +3,12 @@ import axios from "axios";
 const API_URL = "http://localhost:5000/api/admin/institution";
 
 const getInstitutions = async (token) => {
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-  const response = await axios.get(API_URL, config);
+  // const config = {
+  //   headers: {
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  // };
+  const response = await axios.get(API_URL);
   return response.data;
 };
 
