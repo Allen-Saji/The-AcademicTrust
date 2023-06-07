@@ -13,7 +13,7 @@ const StudentResults = () => {
   const Dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-  const { result } = useSelector((state) => state.result);
+  const { results } = useSelector((state) => state.results);
 
   const viewResultButtonHandler = () => {
     setViewResult(true);
