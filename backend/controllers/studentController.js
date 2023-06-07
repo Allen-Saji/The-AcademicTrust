@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/studentModel");
 const Enrollment = require("../models/enrollmentModel");
+const Course = require("../models/courseModel");
 const Result = require("../models/resultModel");
 
 //@desc register a new user
@@ -130,49 +131,88 @@ const getStudent = asyncHandler(async (req, res) => {
 //@access private
 const getGradeAndMarks = asyncHandler(async (req, res) => {
   const { student_id, semester } = req.body;
-  // Get enrollments for student
+
+  // Retrieve enrollments for the student and semester
   const enrollments = await Enrollment.find({
     student_id,
     semester,
   });
 
-  // Check if enrollments exist
-  if (!enrollments.length) {
+  const courseIds = [];
+  enrollments.forEach((enrollment) => {
+    courseIds.push(enrollment.course_id);
+  });
+
+  const courses = await Course.find({
+    courseCode: { $in: courseIds },
+  });
+
+  //console.log(courseNames);
+  //console.log(courseCredits);
+
+  if (enrollments.length === 0) {
     res.status(404).json({
-      message: "No enrollments found for student!",
+      message:
+        "No enrollments found for the student in the specified semester!",
     });
     return;
   }
 
-  // Get results for enrollments
+  let gradeAndMarks;
+
+  const courseNames = courses.map((course) => course.name);
+  const courseCredits = courses.map((course) => course.credits);
+
+  gradeAndMarks = courseNames.map((course, index) => ({
+    course_name: course,
+    grade: null,
+    credits: courseCredits[index],
+  }));
+
+  //console.log(gradeAndMarks);
+
+  // Retrieve results for the enrollments
   const results = await Result.find({
-    enrollment_id: enrollments.map((enrollment) => enrollment.id),
+    enrollment_id: {
+      $in: enrollments.map((enrollment) => enrollment._id),
+    },
   });
 
-  // Check if results exist
-  if (!results.length) {
+  if (results.length === 0) {
     res.status(404).json({
-      message: "No results found for student!",
+      message: "No results found for the student's enrollments!",
     });
     return;
   }
 
-  // Create array to store grade and marks
-  const gradeAndMarks = [];
+  gradeAndMarks = results.map((result, index) => ({
+    course_name: gradeAndMarks[index].course_name,
+    grade: result.grade,
+    credits: gradeAndMarks[index].credits,
+  }));
 
-  // Iterate through results and add grade and marks to array
-  results.forEach((result) => {
-    gradeAndMarks.push({
-      grade: result.grade,
-      marks: result.marks,
+  //console.log(results);
+
+  // results.forEach((result) => {
+  //   const index = gradeAndMarks.findIndex(
+  //     (item) => item.courseName === result.enrollment_id.course_id.name
+  //   );
+
+  //   if (index !== -1) {
+  //     gradeAndMarks[index].grade = result.grade;
+  //     gradeAndMarks[index].marks = result.marks;
+  //   }
+  // });
+
+  if (results[0].isPublished) {
+    res.status(200).json({
+      gradeAndMarks,
     });
-  });
-  console.log(gradeAndMarks);
-
-  // Return grade and marks object
-  res.status(200).json({
-    gradeAndMarks,
-  });
+  } else {
+    res.status(200).json({
+      message: "Result has not been published yet!",
+    });
+  }
 });
 
 module.exports = {
