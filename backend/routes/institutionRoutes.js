@@ -8,9 +8,9 @@ const {
   viewAllInstitutions,
 } = require("../controllers/institutionController");
 
-router.post("/", protect, addInstitution);
-router.put("/", protect, editInstitution);
-router.delete("/", protect, deleteInstitution);
+router.post("/", addInstitution);
+router.put("/", editInstitution);
+router.delete("/", deleteInstitution);
 router.get("/", viewAllInstitutions);
 
 module.exports = router;
