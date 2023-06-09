@@ -79,7 +79,6 @@ const StudentResults = () => {
     setResult();
     console.log(gradeAndMarks);
   };
-  // console.log(gradeAndMarks);
 
   const onChangeSelectedSemester = (e) => {
     setSelectedSemester(e.target.value);
@@ -162,7 +161,6 @@ const StudentResults = () => {
         <div className={classes.setSidebarHeight}></div>
       </div>
       {viewResult && semesterSelection}
-      {/* {viewResultTable && selectedSemester === 2 && resultTable} */}
     </React.Fragment>
   );
 };
