@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
+    "hardhat": "^2.15.0",
     "nodemon": "^2.0.21"
   }
 }
