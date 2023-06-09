@@ -12,14 +12,14 @@ const StudentResults = () => {
   const [viewResultTable, setViewResultTable] = useState(false);
   const [selectedSemester, setSelectedSemester] = useState(1);
 
-  const [s1Selector, setS1Selector] = useState(false);
-  const [s2Selector, setS2Selector] = useState(false);
-  const [s3Selector, setS3Selector] = useState(false);
-  const [s4Selector, setS4Selector] = useState(false);
-  const [s5Selector, setS5Selector] = useState(false);
-  const [s6Selector, setS6Selector] = useState(false);
-  const [s7Selector, setS7Selector] = useState(false);
-  const [s8Selector, setS8Selector] = useState(false);
+  // const [s1Selector, setS1Selector] = useState(false);
+  // const [s2Selector, setS2Selector] = useState(false);
+  // const [s3Selector, setS3Selector] = useState(false);
+  // const [s4Selector, setS4Selector] = useState(false);
+  // const [s5Selector, setS5Selector] = useState(false);
+  // const [s6Selector, setS6Selector] = useState(false);
+  // const [s7Selector, setS7Selector] = useState(false);
+  // const [s8Selector, setS8Selector] = useState(false);
 
   const Dispatch = useDispatch();
 
@@ -156,98 +156,98 @@ const StudentResults = () => {
 
 
 
-    useEffect(()=>{
-      if (selectedSemester===2) {
-        setS2Selector(true);
-        setS1Selector(false);
+  //   useEffect(()=>{
+  //     if (selectedSemester===2) {
+  //       setS2Selector(true);
+  //       setS1Selector(false);
        
-        setS3Selector(false);
-        setS4Selector(false);
-        setS5Selector(false);
-        setS6Selector(false);
-        setS7Selector(false);
-        setS8Selector(false);
-      }
+  //       setS3Selector(false);
+  //       setS4Selector(false);
+  //       setS5Selector(false);
+  //       setS6Selector(false);
+  //       setS7Selector(false);
+  //       setS8Selector(false);
+  //     }
   
   
   
-    if (selectedSemester === 1) {
-      setS1Selector(true);
-      setS2Selector(false);
-      setS3Selector(false);
-      setS4Selector(false);
-      setS5Selector(false);
-      setS6Selector(false);
-      setS7Selector(false);
-      setS8Selector(false);
-    }
+  //   if (selectedSemester === 1) {
+  //     setS1Selector(true);
+  //     setS2Selector(false);
+  //     setS3Selector(false);
+  //     setS4Selector(false);
+  //     setS5Selector(false);
+  //     setS6Selector(false);
+  //     setS7Selector(false);
+  //     setS8Selector(false);
+  //   }
     
     
-    if (selectedSemester === 3) {
-      setS1Selector(false);
-      setS2Selector(false);
-      setS3Selector(true);
-      setS4Selector(false);
-      setS5Selector(false);
-      setS6Selector(false);
-      setS7Selector(false);
-      setS8Selector(false);
-    }
-    if (selectedSemester === 4) {
-      setS1Selector(false);
-      setS2Selector(false);
-      setS3Selector(false);
-      setS4Selector(true);
-      setS5Selector(false);
-      setS6Selector(false);
-      setS7Selector(false);
-      setS8Selector(false);
-    }
-    if (selectedSemester === 5) {
-      setS1Selector(false);
-      setS2Selector(false);
-      setS3Selector(false);
-      setS4Selector(false);
-      setS5Selector(true);
-      setS6Selector(false);
-      setS7Selector(false);
-      setS8Selector(false);
-    }
-    if (selectedSemester === 6) {
-      setS1Selector(false);
-      setS2Selector(false);
-      setS3Selector(false);
-      setS4Selector(false);
-      setS5Selector(false);
-      setS6Selector(true);
-      setS7Selector(false);
-      setS8Selector(false);
-    }
-    if (selectedSemester === 7) {
-      setS1Selector(false);
-      setS2Selector(false);
-      setS3Selector(false);
-      setS4Selector(false);
-      setS5Selector(false);
-      setS6Selector(false);
-      setS7Selector(true);
-      setS8Selector(false);
-    }
-    if (selectedSemester === 8) {
-      setS1Selector(false);
-      setS2Selector(false);
-      setS3Selector(false);
-      setS4Selector(false);
-      setS5Selector(false);
-      setS6Selector(false);
-      setS7Selector(false);
-      setS8Selector(true);
-    }
-    },[onChangeSelectedSemester]);
+  //   if (selectedSemester === 3) {
+  //     setS1Selector(false);
+  //     setS2Selector(false);
+  //     setS3Selector(true);
+  //     setS4Selector(false);
+  //     setS5Selector(false);
+  //     setS6Selector(false);
+  //     setS7Selector(false);
+  //     setS8Selector(false);
+  //   }
+  //   if (selectedSemester === 4) {
+  //     setS1Selector(false);
+  //     setS2Selector(false);
+  //     setS3Selector(false);
+  //     setS4Selector(true);
+  //     setS5Selector(false);
+  //     setS6Selector(false);
+  //     setS7Selector(false);
+  //     setS8Selector(false);
+  //   }
+  //   if (selectedSemester === 5) {
+  //     setS1Selector(false);
+  //     setS2Selector(false);
+  //     setS3Selector(false);
+  //     setS4Selector(false);
+  //     setS5Selector(true);
+  //     setS6Selector(false);
+  //     setS7Selector(false);
+  //     setS8Selector(false);
+  //   }
+  //   if (selectedSemester === 6) {
+  //     setS1Selector(false);
+  //     setS2Selector(false);
+  //     setS3Selector(false);
+  //     setS4Selector(false);
+  //     setS5Selector(false);
+  //     setS6Selector(true);
+  //     setS7Selector(false);
+  //     setS8Selector(false);
+  //   }
+  //   if (selectedSemester === 7) {
+  //     setS1Selector(false);
+  //     setS2Selector(false);
+  //     setS3Selector(false);
+  //     setS4Selector(false);
+  //     setS5Selector(false);
+  //     setS6Selector(false);
+  //     setS7Selector(true);
+  //     setS8Selector(false);
+  //   }
+  //   if (selectedSemester === 8) {
+  //     setS1Selector(false);
+  //     setS2Selector(false);
+  //     setS3Selector(false);
+  //     setS4Selector(false);
+  //     setS5Selector(false);
+  //     setS6Selector(false);
+  //     setS7Selector(false);
+  //     setS8Selector(true);
+  //   }
+  //   },[onChangeSelectedSemester]);
 
       
   
-  console.log(selectedSemester);
+  // console.log(selectedSemester);
 
   const resultTable = (
     <div className={classes.resultSelectorBody}>
@@ -259,7 +259,7 @@ const StudentResults = () => {
           <th className="tableheadinglinecredit">Credit</th>
         </tr>
            {/* S1 result table data */}
-        {s1Selector &&
+        {
           DUMMY_DATA.map((data) => (
             <tr className="tableheadinglines">
               <td className="tabledata">{data.sub}</td>
@@ -273,30 +273,30 @@ const StudentResults = () => {
       </table>
     </div>
   );
-  const resultTable1 = (
-    <div className={classes.resultSelectorBody}>
-      <table className="tableliine">
-        <tbody>
-        <tr className="tableheadinglines">
-          <th className="tableheadinglinesubject">Subject</th>
-          <th className="tableheadinglinegrade">Grade</th>
-          <th className="tableheadinglinecredit">Credit</th>
-        </tr>
-           {/* S1 result table data */}
-           {s2Selector  &&
-    DUMMY_DATA2.map((data) => (
-      <tr className="tableheadinglines">
-        <td className="tabledata">{data.sub}</td>
-        <td className="tabledata">{data.grade}</td>
-        <td className="tabledata">{data.credit}</td>
-      </tr>
-    ))}
-                 {/* S2 result table data */}
+  // const resultTable1 = (
+  //   <div className={classes.resultSelectorBody}>
+  //     <table className="tableliine">
+  //       <tbody>
+  //       <tr className="tableheadinglines">
+  //         <th className="tableheadinglinesubject">Subject</th>
+  //         <th className="tableheadinglinegrade">Grade</th>
+  //         <th className="tableheadinglinecredit">Credit</th>
+  //       </tr>
+  //          {/* S1 result table data */}
+  //          {s2Selector  &&
+  //   DUMMY_DATA2.map((data) => (
+  //     <tr className="tableheadinglines">
+  //       <td className="tabledata">{data.sub}</td>
+  //       <td className="tabledata">{data.grade}</td>
+  //       <td className="tabledata">{data.credit}</td>
+  //     </tr>
+  //   ))}
+  //                {/* S2 result table data */}
         
-          </tbody>
-      </table>
-    </div>
-  );
+  //         </tbody>
+  //     </table>
+  //   </div>
+  // );
 
 
  
@@ -384,8 +384,8 @@ const StudentResults = () => {
         <div className={classes.setSidebarHeight}></div>
       </div>
       {viewResult && semesterSelection}
-      {/* {viewResultTable && s1Selector && resultTable} */}
-      {viewResultTable && selectedSemester === 2 && resultTable}
+      {viewResultTable  && resultTable}
+      {/* {viewResultTable && selectedSemester === 2 && resultTable} */}
     </React.Fragment>
   );
 };
