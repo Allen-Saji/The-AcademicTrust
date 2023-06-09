@@ -107,7 +107,7 @@ const UniversityHomepageBody = () => {
               <img src={logo} alt="" />
             </button>
             <div className={logoutButtinStyle}>
-              <button onClick={logoutClickHandler}>Logout</button>
+              <button className={classes.logoutdropdown} onClick={logoutClickHandler}>Logout</button>
             </div>
           </div>
         </div>

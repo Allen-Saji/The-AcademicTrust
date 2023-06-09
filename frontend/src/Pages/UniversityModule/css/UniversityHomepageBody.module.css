@@ -125,9 +125,9 @@
 }
 @media (max-width: 1565px) {
   
-  .dropbtn{
+  /* .dropbtn{
     margin-left: -200%;
-  }
+  } */
   .dropdowncontent{
     margin-left: -200%;
   }
@@ -138,18 +138,16 @@
     margin-top: -40%;
     margin-left: 37%;
   }
-  .dropbtn{
-    margin-left: -200%;
-  }
+
   .dropdowncontent{
     margin-left: -250%;
   }
 
 }
 @media (max-width:1481px){
-  .dropbtn{
+  /* .dropbtn{
     margin-left: -200%;
-  }
+  } */
   .dropdowncontent{
     margin-left: -200%;
   }
@@ -158,9 +156,9 @@
   .sidebartext1 button {
     font-size: 27px;
   }
-  .dropbtn{
+  /* .dropbtn{
     margin-left: -204%;
-  }
+  } */
   .universityhomepagebody {
     height: 88vh;
   }
@@ -178,21 +176,16 @@
   .universityhomepagesidebar {
     width: 20%;
   }
-  .dropbtn{
+  /* .dropbtn{
     margin-left: -250%;
-  }
+  } */
   .dropdowncontent{
     margin-left: -250%;
   }
  
 }
 @media (max-width: 1307px) {
-  .dropbtn{
-    margin-left: -350%;
-  }
-  .dropdowncontent{
-    margin-left: -350%;
-  }
+  
  
 }
 @media (max-width: 1277px) {
@@ -200,6 +193,13 @@
     margin-top: -40%;
     margin-left: 37%;
   }
+  .dropbtn{
+    margin-left: -150%;
+  }
+  .logoutdropdown{
+    margin-left: -150%;
+  }
+ 
 }
 @media (max-width: 1242px) {
   .sidebartext1 button {
@@ -217,9 +217,7 @@
     margin-top: -41%;
     margin-left: 37%;
   }
-  .dropdowncontent{
-    margin-left: -350%;
-  }
+
 }
 @media (max-width: 1193px) {
   .sidebartext1 button {
@@ -231,31 +229,13 @@
   .universityhomepagesidebar {
     width: 21%;
   }
-  .dropbtn{
-    margin-left: -350%;
-  }
-  .dropdowncontent{
-    margin-left: -350%;
-  }
-  .dropdown:hover .dropdowncontent {
-    display:block;
-  
-  }
- 
-
   .generatemenu {
     margin-top: -46%;
     margin-left: 37%;
   }
 }
 @media (max-width: 1093px) {
-  .dropbtn{
-    margin-left: -250%;
-  }
-  .dropdowncontent{
-    margin-left: -250%;
-  }
-
+  
   .generatemenu {
     margin-top: -46%;
     margin-left: 37%;
@@ -264,6 +244,13 @@
     font-size: 18px;
     margin-right: 1.5%;
   }
+  .dropbtn{
+    margin-left: 50%;
+  }
+  .logoutdropdown{
+    margin-left: 50%;
+  }
+ 
 }
 @media (max-width: 1058px) {
   .sidebartext1 button {
@@ -275,13 +262,6 @@
   .universityhomepagesidebar {
     width: 21%;
   }
-  .dropbtn{
-    margin-left: -350%;
-  }
-  .dropdowncontent{
-    margin-left: -350%;
-  }
-
   .generatemenu {
     margin-top: -46%;
     margin-left: 37%;

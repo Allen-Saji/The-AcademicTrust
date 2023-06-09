@@ -319,6 +319,10 @@
   font-size: 1.2rem;
   line-height: 1.5rem;
 }
+.logobutton{
+  border: none;
+  background-color: #f9f9f9;
+}
 @media (max-width:1432px) {
     .maintableforinstitution{
         width: 70%;

@@ -188,6 +188,7 @@ tr:nth-child(even){
   
 }
 
+
 .logo:hover .dropdowncontent {
   display: block;
 }
@@ -196,6 +197,14 @@ tr:nth-child(even){
   justify-content: flex-start;
   margin-top: 5%;
  
+}
+
+.resultSelectorBody{
+  position: absolute;
+  background-color: #C0C0C0;
+  width: 70%;
+  margin-top: 17%;
+  margin-left: 23%;
 }
 
 
@@ -223,5 +232,3 @@ tr:nth-child(even){
     font-size: 17px;
   }
 }
-
-

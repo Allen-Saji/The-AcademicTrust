@@ -51,6 +51,37 @@
     background-color:#FFFFF0;
     cursor: pointer;
 }
+.tableheadinglines{
+    border:1px solid;
+}
+.tableliine{
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 0%;
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+  
+    
+}
+.tableheadinglinesubject{
+    width: 70%;
+    border:1px solid;
+    padding: 1%;
+}
+.tableheadinglinegrade{
+    width: 15%;
+    border:1px solid;
+}
+.tableheadinglinecredit{
+    width: 15%;
+    border:1px solid; 
+}
+.tabledata{
+    border:1px solid; 
+    padding: 1%;
+    line-height: auto;
+    text-align: center;
+}
 @media (max-width:1254px) {
     .welcomeName{
         margin-left: 25%;
