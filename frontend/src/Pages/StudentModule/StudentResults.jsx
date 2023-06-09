@@ -1,30 +1,17 @@
-import React, { useEffect, useMemo } from "react";
+import React from "react";
 import { useState } from "react";
 import "./css/styles.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMarksAndGrades } from "../../features/result/resultSlice";
+import { useSelector } from "react-redux";
 import classes from "./css/StudentHomepageBody.module.css";
+import axios from "axios";
 
 const StudentResults = () => {
   const [viewResult, setViewResult] = useState(true);
   const [pendingResult, setPendingResult] = useState(false);
   const [reports, setReports] = useState(false);
-  const [viewResultTable, setViewResultTable] = useState(false);
   const [selectedSemester, setSelectedSemester] = useState(1);
 
-  // const [s1Selector, setS1Selector] = useState(false);
-  // const [s2Selector, setS2Selector] = useState(false);
-  // const [s3Selector, setS3Selector] = useState(false);
-  // const [s4Selector, setS4Selector] = useState(false);
-  // const [s5Selector, setS5Selector] = useState(false);
-  // const [s6Selector, setS6Selector] = useState(false);
-  // const [s7Selector, setS7Selector] = useState(false);
-  // const [s8Selector, setS8Selector] = useState(false);
-
-  const Dispatch = useDispatch();
-
   const { user } = useSelector((state) => state.auth);
-  const { results } = useSelector((state) => state.results);
 
   const viewResultButtonHandler = () => {
     setViewResult(true);
@@ -52,78 +39,51 @@ const StudentResults = () => {
     ? "selectedSidebarButton"
     : "notSelectedSidebarButton";
 
-  const DUMMY_DATA = [
-    {
-      id: 1,
-      sub: "Compiler Design",
-      grade: "A",
-      credit: "4",
-    },
-    {
-      id: 2,
-      sub: "Algorithm Analysis",
-      grade: "B",
-      credit: "4",
-    },
-    {
-      id: 3,
-      sub: "Image Processing",
-      grade: "S",
-      credit: "4",
-    },
-  ];
-  const DUMMY_DATA2 = [
-    {
-      id: 1,
-      sub: "Data Structure",
-      grade: "A",
-      credit: "4",
-    },
-    {
-      id: 2,
-      sub: "Algorithm Analysis",
-      grade: "B",
-      credit: "4",
-    },
-    {
-      id: 3,
-      sub: "Image Processing",
-      grade: "S",
-      credit: "4",
-    },
-  ];
-  const DUMMY_DATA3 = [
-    {
-      id: 1,
-      sub: "Data Structure",
-      grade: "A",
-      credit: "4",
-    },
-    {
-      id: 2,
-      sub: "SocialScience",
-      grade: "B",
-      credit: "4",
-    },
-    {
-      id: 3,
-      sub: "Image Processing",
-      grade: "S",
-      credit: "4",
-    },
-  ];
-
   const student_id = user.registration_no;
+  const token = user.token;
+
+  const API_URL = "http://localhost:5000/api/student/result";
+
+  const getMarksandGrades = async (data, token) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.post(API_URL, data, config);
+    if (response.status === 200) {
+      return response.data.gradeAndMarks;
+    } else {
+      throw new Error(response.statusText);
+    }
+  };
+
+  const [gradeAndMarks, setGradeAndMarks] = useState([]);
+
+  // useEffect(() => {
+  //   const data = { student_id, semester: 1 };
+  //   const setResult = async () => {
+  //     const result = await getMarksandGrades(data, token);
+  //     setGradeAndMarks(result);
+  //   };
+  //   setResult();
+  //   console.log(gradeAndMarks);
+  // }, [Dispatch]);
 
   const handleViewResults = () => {
-    setViewResultTable((state) => !state);
     const data = { student_id, semester: selectedSemester };
-    Dispatch(fetchMarksAndGrades(data));
-
+    const setResult = async () => {
+      const result = await getMarksandGrades(data, token);
+      setGradeAndMarks(result);
+    };
+    setResult();
+    console.log(gradeAndMarks);
   };
-  const onChangeSelectedSemester =(e)=>{
+  // console.log(gradeAndMarks);
+
+  const onChangeSelectedSemester = (e) => {
     setSelectedSemester(e.target.value);
-  }
+  };
 
   const semesterSelection = (
     <div className={classes.semesterselectorbody}>
@@ -135,7 +95,6 @@ const StudentResults = () => {
           id="semesterSelect"
           value={selectedSemester}
           onChange={onChangeSelectedSemester}
-          
         >
           <option value={1}>S1</option>
           <option value={2}>S2</option>
@@ -154,206 +113,6 @@ const StudentResults = () => {
     </div>
   );
 
-
-
-  //   useEffect(()=>{
-  //     if (selectedSemester===2) {
-  //       setS2Selector(true);
-  //       setS1Selector(false);
-       
-  //       setS3Selector(false);
-  //       setS4Selector(false);
-  //       setS5Selector(false);
-  //       setS6Selector(false);
-  //       setS7Selector(false);
-  //       setS8Selector(false);
-  //     }
-  
-  
-  
-  //   if (selectedSemester === 1) {
-  //     setS1Selector(true);
-  //     setS2Selector(false);
-  //     setS3Selector(false);
-  //     setS4Selector(false);
-  //     setS5Selector(false);
-  //     setS6Selector(false);
-  //     setS7Selector(false);
-  //     setS8Selector(false);
-  //   }
-    
-    
-  //   if (selectedSemester === 3) {
-  //     setS1Selector(false);
-  //     setS2Selector(false);
-  //     setS3Selector(true);
-  //     setS4Selector(false);
-  //     setS5Selector(false);
-  //     setS6Selector(false);
-  //     setS7Selector(false);
-  //     setS8Selector(false);
-  //   }
-  //   if (selectedSemester === 4) {
-  //     setS1Selector(false);
-  //     setS2Selector(false);
-  //     setS3Selector(false);
-  //     setS4Selector(true);
-  //     setS5Selector(false);
-  //     setS6Selector(false);
-  //     setS7Selector(false);
-  //     setS8Selector(false);
-  //   }
-  //   if (selectedSemester === 5) {
-  //     setS1Selector(false);
-  //     setS2Selector(false);
-  //     setS3Selector(false);
-  //     setS4Selector(false);
-  //     setS5Selector(true);
-  //     setS6Selector(false);
-  //     setS7Selector(false);
-  //     setS8Selector(false);
-  //   }
-  //   if (selectedSemester === 6) {
-  //     setS1Selector(false);
-  //     setS2Selector(false);
-  //     setS3Selector(false);
-  //     setS4Selector(false);
-  //     setS5Selector(false);
-  //     setS6Selector(true);
-  //     setS7Selector(false);
-  //     setS8Selector(false);
-  //   }
-  //   if (selectedSemester === 7) {
-  //     setS1Selector(false);
-  //     setS2Selector(false);
-  //     setS3Selector(false);
-  //     setS4Selector(false);
-  //     setS5Selector(false);
-  //     setS6Selector(false);
-  //     setS7Selector(true);
-  //     setS8Selector(false);
-  //   }
-  //   if (selectedSemester === 8) {
-  //     setS1Selector(false);
-  //     setS2Selector(false);
-  //     setS3Selector(false);
-  //     setS4Selector(false);
-  //     setS5Selector(false);
-  //     setS6Selector(false);
-  //     setS7Selector(false);
-  //     setS8Selector(true);
-  //   }
-  //   },[onChangeSelectedSemester]);
-
-      
-  
-  // console.log(selectedSemester);
-
-  const resultTable = (
-    <div className={classes.resultSelectorBody}>
-      <table className="tableliine">
-        <tbody>
-        <tr className="tableheadinglines">
-          <th className="tableheadinglinesubject">Subject</th>
-          <th className="tableheadinglinegrade">Grade</th>
-          <th className="tableheadinglinecredit">Credit</th>
-        </tr>
-           {/* S1 result table data */}
-        {
-          DUMMY_DATA.map((data) => (
-            <tr className="tableheadinglines">
-              <td className="tabledata">{data.sub}</td>
-              <td className="tabledata">{data.grade}</td>
-              <td className="tabledata">{data.credit}</td>
-            </tr>
-          ))}
-                 {/* S2 result table data */}
-        
-          </tbody>
-      </table>
-    </div>
-  );
-  // const resultTable1 = (
-  //   <div className={classes.resultSelectorBody}>
-  //     <table className="tableliine">
-  //       <tbody>
-  //       <tr className="tableheadinglines">
-  //         <th className="tableheadinglinesubject">Subject</th>
-  //         <th className="tableheadinglinegrade">Grade</th>
-  //         <th className="tableheadinglinecredit">Credit</th>
-  //       </tr>
-  //          {/* S1 result table data */}
-  //          {s2Selector  &&
-  //   DUMMY_DATA2.map((data) => (
-  //     <tr className="tableheadinglines">
-  //       <td className="tabledata">{data.sub}</td>
-  //       <td className="tabledata">{data.grade}</td>
-  //       <td className="tabledata">{data.credit}</td>
-  //     </tr>
-  //   ))}
-  //                {/* S2 result table data */}
-        
-  //         </tbody>
-  //     </table>
-  //   </div>
-  // );
-
-
- 
-           {/* S3 result table data */}
-  {/* {s3Selector &&
-    DUMMY_DATA3.map((data) => (
-      <tr className="tableheadinglines">
-        <td className="tabledata">{data.sub}</td>
-        <td className="tabledata">{data.grade}</td>
-        <td className="tabledata">{data.credit}</td>
-      </tr>
-    ))}
-           {/* S4 result table data */}
-  {/* {s4Selector &&
-    DUMMY_DATA.map((data) => (
-      <tr className="tableheadinglines">
-        <td className="tabledata">{data.sub}</td>
-        <td className="tabledata">{data.grade}</td>
-        <td className="tabledata">{data.credit}</td>
-      </tr>
-    ))} */}
-           {/* S5 result table data */}
-  {/* {s5Selector &&
-    DUMMY_DATA.map((data) => (
-      <tr className="tableheadinglines">
-        <td className="tabledata">{data.sub}</td>
-        <td className="tabledata">{data.grade}</td>
-        <td className="tabledata">{data.credit}</td>
-      </tr>
-    ))} */}
-           {/* S6 result table data */}
-  {/* {s6Selector &&
-    DUMMY_DATA.map((data) => (
-      <tr className="tableheadinglines">
-        <td className="tabledata">{data.sub}</td>
-        <td className="tabledata">{data.grade}</td>
-        <td className="tabledata">{data.credit}</td>
-      </tr>
-    ))} */}
-           {/* S7 result table data */}
-  {/* {s7Selector &&
-    DUMMY_DATA.map((data) => (
-      <tr className="tableheadinglines">
-        <td className="tabledata">{data.sub}</td>
-        <td className="tabledata">{data.grade}</td>
-        <td className="tabledata">{data.credit}</td>
-      </tr>
-    ))} */}
-           {/* S8 result table data */}
-  {/* {s8Selector &&
-    DUMMY_DATA.map((data) => (
-      <tr className="tableheadinglines">
-        <td className="tabledata">{data.sub}</td>
-        <td className="tabledata">{data.grade}</td>
-        <td className="tabledata">{data.credit}</td>
-      </tr>
-    ))}  */}
   return (
     <React.Fragment>
       <div className={classes.studenthomepagesidebar}>
@@ -364,6 +123,25 @@ const StudentResults = () => {
           >
             View Result
           </button>
+        </div>
+        <div className={classes.resultSelectorBody}>
+          <table className="tableliine">
+            <tbody>
+              <tr className="tableheadinglines">
+                <th className="tableheadinglinesubject">Subject</th>
+                <th className="tableheadinglinegrade">Grade</th>
+                <th className="tableheadinglinecredit">Credit</th>
+              </tr>
+              {/* S1 result table data */}
+              {gradeAndMarks.map((data) => (
+                <tr className="tableheadinglines">
+                  <td className="tabledata">{data.course_name}</td>
+                  <td className="tabledata">{data.grade}</td>
+                  <td className="tabledata">{data.credits}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
         <div className={classes.spacebetween}></div>
         <div className={classes.sidebartext}>
@@ -384,7 +162,6 @@ const StudentResults = () => {
         <div className={classes.setSidebarHeight}></div>
       </div>
       {viewResult && semesterSelection}
-      {viewResultTable  && resultTable}
       {/* {viewResultTable && selectedSemester === 2 && resultTable} */}
     </React.Fragment>
   );
