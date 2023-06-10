@@ -81,7 +81,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -100,7 +101,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -119,7 +121,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -138,7 +141,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -157,7 +161,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -176,7 +181,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -205,7 +211,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -234,7 +241,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -263,7 +271,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -292,7 +301,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"registerNumber\",\"type\":\"string\"}],\"name\":\"getCertificateCGPA\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"registerNumber\",\"type\":\"string\"}],\"name\":\"getCertificateInstitution\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"registerNumber\",\"type\":\"string\"}],\"name\":\"getCertificateMonthAndYearOfPassing\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"registerNumber\",\"type\":\"string\"}],\"name\":\"getCertificateRegisterNumber\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"registerNumber\",\"type\":\"string\"}],\"name\":\"getCertificateStudentName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"registerNumber\",\"type\":\"string\"}],\"name\":\"getCertificateYearOfAdmission\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"registerNumber\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"semesterIndex\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"subjectName\",\"type\":\"string\"}],\"name\":\"getSubjectCredits\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"registerNumber\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"semesterIndex\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"subjectName\",\"type\":\"string\"}],\"name\":\"getSubjectExamMonth\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"registerNumber\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"semesterIndex\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"subjectName\",\"type\":\"string\"}],\"name\":\"getSubjectExamYear\",\"outputs\":[{\"internalType\":\"uint16\",\"name\":\"\",\"type\":\"uint16\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"registerNumber\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"semesterIndex\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"subjectName\",\"type\":\"string\"}],\"name\":\"getSubjectGrade\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"registerNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"studentName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"institution\",\"type\":\"string\"},{\"internalType\":\"uint16\",\"name\":\"yearOfAdmission\",\"type\":\"uint16\"},{\"internalType\":\"uint16\",\"name\":\"monthAndYearOfPassing\",\"type\":\"uint16\"},{\"internalType\":\"uint8\",\"name\":\"cgpa\",\"type\":\"uint8\"},{\"internalType\":\"string[][]\",\"name\":\"subjectNames\",\"type\":\"string[][]\"},{\"internalType\":\"uint8[][]\",\"name\":\"subjectCredits\",\"type\":\"uint8[][]\"},{\"internalType\":\"uint8[][]\",\"name\":\"subjectGrades\",\"type\":\"uint8[][]\"},{\"internalType\":\"uint16[]\",\"name\":\"subjectExamMonths\",\"type\":\"uint16[]\"},{\"internalType\":\"uint16[]\",\"name\":\"subjectExamYears\",\"type\":\"uint16[]\"}],\"name\":\"issueCertificate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/CertificateContract.sol\":\"CertificateContract\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/CertificateContract.sol\":{\"keccak256\":\"0xbb77ea19d823dc2f910f699e3951a31ae353701a3ccc1436dc0c208cba88f4aa\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b1b35c88f534b2d382ef02bef422a9b3f597a0068003f74c877f6d086f81cf36\",\"dweb:/ipfs/QmRbJDcKivRoSskH72EvHf9JMH9bVDoEs8E6tZ69rEmhUg\"]}},\"version\":1}",
@@ -17543,9 +17553,17 @@
     "name": "solc",
     "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "1686392146743": {
+      "events": {},
+      "links": {},
+      "address": "0x67E86e620c235D66715B8708C3FEe29293603CAa",
+      "transactionHash": "0x5d5aa38569bc188fcc4c99fc7d64404bc7f0145ff54f9598f2f6f8723c015271"
+    }
+  },
   "schemaVersion": "3.4.14",
-  "updatedAt": "2023-06-10T09:38:06.679Z",
+  "updatedAt": "2023-06-10T10:16:10.874Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},
