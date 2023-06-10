@@ -13,6 +13,7 @@
   "author": "Allen Saji",
   "license": "MIT",
   "dependencies": {
+    "@openzeppelin/contracts": "^4.9.1",
     "async-handler": "^0.0.3",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
