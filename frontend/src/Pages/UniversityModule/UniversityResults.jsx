@@ -32,6 +32,21 @@ const UniversityResults = () => {
     ? "sidebarActive"
     : "sidebarNotActive";
 
+  const resultTab = (
+    <div className="resultSelectorbody">
+      <div className="latestresultheading">
+        <p>Latest Result</p>
+      </div>
+      <div>
+        <select className="resultselector">
+          <option value="">B TECH S5(R,S) MARCH 2023</option>
+          <option value="">B TECH S5(R,S) MARCH 2023</option>
+        </select>
+        <button className="publishbutton">Publish</button>
+      </div>
+    </div>
+  );  
+
   return (
     <Fragment>
       <div className={classes.universityhomepagesidebar}>
@@ -63,6 +78,7 @@ const UniversityResults = () => {
         </div>
         <div className={classes.spacebetween1}></div>
       </div>
+      {publishResultButton && resultTab}
     </Fragment>
   );
 };
