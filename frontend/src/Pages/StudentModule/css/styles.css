@@ -82,6 +82,12 @@
     line-height: auto;
     text-align: center;
 }
+@media (max-width:1730px) {
+    .tableliine{
+        font-size: 1.1rem;
+    }
+  }
+
 @media (max-width:1254px) {
     .welcomeName{
         margin-left: 25%;
