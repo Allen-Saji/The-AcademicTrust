@@ -112,7 +112,7 @@ const UniversityHomepageBody = () => {
           </div>
         </div>
       </div>
-      {certificate && <UniversityCertificateGenerator />}
+      {/* {certificate && <UniversityCertificateGenerator />} */}
     </React.Fragment>
   );
 };

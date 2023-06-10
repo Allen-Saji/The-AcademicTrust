@@ -1,14 +1,17 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import classes from "./css/UniversityHomepageBody.module.css";
 import "./css/styles.css";
 const UniversityCertificateGenerator = () => {
+  const [viewMesg,setMesg] = useState(false);
+  const generateButtonHandler = ()=>{
+    setMesg(true);
+  }
   return (
     <Fragment>
-      <div className={classes.generatemenu}>
-        <button>Generate</button>
-        <button>Deploy</button>
-        <p>Generated successfully!!</p>
-      </div>
+      <div className='certificateSelectorbody'>
+        <button className="generatebutton" onClick={generateButtonHandler}>Generate</button>
+        <button className="generatebutton">Deploy</button>
+       {viewMesg && <p className="generatedtext">Generated successfully!!</p>}      </div>
     </Fragment>
   );
 };

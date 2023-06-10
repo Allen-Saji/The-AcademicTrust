@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import classes from "./css/UniversityHomepageBody.module.css";
 import "./css/styles.css";
+import UniversityCertificateGenerator from "./UniversityCertificateGenerator";
 const UniversityCertificate = () => {
   return (
     <Fragment>
@@ -10,6 +11,7 @@ const UniversityCertificate = () => {
         </div>
         <div className={classes.spacebetween1}></div>
       </div>
+      <UniversityCertificateGenerator />
     </Fragment>
   );
 };

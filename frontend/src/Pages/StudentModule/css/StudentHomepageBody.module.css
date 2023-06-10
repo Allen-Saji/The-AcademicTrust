@@ -207,6 +207,18 @@ tr:nth-child(even){
   margin-left: 23%;
 }
 
+@media (max-width:1730px) {
+  .resultSelectorBody{
+    margin-top: 19%;
+
+  }
+}
+@media (max-width:1254px) {
+  .resultSelectorBody{
+    margin-top: 21%;
+
+  }
+}
 
 @media (max-width: 1049px) {
   .dropbtn {
