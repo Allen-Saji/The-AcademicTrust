@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const {
-  isGraduationEligible,
-} = require("../controllers/certificateController");
+const { getEligibleStudents } = require("../controllers/certificateController");
 
-router.get("/", isGraduationEligible);
+router.get("/", getEligibleStudents);
 
 module.exports = router;
