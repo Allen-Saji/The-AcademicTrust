@@ -10,8 +10,18 @@ const Result = require("../models/resultModel");
 //@route /api/student
 //@access public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, phn_no, address, registration_no, program } =
-    req.body;
+  const {
+    name,
+    email,
+    password,
+    phn_no,
+    address,
+    registration_no,
+    program,
+    institution,
+    year_of_adm,
+    branch,
+  } = req.body;
 
   if (!name) {
     res.status(400);
@@ -57,6 +67,9 @@ const registerUser = asyncHandler(async (req, res) => {
     password: hashedPassword,
     phn_no,
     program,
+    branch,
+    year_of_adm,
+    institution,
   });
 
   if (user) {
@@ -68,6 +81,9 @@ const registerUser = asyncHandler(async (req, res) => {
       address: user.address,
       program: user.program,
       registration_no: user.registration_no,
+      branch: user.branch,
+      institution: user.institution,
+      year_of_adm: user.year_of_adm,
       token: generateToken(user._id),
     });
   } else {
@@ -98,6 +114,9 @@ const loginUser = asyncHandler(async (req, res) => {
       program: user.program,
       branch: user.branch,
       institution: user.institution,
+      branch: user.branch,
+      institution: user.institution,
+      year_of_adm: user.year_of_adm,
       token: generateToken(user._id),
     });
   } else {
