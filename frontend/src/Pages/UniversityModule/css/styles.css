@@ -366,7 +366,7 @@
   background-color: #c0c0c0;
 }
 .generatebutton{
-  margin-top: 2%;
+  margin-top: 1%;
   background-color: #536674;
   color: whitesmoke;
   cursor: pointer;
@@ -385,6 +385,16 @@
   padding-bottom: 5px;
   margin-left: 5%;
 }
+.dropdownbox{
+  margin-left: 5%;
+  margin-top: 1%;
+}
+.dropdownselector{
+  width: 8%;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+
 @media (max-width:1432px) {
     .maintableforinstitution{
         width: 70%;
