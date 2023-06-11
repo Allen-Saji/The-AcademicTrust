@@ -8,15 +8,18 @@ const getEligibleStudents = asyncHandler(async (req, res) => {
     const { year_of_adm } = req.body;
     // Fetch all students with the same year_of_adm value
     const students = await Student.find({ year_of_adm });
+    // console.log(students);
 
     // Filter the eligible students
     const eligibleStudents = [];
 
     for (const student of students) {
-      const { _id: student_id } = student;
+      const student_id = student.registration_no;
+      //console.log(student_id);
 
       // Get enrollments for the student
       const enrollments = await Enrollment.find({ student_id });
+      console.log(enrollments);
 
       // Check if enrollments exist
       if (enrollments.length === 0) {
@@ -41,7 +44,7 @@ const getEligibleStudents = asyncHandler(async (req, res) => {
         eligibleStudents.push(student);
       }
     }
-
+    //console.log(eligibleStudents);
     res.status(200).json(eligibleStudents);
   } catch (error) {
     throw new Error(error.message);
