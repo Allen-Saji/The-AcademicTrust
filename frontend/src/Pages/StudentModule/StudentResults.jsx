@@ -90,6 +90,7 @@ const StudentResults = () => {
       </div>
       <div className={classes.semesterselector}>
         <select
+        className={classes.selector}
           id="semesterSelect"
           value={selectedSemester}
           onChange={onChangeSelectedSemester}

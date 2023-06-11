@@ -38,7 +38,7 @@ const EmployeeHomepageBody = () => {
   const homeInfo = (
     <div className={classes.semesterselectorbody}>
       <p>Employer Details</p>
-      <table className={classes.hometable}>
+      <table className="hometable">
         <tr>
           <td>Employer Name</td>
           <td>Aimil Bij</td>

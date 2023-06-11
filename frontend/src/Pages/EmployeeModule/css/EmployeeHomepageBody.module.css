@@ -10,6 +10,10 @@
 
   font-size: 1.5rem;
 }
+.semesterselector{
+  margin-top: 1%;
+  margin-left: -2%;
+}
 .studenthomepagesidebar {
   background-color: #536674;
   height: 100%;
@@ -25,6 +29,7 @@
   background-color:#c0c0c0;
   padding-top: 2%;
   cursor: pointer;
+
 }
 .spacebetween {
   margin-top: 2%;
@@ -43,15 +48,10 @@
 .semesterselecttext {
   font-size: 24px;
 }
-.semesterselector input {
-  margin-top: 0.5%;
-  width: 16%;
-  height: 10px;
-  border-radius: 10px;
-}
+
 .selectorbutton {
   margin-top: -2%;
-  margin-left: -7%;
+  margin-left: 22%;
 }
 .selectorbutton button {
   font-size: 16px;
@@ -61,6 +61,7 @@
   width: 8%;
   height: 28px;
   border-radius: 7px;
+  margin-bottom: 1%;
 }
 .selectorbutton button:hover {
   background-color: rgba(156, 191, 224, 0.781);
@@ -138,18 +139,23 @@
   font-weight: 500;
   display: block;
   border: none;
+  border-radius: 15px;
 }
 
 .dropdowncontent button:hover {
   background-color: #f1f1f1;
+  border-radius: 15px;
 }
 
 .navbarlogobutton:hover .dropdowncontent {
   display: block;
+  border-radius: 15px;
+
 }
 
 .navbarlogobutton:hover .dropbtn {
   background-color: #e7e7e7;
+  border-radius: 15px;
 }
 
 .btnimage {
@@ -187,6 +193,9 @@
   .studenthomepagebody {
     height: 87vh;
   }
+  .selectorbutton button {
+    margin-left: 15%;
+  }
 }
 @media (max-width: 1509px) {
   .studenthomepagebody {
@@ -209,6 +218,9 @@
   }
   .semesterselectorbody{
     margin-top: 8%;
+  }
+  .selectorbutton button {
+    margin-top: -1%;
   }
 }
 @media (max-width: 1206px) {
