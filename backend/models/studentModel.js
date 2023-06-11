@@ -42,6 +42,10 @@ const studentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  year_of_adm: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Student = mongoose.model("Student", studentSchema);
