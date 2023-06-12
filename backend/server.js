@@ -23,6 +23,10 @@ app.use("/api/student", require("./routes/studentRoutes"));
 app.use("/api/student/homepage", require("./routes/studentRoutes"));
 app.use("/api/student/result", require("./routes/studentRoutes"));
 app.use("/api/admin/certificate", require("./routes/certificateRoutes"));
+app.use(
+  "/api/admin/certificate/getCertificateDetails",
+  require("./routes/certificateRoutes")
+);
 app.use("/api/admin/course", require("./routes/courseRoutes"));
 app.use("/api/admin/exam", require("./routes/examRoutes"));
 app.use("/api/enrollment", require("./routes/enrollmentRoutes"));

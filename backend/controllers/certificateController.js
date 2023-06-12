@@ -53,7 +53,7 @@ const getEligibleStudents = asyncHandler(async (req, res) => {
   }
 });
 
-const certificateDetails = async (students) => {
+const getCertificateDetails = async (students) => {
   try {
     const responses = [];
     students.forEach(async (student) => {
@@ -170,4 +170,5 @@ const certificateDetails = async (students) => {
 
 module.exports = {
   getEligibleStudents,
+  getCertificateDetails,
 };
