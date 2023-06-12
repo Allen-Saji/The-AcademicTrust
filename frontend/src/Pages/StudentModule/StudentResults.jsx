@@ -47,7 +47,7 @@ const StudentResults = () => {
     };
     const response = await axios.post(API_URL, data, config);
     if (response.status === 200) {
-      console.log(response.data.gradeAndMarks);
+      //console.log(response.data.gradeAndMarks);
       return response.data.gradeAndMarks;
     } else {
       throw new Error(response.statusText);
