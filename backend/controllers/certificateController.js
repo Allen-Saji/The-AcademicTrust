@@ -21,7 +21,7 @@ const getEligibleStudents = asyncHandler(async (req, res) => {
 
       // Get enrollments for the student
       const enrollments = await Enrollment.find({ student_id });
-      console.log(enrollments);
+      //console.log(enrollments);
 
       // Check if enrollments exist
       if (enrollments.length === 0) {
@@ -53,115 +53,122 @@ const getEligibleStudents = asyncHandler(async (req, res) => {
   }
 });
 
-const getCertificateDetails = async (students) => {
+const getCertificateDetails = async (req, res) => {
   try {
-    const responses = [];
-    students.forEach(async (student) => {
-      const registration_no = student.registration_no;
-      const institution = student.institution;
-      const year_of_adm = student.year_of_adm;
-      const student_name = student.name;
+    const { students } = req.body;
+    const responses = await Promise.all(
+      students.map(async (student) => {
+        const registration_no = student.registration_no;
+        const institution = student.institution;
+        const year_of_adm = student.year_of_adm;
+        const student_name = student.name;
 
-      const subjectNamesBySemester = [];
-      const subjectCreditsBySemester = [];
-      const subjectGradesBySemester = [];
-      const subjectExamMonthsBySemester = [];
-      const subjectExamYearsBySemester = [];
+        const subjectNamesBySemester = [];
+        const subjectCreditsBySemester = [];
+        const subjectGradesBySemester = [];
+        const subjectExamMonthsBySemester = [];
+        const subjectExamYearsBySemester = [];
 
-      let cgpa = 0;
+        let cgpa = 0;
 
-      for (let i = 1; i <= 8; i++) {
-        // Retrieve enrollments for the student and semester
-        const student_id = student.registration_no;
-        const semester = i;
+        for (let i = 1; i <= 8; i++) {
+          // Retrieve enrollments for the student and semester
+          const student_id = student.registration_no;
+          const semester = i;
 
-        const enrollments = await Enrollment.find({
-          student_id,
-          semester,
-        });
+          const enrollments = await Enrollment.find({
+            student_id,
+            semester,
+          });
 
-        const courseIds = [];
-        enrollments.forEach((enrollment) => {
-          courseIds.push(enrollment.course_id);
-        });
+          const courseIds = [];
+          enrollments.forEach((enrollment) => {
+            courseIds.push(enrollment.course_id);
+          });
 
-        const courses = await Course.find({
-          courseCode: { $in: courseIds },
-        });
+          const courses = await Course.find({
+            courseCode: { $in: courseIds },
+          });
 
-        const courseNames = courses.map((course) => course.name);
-        const courseCredits = courses.map((course) => course.credits);
+          const courseNames = courses.map((course) => course.name);
+          const courseCredits = courses.map((course) => course.credits);
 
-        subjectNamesBySemester.push(courseNames);
-        subjectCreditsBySemester.push(courseCredits);
+          subjectNamesBySemester.push(courseNames);
+          subjectCreditsBySemester.push(courseCredits);
 
-        // Retrieve results for the enrollments
-        const results = await Result.find({
-          enrollment_id: {
-            $in: enrollments.map((enrollment) => enrollment._id),
-          },
-        });
+          // Retrieve results for the enrollments
+          const results = await Result.find({
+            enrollment_id: {
+              $in: enrollments.map((enrollment) => enrollment._id),
+            },
+          });
 
-        const subjectMarks = results.map((result) => result.marks);
-        let marks;
-        subjectMarks.forEach((mark) => {
-          marks = marks + mark;
-        });
-        cgpa = marks / (subjectMarks.length * 100);
+          const subjectMarks = results.map((result) => result.marks);
+          let marks = 0;
+          subjectMarks.forEach((mark) => {
+            marks = marks + mark;
+          });
+          cgpa = marks / (subjectMarks.length * 10);
+          cgpa = cgpa.toFixed(2);
 
-        const subjectGrades = results.map((result) => result.grade);
-        subjectGradesBySemester.push(subjectGrades);
+          const subjectGrades = results.map((result) => result.grade);
+          subjectGradesBySemester.push(subjectGrades);
 
-        const examIds = results.map((result) => result.exam_id);
-        const examDates = Exam.find(
-          { _id: { $in: examIds } },
-          { _id: 1, date: 1 }
-        );
+          const examIds = results.map((result) => result.exam_id);
+          const exams = await Exam.find({ _id: { $in: examIds } });
 
-        function getMonthName(monthNumber) {
-          const date = new Date();
-          date.setMonth(monthNumber - 1); // Adjust month to 0-11 range
-          const monthName = date.toLocaleString("default", { month: "long" });
-          return monthName;
+          function getMonthName(monthNumber) {
+            const date = new Date();
+            date.setMonth(monthNumber - 1); // Adjust month to 0-11 range
+            const monthName = date.toLocaleString("default", { month: "long" });
+            return monthName;
+          }
+
+          const examMonths = [];
+          const examYears = [];
+          let examMonth;
+          let examYear;
+          exams.forEach((exam) => {
+            const date = new Date(exam.date);
+            examMonth = date.getMonth() + 1; // Output: month as a number (0-11)
+            examYear = date.getFullYear(); // Get the year
+          });
+          const monthName = getMonthName(examMonth);
+
+          for (k = 0; k < results.length; k++) {
+            examMonths.push(monthName);
+            examYears.push(examYear);
+          }
+
+          subjectExamMonthsBySemester.push(examMonths);
+          subjectExamYearsBySemester.push(examYears);
         }
 
-        const examMonths = [];
-        const examYears = [];
+        const month = subjectExamMonthsBySemester[7][0];
+        const year = subjectExamYearsBySemester[7][0];
+        const monthAndYearOfPassing = `${month}, ${year}`;
 
-        examDates.map((exam) => {
-          const examMonth = exam.date.getMonth(); // Get the month (0-11)
-          const monthName = getMonthName(examMonth);
-          examMonths.push(monthName);
-          const examYear = exam.date.getFullYear(); // Get the year
-          examYears.push(examYear);
-        });
+        cgpa = cgpa / 8;
 
-        subjectExamMonthsBySemester.push(examMonths);
-        subjectExamYearsBySemester.push(examYears);
-      }
+        const response = {
+          registration_no,
+          institution,
+          year_of_adm,
+          student_name,
+          cgpa,
+          subjectCreditsBySemester,
+          subjectExamMonthsBySemester,
+          subjectExamYearsBySemester,
+          subjectNamesBySemester,
+          subjectGradesBySemester,
+          monthAndYearOfPassing,
+        };
 
-      const month = subjectExamMonthsBySemester[7][0];
-      const year = subjectExamYearsBySemester[7][0];
-      const monthAndYearOfPassing = `${month}, ${year}`;
+        return response;
+      })
+    );
 
-      cgpa = cgpa / 8;
-
-      //to do: cgpa, month and year of passing
-      const response = {
-        registration_no,
-        institution,
-        year_of_adm,
-        student_name,
-        cgpa,
-        subjectCreditsBySemester,
-        subjectExamMonthsBySemester,
-        subjectExamYearsBySemester,
-        subjectNamesBySemester,
-        subjectGradesBySemester,
-        monthAndYearOfPassing,
-      };
-      responses.push(response);
-    });
+    //console.log(responses);
     res.status(200).json(responses);
   } catch (error) {
     throw new Error(error.message);
