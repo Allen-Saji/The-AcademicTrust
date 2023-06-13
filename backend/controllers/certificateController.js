@@ -69,7 +69,7 @@ const getCertificateDetails = async (req, res) => {
         const subjectExamMonthsBySemester = [];
         const subjectExamYearsBySemester = [];
 
-        let cgpa = 0;
+        const cgpaEachSem = [];
 
         for (let i = 1; i <= 8; i++) {
           // Retrieve enrollments for the student and semester
@@ -108,8 +108,10 @@ const getCertificateDetails = async (req, res) => {
           subjectMarks.forEach((mark) => {
             marks = marks + mark;
           });
-          cgpa = marks / (subjectMarks.length * 10);
-          cgpa = cgpa.toFixed(2);
+
+          let cgpa = marks / (subjectMarks.length * 10);
+          cgpa = parseFloat(cgpa.toFixed(2));
+          cgpaEachSem.push(cgpa);
 
           const subjectGrades = results.map((result) => result.grade);
           subjectGradesBySemester.push(subjectGrades);
@@ -148,7 +150,12 @@ const getCertificateDetails = async (req, res) => {
         const year = subjectExamYearsBySemester[7][0];
         const monthAndYearOfPassing = `${month}, ${year}`;
 
-        cgpa = cgpa / 8;
+        let sum = 0;
+        cgpaEachSem.forEach((cgpa) => {
+          sum = sum + cgpa;
+        });
+        let cgpa = sum / 8;
+        cgpa = parseFloat(cgpa.toFixed(2));
 
         const response = {
           registration_no,
