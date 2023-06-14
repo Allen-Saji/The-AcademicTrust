@@ -143,16 +143,8 @@ const StudentResults = () => {
             View Result
           </button>
         </div>
-<<<<<<< HEAD
-=======
 
-        <div className={classes.spacebetween}></div>
-        <div className={classes.sidebartext}>
-          <button onClick={reportsButtonHandler} className={reportsButton}>
-            Reports
-          </button>
-        </div>
->>>>>>> 80a29753d9bc69cfa9f7418f90458d118f09332b
+
         <div className={classes.spacebetween}></div>
         <div className={classes.setSidebarHeight}></div>
       </div>
