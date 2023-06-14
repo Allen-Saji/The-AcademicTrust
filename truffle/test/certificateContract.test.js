@@ -162,4 +162,18 @@ contract("CertificateContract", (accounts) => {
       "Retrieved subject exam year does not match"
     );
   });
+
+  it("should issue a certificate and retrieve subject names", async () => {
+    const semesterIndex = 0;
+    const retrievedSubjectNames = await certificateContract.getSubjectNames(
+      registerNumber,
+      semesterIndex
+    );
+
+    assert.deepEqual(
+      retrievedSubjectNames,
+      subjectNames[semesterIndex],
+      "Retrieved subject names do not match"
+    );
+  });
 });
