@@ -26,7 +26,7 @@ const StudentHome = () => {
         <div className={classes.spacebetween}></div>
       </div>
       <div className={classes.semesterselectorbody}>
-        <p className={classes.studentDetailstext}>Student Details </p>
+        <p className="studentdetails">Student Details </p>
 
         <div className={classes.mainstudentDetailsTable}>
           <table className={classes.studentdetailstable1}>
