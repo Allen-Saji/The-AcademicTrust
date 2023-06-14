@@ -1,12 +1,14 @@
-const dotenv = require("dotenv").config();
-const Web3 = require("web3");
+import Web3 from "web3";
+import * as fs from "fs";
 
-const rpcEndpoint = "https://sepolia.infura.io/v3/" + process.env.INFURA_KEY; // Replace with the actual RPC endpoint for Sepolia testnet
+const INFURA_KEY = fs.readFileSync(".infura").toString().trim();
+
+const rpcEndpoint = "https://sepolia.infura.io/v3/" + INFURA_KEY; // Replace with the actual RPC endpoint for Sepolia testnet
 const web3 = new Web3(rpcEndpoint);
 
-const contractAbi = require("./CertificateContract.json");
+import contractAbi from "./CertificateContract.json";
 const contractAddress = "0x04204a7134c067afe6febf80b0e86acb1b773517";
-const contract = new web3.eth.Contract(contractAbi, contractAddress);
+const certificateContract = new web3.eth.Contract(contractAbi, contractAddress);
 
 // Function to issue a certificate
 async function issueCertificate(
@@ -176,7 +178,7 @@ async function getSubjectNames(registerNumber, semesterIndex) {
   }
 }
 
-const contractCertificate = {
+const web3Script = {
   issueCertificate,
   getCertificateCGPA,
   getCertificateInstitution,
@@ -191,4 +193,4 @@ const contractCertificate = {
   getSubjectNames,
 };
 
-export default contractCertificate;
+export default web3Script;
