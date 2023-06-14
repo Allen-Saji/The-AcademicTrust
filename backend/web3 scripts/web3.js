@@ -37,7 +37,7 @@ async function issueCertificate(
         subjectExamMonths,
         subjectExamYears
       )
-      .send({ from: "<your-sender-address>" });
+      .send({ from: "0x890919785ce4E4EE77a2566f48987eC008625770" });
     console.log("Certificate issued successfully!");
   } catch (error) {
     console.error("Failed to issue certificate:", error);
@@ -176,7 +176,7 @@ async function getSubjectNames(registerNumber, semesterIndex) {
   }
 }
 
-module.exports = {
+const contractCertificate = {
   issueCertificate,
   getCertificateCGPA,
   getCertificateInstitution,
@@ -190,3 +190,5 @@ module.exports = {
   getSubjectGrade,
   getSubjectNames,
 };
+
+export default contractCertificate;
