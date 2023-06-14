@@ -82,6 +82,10 @@
     line-height: auto;
     text-align: center;
 }
+.studentdetails{
+    font-size: 1.5rem;
+    
+}
 @media (max-width:1730px) {
     .tableliine{
         font-size: 1.1rem;
