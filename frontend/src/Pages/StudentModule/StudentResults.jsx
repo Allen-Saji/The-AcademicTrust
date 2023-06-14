@@ -7,8 +7,8 @@ import axios from "axios";
 
 const StudentResults = () => {
   const [viewResult, setViewResult] = useState(true);
-  const [viewButton,setViewButton] = useState(false);
-  const [viewFlag,,setViewFalg] = useState(true);
+  const [viewButton, setViewButton] = useState(false);
+  const [viewFlag, , setViewFalg] = useState(true);
 
   const [reports, setReports] = useState(false);
   const [selectedSemester, setSelectedSemester] = useState(1);
@@ -47,6 +47,7 @@ const StudentResults = () => {
     };
     const response = await axios.post(API_URL, data, config);
     if (response.status === 200) {
+      //console.log(response.data.gradeAndMarks);
       return response.data.gradeAndMarks;
     } else {
       throw new Error(response.statusText);
@@ -71,9 +72,7 @@ const StudentResults = () => {
       const result = await getMarksandGrades(data, token);
       setGradeAndMarks(result);
 
-        setViewButton(true);
-  
-
+      setViewButton(true);
     };
     setResult();
     console.log(gradeAndMarks);
@@ -90,7 +89,7 @@ const StudentResults = () => {
       </div>
       <div className={classes.semesterselector}>
         <select
-        className={classes.selector}
+          className={classes.selector}
           id="semesterSelect"
           value={selectedSemester}
           onChange={onChangeSelectedSemester}
@@ -111,25 +110,27 @@ const StudentResults = () => {
       <div className={classes.setHeight}></div>
     </div>
   );
-  const resultTable =( <div className={classes.resultSelectorBody}>
-    <table className="tableliine">
-      <tbody>
-        <tr className="tableheadinglines">
-          <th className="tableheadinglinesubject">Subject</th>
-          <th className="tableheadinglinegrade">Grade</th>
-          <th className="tableheadinglinecredit">Credit</th>
-        </tr>
-        {/* S1 result table data */}
-        {gradeAndMarks.map((data) => (
+  const resultTable = (
+    <div className={classes.resultSelectorBody}>
+      <table className="tableliine">
+        <tbody>
           <tr className="tableheadinglines">
-            <td className="tabledata">{data.course_name}</td>
-            <td className="tabledata">{data.grade}</td>
-            <td className="tabledata">{data.credits}</td>
+            <th className="tableheadinglinesubject">Subject</th>
+            <th className="tableheadinglinegrade">Grade</th>
+            <th className="tableheadinglinecredit">Credit</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>);
+          {/* S1 result table data */}
+          {gradeAndMarks.map((data) => (
+            <tr className="tableheadinglines">
+              <td className="tabledata">{data.course_name}</td>
+              <td className="tabledata">{data.grade}</td>
+              <td className="tabledata">{data.credits}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 
   return (
     <React.Fragment>
@@ -142,12 +143,21 @@ const StudentResults = () => {
             View Result
           </button>
         </div>
+<<<<<<< HEAD
+=======
+
+        <div className={classes.spacebetween}></div>
+        <div className={classes.sidebartext}>
+          <button onClick={reportsButtonHandler} className={reportsButton}>
+            Reports
+          </button>
+        </div>
+>>>>>>> 80a29753d9bc69cfa9f7418f90458d118f09332b
         <div className={classes.spacebetween}></div>
         <div className={classes.setSidebarHeight}></div>
       </div>
       {viewResult && semesterSelection}
       {viewButton && resultTable}
-
     </React.Fragment>
   );
 };

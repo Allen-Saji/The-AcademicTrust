@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { getEligibleStudents } = require("../controllers/certificateController");
+const {
+  getEligibleStudents,
+  getCertificateDetails,
+} = require("../controllers/certificateController");
 
-router.get("/", getEligibleStudents);
+router.post("/", getEligibleStudents);
+router.post("/getCertificateDetails", getCertificateDetails);
 
 module.exports = router;
