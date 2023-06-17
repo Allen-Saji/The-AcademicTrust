@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import classes from "./css/UniversityHomepageBody.module.css";
+import ethersScript from "../../web3_scripts/ethersScript";
 
 import "./css/styles.css";
 import axios from "axios";
@@ -10,7 +11,6 @@ const UniversityCertificateGenerator = () => {
   const API_URL1 =
     "http://localhost:5000/api/admin/certificate/getCertificateDetails";
   const API_URL2 = "http://localhost:5000/api/admin/certificate";
-  const API_URL3 = "http://localhost:5000/api/admin/certificate/contract";
 
   const issueCertificate = async (data) => {
     const response = await axios.post(API_URL2, data);
@@ -19,7 +19,21 @@ const UniversityCertificateGenerator = () => {
       const data2 = { students: response.data };
       const certificateDetails = await axios.post(API_URL1, data2);
       if (certificateDetails.status === 200) {
-        console.log(certificateDetails.data);
+        const data3 = certificateDetails.data[0];
+        console.log(data3);
+        ethersScript.issueCertificate(
+          data3.registration_no,
+          data3.student_name,
+          data3.institution,
+          data3.year_of_adm,
+          data3.monthAndYearOfPassing,
+          data3.cgpa,
+          data3.subjectNamesBySemester,
+          data3.subjectCreditsBySemester,
+          data3.subjectGradesBySemester,
+          data3.subjectExamMonthsBySemester,
+          data3.subjectExamYearsBySemester
+        );
       }
     } else {
       throw new Error(response.statusText);

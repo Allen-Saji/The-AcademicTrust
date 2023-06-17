@@ -156,6 +156,7 @@ const getCertificateDetails = async (req, res) => {
         });
         let cgpa = sum / 8;
         cgpa = parseFloat(cgpa.toFixed(2));
+        cgpa = cgpa.toString();
 
         const response = {
           registration_no,

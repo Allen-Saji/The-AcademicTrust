@@ -5,8 +5,8 @@ contract CertificateContract {
     struct Subject {
         string name;
         uint8 credits;
-        uint8 grade;
-        uint16 examMonth;
+        string grade;
+        string examMonth;
         uint16 examYear;
     }
 
@@ -20,26 +20,29 @@ contract CertificateContract {
         string registerNumber;
         string institution;
         uint16 yearOfAdmission;
-        uint16 monthAndYearOfPassing;
-        uint16 totalCredits;
-        uint8 cgpa;
+        string monthAndYearOfPassing;
+        string cgpa;
         mapping(uint8 => Semester) semesters;
     }
 
     mapping(string => Certificate) certificates;
+        function checkCertificateExists(string memory registerNumber) external view returns (bool) {
+        return bytes(certificates[registerNumber].registerNumber).length > 0;
+    }
+
 
     function issueCertificate(
         string memory registerNumber,
         string memory studentName,
         string memory institution,
         uint16 yearOfAdmission,
-        uint16 monthAndYearOfPassing,
-        uint8 cgpa,
+        string memory monthAndYearOfPassing,
+        string memory cgpa,
         string[][] memory subjectNames,
         uint8[][] memory subjectCredits,
-        uint8[][] memory subjectGrades,
-        uint16[] memory subjectExamMonths,
-        uint16[] memory subjectExamYears
+        string[][] memory subjectGrades,
+        string[][] memory subjectExamMonths,
+        uint16[][] memory subjectExamYears
     ) external {
         Certificate storage certificate = certificates[registerNumber];
         Certificate storage cert = certificate; // Temporary variable to reduce stack depth
@@ -59,8 +62,8 @@ contract CertificateContract {
                     subjectName,
                     subjectCredits[i][j],
                     subjectGrades[i][j],
-                    subjectExamMonths[i],
-                    subjectExamYears[i]
+                    subjectExamMonths[i][j],
+                    subjectExamYears[i][j]
                 );
                 semester.subjectNames.push(subjectName); // Store subject names in the array
             }
@@ -83,11 +86,11 @@ contract CertificateContract {
         return certificates[registerNumber].yearOfAdmission;
     }
 
-    function getCertificateMonthAndYearOfPassing(string memory registerNumber) external view returns (uint16) {
+    function getCertificateMonthAndYearOfPassing(string memory registerNumber) external view returns (string memory) {
         return certificates[registerNumber].monthAndYearOfPassing;
     }
 
-    function getCertificateCGPA(string memory registerNumber) external view returns (uint8) {
+    function getCertificateCGPA(string memory registerNumber) external view returns (string memory) {
         return certificates[registerNumber].cgpa;
     }
 
@@ -103,7 +106,7 @@ contract CertificateContract {
         string memory registerNumber,
         uint8 semesterIndex,
         string memory subjectName
-    ) external view returns (uint8) {
+    ) external view returns (string memory) {
         return certificates[registerNumber].semesters[semesterIndex].subjects[subjectName].grade;
     }
 
@@ -111,7 +114,7 @@ contract CertificateContract {
         string memory registerNumber,
         uint8 semesterIndex,
         string memory subjectName
-    ) external view returns (uint16) {
+    ) external view returns (string memory) {
         return certificates[registerNumber].semesters[semesterIndex].subjects[subjectName].examMonth;
     }
 
