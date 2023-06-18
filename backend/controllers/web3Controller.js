@@ -1,37 +1,46 @@
-import { ethers } from "ethers";
-import contractAbi from "./CertificateContract.json";
-
-const privateKey =
-  "d195306504790016ccb08389a96776f1c19868de17d3d84d84f71345e1ff48e9";
-const INFURA_KEY = "de1a46cef76e435b8bc38b630c999e6e";
-const rpcEndpoint = "https://sepolia.infura.io/v3/" + INFURA_KEY; // Replace with the actual RPC endpoint for Sepolia testnet
-const provider = new ethers.providers.JsonRpcProvider(rpcEndpoint);
-const wallet = new ethers.Wallet(privateKey, provider);
-// Convert ABI to array
-const abiArray = contractAbi.abi;
-
-const contractAddress = "0xd521077f2a8f41cd49bb0cab91f018540f0592c0";
-const certificateContract = new ethers.Contract(
-  contractAddress,
-  abiArray,
-  provider
-);
+const {
+  provider,
+  wallet,
+  certificateContract,
+} = require("../config/ethersScript");
+const asyncHandler = require("express-async-handler");
 
 // Function to issue a certificate
-async function issueCertificate(
-  registerNumber,
-  studentName,
-  institution,
-  yearOfAdmission,
-  monthAndYearOfPassing,
-  cgpa,
-  subjectNames,
-  subjectCredits,
-  subjectGrades,
-  subjectExamMonths,
-  subjectExamYears
-) {
+const issueCertificate = asyncHandler(async (req, res) => {
+  const {
+    registerNumber,
+    studentName,
+    institution,
+    yearOfAdmission,
+    monthAndYearOfPassing,
+    cgpa,
+    subjectNames,
+    subjectCredits,
+    subjectGrades,
+    subjectExamMonths,
+    subjectExamYears,
+  } = req.body;
+
   try {
+    // Input validation
+    if (
+      !registerNumber ||
+      !studentName ||
+      !institution ||
+      !yearOfAdmission ||
+      !monthAndYearOfPassing ||
+      !cgpa ||
+      !subjectNames ||
+      !subjectCredits ||
+      !subjectGrades ||
+      !subjectExamMonths ||
+      !subjectExamYears
+    ) {
+      return res
+        .status(400)
+        .json({ message: "Missing or invalid input data." });
+    }
+
     const signer = wallet.connect(provider);
     const contractWithSigner = certificateContract.connect(signer);
     console.log(contractWithSigner);
@@ -45,7 +54,9 @@ async function issueCertificate(
         "Certificate already issued for student with registration number:",
         registerNumber
       );
-      return; // Exit the function to prevent issuing a new certificate
+      return res
+        .status(409)
+        .json({ message: "Certificate already issued for this student." });
     }
 
     await contractWithSigner.issueCertificate(
@@ -62,10 +73,14 @@ async function issueCertificate(
       subjectExamYears
     );
     console.log("Certificate issued successfully!");
+    return res
+      .status(200)
+      .json({ message: "Certificate issued successfully." });
   } catch (error) {
     console.error("Failed to issue certificate:", error);
+    return res.status(500).json({ message: "Failed to issue certificate." });
   }
-}
+});
 
 // Function to retrieve student name from a certificate
 async function getCertificateStudentName(registerNumber) {
@@ -205,19 +220,6 @@ async function getSubjectNames(registerNumber, semesterIndex) {
   }
 }
 
-const ethersScript = {
+module.exports = {
   issueCertificate,
-  getCertificateCGPA,
-  getCertificateInstitution,
-  getCertificateMonthAndYearOfPassing,
-  getCertificateRegisterNumber,
-  getCertificateStudentName,
-  getCertificateYearOfAdmission,
-  getSubjectCredits,
-  getSubjectExamMonth,
-  getSubjectExamYear,
-  getSubjectGrade,
-  getSubjectNames,
 };
-
-export default ethersScript;

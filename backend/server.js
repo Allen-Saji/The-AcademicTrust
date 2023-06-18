@@ -27,6 +27,10 @@ app.use(
   "/api/admin/certificate/getCertificateDetails",
   require("./routes/certificateRoutes")
 );
+app.use(
+  "/api/admin/certificate/issueCertificate",
+  require("./routes/certificateRoutes")
+);
 app.use("/api/admin/course", require("./routes/courseRoutes"));
 app.use("/api/admin/exam", require("./routes/examRoutes"));
 app.use("/api/enrollment", require("./routes/enrollmentRoutes"));
