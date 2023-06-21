@@ -12,6 +12,8 @@
     font-size: 1.2rem;
     line-height: 1.4rem;
     width: 30%;
+    border-collapse: collapse;
+    border: 1px solid black;
 }
 .studenthomepagesidebarlow {
     background-color: #536674;
@@ -28,3 +30,35 @@
   .logobutton{
     background-color: #FFFFF0;
   }
+  .employertablerow{
+    border: 1px solid black;
+  }
+  .employertabledata{
+    border: 1px solid black;
+
+  }
+  .dropdowncontent {
+   
+    position: absolute;
+    background-color: #f9f9f9;
+    width: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    margin-top: 5%;
+
+  }
+.dropdowncontentbutton{
+    width: 100%;
+    margin-top: 5%;
+    background-color: #add8e6;
+    color: rgb(0, 0, 0);
+    padding: 6px 12px;
+    font-weight: 500;
+    display: block;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.navbarlogobutton{
+    display: block;
+}

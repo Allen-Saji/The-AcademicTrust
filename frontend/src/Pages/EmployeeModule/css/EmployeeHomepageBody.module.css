@@ -97,15 +97,10 @@
 
 }
 
-.navbarbutton button:hover {
-  background-color: #536674;
-  color: whitesmoke;
-}
-
 .navbarlogobutton {
   margin-top: 0.1%;
   margin-left: -10%;
-
+  
 }
 .navbarlogobutton img {
   width: 24px;
@@ -118,54 +113,7 @@
   cursor: pointer;
   font-size: 25px;
   transition-duration: 1s;
-  margin-left: -40%;
-}
-
-.dropdowncontent {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
- margin-left: -6%;
-}
-
-.dropdowncontent button {
-  width: 100%;
-  background-color: #add8e6;
-  color: rgb(0, 0, 0);
-  padding: 12px 16px;
-  font-weight: 500;
-  display: block;
-  border: none;
-  border-radius: 15px;
-}
-
-.dropdowncontent button:hover {
-  background-color: #f1f1f1;
-  border-radius: 15px;
-}
-
-.navbarlogobutton:hover .dropdowncontent {
-  display: block;
-  border-radius: 15px;
-
-}
-
-.navbarlogobutton:hover .dropbtn {
-  background-color: #e7e7e7;
-  border-radius: 15px;
-}
-
-.btnimage {
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 1%;
-  padding: 1%;
-}
-.btnimage img {
-  width: 30px;
+  /* margin-left: -40%; */
 }
 
 
