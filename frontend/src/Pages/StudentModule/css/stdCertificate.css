@@ -1,0 +1,129 @@
+.certificateWholebody{
+    position: absolute;
+    margin-top: 15%;
+    margin-left: 30%;
+    border: 2px solid black;
+    width: 55%;
+}
+.certificatebody{
+    width: 100%;
+    height: 100%;
+ 
+}
+
+.Certificatemainheader{
+    text-align: center;
+}
+.topheading{
+    text-align: center;
+    font-weight: 100;
+    font-size: 1.3rem;
+    margin-top: 5%;
+}
+.logo{
+    width: 90px;
+    margin-top: 8%;
+}
+.apjheading{
+    font-size: 1.3rem;
+    margin-top: 1%;
+}
+.apjbelowheading{
+    font-size: 1.1rem;
+    margin-top: 1%;
+}
+.namereg{
+    margin-top: 15%;
+    margin-left: 10%;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+.certificatetablebody{
+    text-align: center;
+}
+.certificatetablebodyheading1{
+    margin-top: 15%;
+    font-size:1.4rem ;
+    font-weight: 600;
+}
+.certificatetablebodyheading2{
+    margin-top: 1%;
+    font-size:1.2rem ;
+    font-weight: 600;
+}
+.studentinfotablebody{
+    width: 100%;
+}
+.studentinfotable{
+    margin-top: 1%;
+   margin-left: 15%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 1.2rem;
+    width: 70%;
+}
+.studenttableinforow{
+    margin-right: 75%;
+    border: 1px black solid;
+}
+.resulttablemain{
+margin-left: 15%; 
+ margin-top: 5%;
+}
+
+.resulttable{
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px black solid;
+    font-size:1.1rem;
+    width: 82.3%;
+    margin-top: 5%;
+}
+
+.resulttablerow{
+    border: 1px black solid;
+} 
+.heading2{
+    width: 100%;
+    font-size: 1.2rem;
+    margin-left: 150%;
+}
+
+.resultdatatable{
+    border: 1px black solid;
+    margin-top: 4%;
+}
+.data1strow{
+    position: relative;
+    margin-top: 5%;
+}
+.tablerow{
+    border: 1px solid black;
+}
+.bottomhead{
+    margin-left: -43%;
+}
+.ktubottomlogo{
+    width: 100px;
+    margin-left: 45%;
+    margin-top: 3%;
+}
+.bottomname{
+    display: flex;
+    justify-content: end;
+    margin-right: 15%;
+    margin-top: 1%;
+    margin-bottom: 15%;
+}
+
+
+@media (max-width: 1322px) {
+    .certificateWholebody{
+        margin-top: 18%;
+    }
+}
+@media (max-width: 1131px) {
+    .certificateWholebody{
+        margin-top: 22%;
+    }
+}
