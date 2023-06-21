@@ -82,64 +82,38 @@ const issueCertificate = asyncHandler(async (req, res) => {
   }
 });
 
-// Function to retrieve student name from a certificate
-async function getCertificateStudentName(registerNumber) {
+const viewCertificate = asyncHandler(async (req, res) => {
+  const { registerNumber } = req.body;
   try {
+    console.log("route");
     const studentName = await certificateContract.getCertificateStudentName(
       registerNumber
     );
-    console.log("Student Name:", studentName);
-  } catch (error) {
-    console.error("Failed to retrieve student name:", error);
-  }
-}
-
-// Function to retrieve register number from a certificate
-async function getCertificateRegisterNumber(registerNumber) {
-  try {
-    const retrievedRegisterNumber =
-      await certificateContract.getCertificateRegisterNumber(registerNumber);
-    console.log("Register Number:", retrievedRegisterNumber);
-  } catch (error) {
-    console.error("Failed to retrieve register number:", error);
-  }
-}
-
-// Function to retrieve institution from a certificate
-async function getCertificateInstitution(registerNumber) {
-  try {
+    console.log(studentName);
     const institution = await certificateContract.getCertificateInstitution(
       registerNumber
     );
-    console.log("Institution:", institution);
-  } catch (error) {
-    console.error("Failed to retrieve institution:", error);
-  }
-}
-
-// Function to retrieve year of admission from a certificate
-async function getCertificateYearOfAdmission(registerNumber) {
-  try {
     const yearOfAdmission =
       await certificateContract.getCertificateYearOfAdmission(registerNumber);
-    console.log("Year of Admission:", yearOfAdmission);
-  } catch (error) {
-    console.error("Failed to retrieve year of admission:", error);
-  }
-}
-
-// Function to retrieve month and year of passing from a certificate
-async function getCertificateMonthAndYearOfPassing(registerNumber) {
-  try {
     const monthAndYearOfPassing =
       await certificateContract.getCertificateMonthAndYearOfPassing(
         registerNumber
       );
-    console.log("Month and Year of Passing:", monthAndYearOfPassing);
+    const cgpa = await certificateContract.getCertificateCGPA(registerNumber);
+
+    const response = {
+      registerNumber,
+      studentName,
+      institution,
+      yearOfAdmission,
+      monthAndYearOfPassing,
+      cgpa,
+    };
+    res.status(200).json(response);
   } catch (error) {
-    console.error("Failed to retrieve month and year of passing:", error);
+    throw new Error(error.message);
   }
-}
+});
 
 // Function to retrieve CGPA from a certificate
 async function getCertificateCGPA(registerNumber) {
@@ -222,4 +196,5 @@ async function getSubjectNames(registerNumber, semesterIndex) {
 
 module.exports = {
   issueCertificate,
+  viewCertificate,
 };

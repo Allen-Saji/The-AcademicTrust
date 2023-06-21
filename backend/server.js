@@ -22,6 +22,7 @@ app.use("/api/admin/department", require("./routes/departmentRoutes"));
 app.use("/api/student", require("./routes/studentRoutes"));
 app.use("/api/student/homepage", require("./routes/studentRoutes"));
 app.use("/api/student/result", require("./routes/studentRoutes"));
+app.use("/api/student", require("./routes/certificateRoutes"));
 app.use("/api/admin/certificate", require("./routes/certificateRoutes"));
 app.use(
   "/api/admin/certificate/getCertificateDetails",
