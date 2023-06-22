@@ -105,6 +105,64 @@
 .tablecolumn{
     border: 1px solid whitesmoke;
 }
+.changepasswordbody{
+    border: 2px solid rgb(32, 32, 32);
+    background-color: #C0C0C0;
+    width: 40%;
+    margin: auto;
+    font-weight: 600;
+}
+.changepasswordmain{
+    margin-top: 2%;
+    font-size: 1.1rem;
+    display: block;
+    padding: 15%;
+}
+.changepasswordmain input{
+    border-radius: 10px;
+    border: none;
+    background-color:#FFFFF0;
+    height: 18px;
+    cursor: pointer;
+}
+
+.currentpass label{
+    display: block;
+}
+.newpass{
+    margin-top: 2%;
+
+}
+.newpass label{
+    display: block;
+}
+.confirmpass{
+    margin-top: 2%;
+
+}
+.confirmpass label{
+    display: block;
+}
+.buttons{
+    margin-top: 10%;
+}
+.buttons button{
+    width: 45%;
+    border-radius: 9px;
+    background-color: #536674;
+    color: #FFFFF0;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.cancelbutton{
+    margin-left: 5%;
+}
+.buttons button:hover{
+    background-color:#36454F;
+    ;
+    color: black;
+}
 @media (max-width:1730px) {
     .tableliine{
         font-size: 1.1rem;
