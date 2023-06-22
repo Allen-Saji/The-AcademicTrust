@@ -9,6 +9,7 @@ import StudentHome from "./StudentHome";
 import StudentResults from "./StudentResults";
 import StudentCertificate from "./StudentCertificate";
 import { logout } from "../../features/auth/authSlice";
+import Modal from "../../UI/Modal";
 
 const StudentHomepageBody = () => {
   const { user } = useSelector((state) => state.auth);
@@ -16,6 +17,7 @@ const StudentHomepageBody = () => {
   const [selectSemester, setSelectSemester] = useState(false);
   const [certificateNavbar, setCertificateNavbar] = useState(false);
   const [profile, setProfile] = useState(true);
+  const [viewChangePasswordModal,setViewChangePasswordModal] = useState(false);
 
   const Navigate = useNavigate();
   const Dispatch = useDispatch();
@@ -76,6 +78,40 @@ const StudentHomepageBody = () => {
     }
   }, []);
 
+  const changePasswordButtonHandler =()=>{
+    setViewChangePasswordModal(true);
+  }
+  const resetCancelButtonHandler =()=>{
+    setViewChangePasswordModal(false);
+  }
+  const confirmNewPassHandler=()=>{
+
+  }
+  const changePass = (
+    <Modal>
+      <div className="changepasswordbody">
+        <div className="changepasswordmain">
+          <div className="currentpass">
+            <label>Current Password</label>
+            <input type="text" />
+          </div>
+          <div className="newpass">
+            <label>New Password</label>
+            <input type="password" />
+          </div>
+          <div className="confirmpass">
+            <label>Confirm New Password</label>
+            <input type="password" />
+          </div>
+          <div className="buttons">
+            <button className="confirmbutton" onClick={confirmNewPassHandler}>Confirm</button>
+            <button className="cancelbutton" onClick={resetCancelButtonHandler}>Cancel</button>
+          </div>
+        </div>
+      </div>
+    </Modal>
+  );
+
   return (
     <React.Fragment>
       <div className={classes.studenthomepagebody}>
@@ -104,10 +140,16 @@ const StudentHomepageBody = () => {
 
             <div className={classes.dropdowncontent}>
               <div className={classes.btnimage}>
-                <button onClick={onLogout}>Logout</button>
+                <button className={classes.dropdowncontentbutton} onClick={onLogout}>Logout</button>
+              </div>
+              <div className={classes.btnimage}>
+              <button onClick={changePasswordButtonHandler} className={classes.dropdowncontentbutton}>Change Password</button>
+
               </div>
             </div>
+            
           </div>
+          {viewChangePasswordModal && changePass}
         </div>
       </div>
     </React.Fragment>

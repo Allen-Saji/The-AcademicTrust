@@ -28,14 +28,7 @@
 .studentInfoContainer{
   margin: 1rem;
 }
-/* td{
-  border: 2px solid #dddddd;
-  text-align: left;
-  padding-top: 3%;
-}
-tr:nth-child(even){
-  background-color: #a0a7ac;
-} */
+
 .studenthomepagesidebar {
   background-color: #536674;
   height: 100%;
@@ -177,19 +170,23 @@ tr:nth-child(even){
 .dropdowncontent {
   display: none;
   position: absolute;
-  min-width: 160px;
+  /* min-width: 120px; */
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   margin-left: -8%;
 }
 
-.dropdowncontent button {
+.dropdowncontentbutton{
   width: 100%;
   background-color: #add8e6;
   color: rgb(0, 0, 0);
   display: block;
   border: none;
+  font-size: 1.1rem;
   
+}
+.changepass{
+  display: inline-block;
 }
 
 
