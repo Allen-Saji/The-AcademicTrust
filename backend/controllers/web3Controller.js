@@ -84,22 +84,97 @@ const issueCertificate = asyncHandler(async (req, res) => {
 
 const viewCertificate = asyncHandler(async (req, res) => {
   const { registerNumber } = req.body;
+
   try {
-    console.log("route");
-    const studentName = await certificateContract.getCertificateStudentName(
-      registerNumber
-    );
-    console.log(studentName);
-    const institution = await certificateContract.getCertificateInstitution(
-      registerNumber
-    );
-    const yearOfAdmission =
-      await certificateContract.getCertificateYearOfAdmission(registerNumber);
-    const monthAndYearOfPassing =
-      await certificateContract.getCertificateMonthAndYearOfPassing(
-        registerNumber
+    const studentNamePromise =
+      certificateContract.getCertificateStudentName(registerNumber);
+    const institutionPromise =
+      certificateContract.getCertificateInstitution(registerNumber);
+    const yearOfAdmissionPromise =
+      certificateContract.getCertificateYearOfAdmission(registerNumber);
+    const monthAndYearOfPassingPromise =
+      certificateContract.getCertificateMonthAndYearOfPassing(registerNumber);
+    const cgpaPromise = certificateContract.getCertificateCGPA(registerNumber);
+
+    const [
+      studentName,
+      institution,
+      yearOfAdmission,
+      monthAndYearOfPassing,
+      cgpa,
+    ] = await Promise.all([
+      studentNamePromise,
+      institutionPromise,
+      yearOfAdmissionPromise,
+      monthAndYearOfPassingPromise,
+      cgpaPromise,
+    ]);
+
+    const subjectPromises = [];
+    for (let i = 0; i < 8; i++) {
+      const semesterIndex = i;
+      const promise = certificateContract.getSubjectNames(
+        registerNumber,
+        semesterIndex
       );
-    const cgpa = await certificateContract.getCertificateCGPA(registerNumber);
+      subjectPromises.push(promise);
+    }
+
+    const subjectNamesList = await Promise.all(subjectPromises);
+
+    const examDataPromises = subjectNamesList.map((subjectNames, i) => {
+      const semesterIndex = i;
+      const gradeListPromises = [];
+      const creditListPromises = [];
+      const monthListPromises = [];
+      const yearListPromises = [];
+
+      subjectNames.forEach((subjectName) => {
+        const gradePromise = certificateContract.getSubjectGrade(
+          registerNumber,
+          semesterIndex,
+          subjectName
+        );
+        gradeListPromises.push(gradePromise);
+
+        const creditPromise = certificateContract.getSubjectCredits(
+          registerNumber,
+          semesterIndex,
+          subjectName
+        );
+        creditListPromises.push(creditPromise);
+
+        const monthPromise = certificateContract.getSubjectExamMonth(
+          registerNumber,
+          semesterIndex,
+          subjectName
+        );
+        monthListPromises.push(monthPromise);
+
+        const yearPromise = certificateContract.getSubjectExamYear(
+          registerNumber,
+          semesterIndex,
+          subjectName
+        );
+        yearListPromises.push(yearPromise);
+      });
+
+      const examDataPromise = Promise.all([
+        Promise.all(gradeListPromises),
+        Promise.all(creditListPromises),
+        Promise.all(monthListPromises),
+        Promise.all(yearListPromises),
+      ]);
+
+      return examDataPromise;
+    });
+
+    const examDataList = await Promise.all(examDataPromises);
+
+    const examGradeList = examDataList.map(([gradeList]) => gradeList);
+    const examcreditsList = examDataList.map(([, creditList]) => creditList);
+    const examMonthList = examDataList.map(([, , monthList]) => monthList);
+    const examYearList = examDataList.map(([, , , yearList]) => yearList);
 
     const response = {
       registerNumber,
@@ -108,91 +183,18 @@ const viewCertificate = asyncHandler(async (req, res) => {
       yearOfAdmission,
       monthAndYearOfPassing,
       cgpa,
+      subjectNamesList,
+      examGradeList,
+      examMonthList,
+      examYearList,
+      examcreditsList,
     };
+
     res.status(200).json(response);
   } catch (error) {
     throw new Error(error.message);
   }
 });
-
-// Function to retrieve CGPA from a certificate
-async function getCertificateCGPA(registerNumber) {
-  try {
-    const cgpa = await certificateContract.getCertificateCGPA(registerNumber);
-    console.log("CGPA:", cgpa);
-  } catch (error) {
-    console.error("Failed to retrieve CGPA:", error);
-  }
-}
-
-// Function to retrieve subject credits from a certificate
-async function getSubjectCredits(registerNumber, semesterIndex, subjectName) {
-  try {
-    const credits = await certificateContract.getSubjectCredits(
-      registerNumber,
-      semesterIndex,
-      subjectName
-    );
-    console.log("Subject Credits:", credits);
-  } catch (error) {
-    console.error("Failed to retrieve subject credits:", error);
-  }
-}
-
-// Function to retrieve subject grade from a certificate
-async function getSubjectGrade(registerNumber, semesterIndex, subjectName) {
-  try {
-    const grade = await certificateContract.getSubjectGrade(
-      registerNumber,
-      semesterIndex,
-      subjectName
-    );
-    console.log("Subject Grade:", grade);
-  } catch (error) {
-    console.error("Failed to retrieve subject grade:", error);
-  }
-}
-
-// Function to retrieve subject exam month from a certificate
-async function getSubjectExamMonth(registerNumber, semesterIndex, subjectName) {
-  try {
-    const examMonth = await certificateContract.getSubjectExamMonth(
-      registerNumber,
-      semesterIndex,
-      subjectName
-    );
-    console.log("Subject Exam Month:", examMonth);
-  } catch (error) {
-    console.error("Failed to retrieve subject exam month:", error);
-  }
-}
-
-// Function to retrieve subject exam year from a certificate
-async function getSubjectExamYear(registerNumber, semesterIndex, subjectName) {
-  try {
-    const examYear = await certificateContract.getSubjectExamYear(
-      registerNumber,
-      semesterIndex,
-      subjectName
-    );
-    console.log("Subject Exam Year:", examYear);
-  } catch (error) {
-    console.error("Failed to retrieve subject exam year:", error);
-  }
-}
-
-// Function to retrieve subject names from a certificate
-async function getSubjectNames(registerNumber, semesterIndex) {
-  try {
-    const subjectNames = await certificateContract.getSubjectNames(
-      registerNumber,
-      semesterIndex
-    );
-    console.log("Subject Names:", subjectNames);
-  } catch (error) {
-    console.error("Failed to retrieve subject names:", error);
-  }
-}
 
 module.exports = {
   issueCertificate,
