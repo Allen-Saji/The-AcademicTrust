@@ -1,21 +1,40 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo/school.png";
 import classes from "./css/EmployeeHomepageBody.module.css";
-import { logout } from "../../features/auth/authSlice";
+import { logout, register } from "../../features/auth/authSlice";
 import "./css/styles.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import EmpCertificate from "./EmpCertificate";
+import axios from "axios";
 
 const EmployeeHomepageBody = () => {
   const [home, setHome] = useState(true);
   const [Credentials, setCredentials] = useState(false);
-  const [viewCertificate,setCertificate] = useState(false);
-  const [height,setHeight] = useState(false);
-  const [logoutButton,setLogoutButton] = useState(false);
+  const [viewCertificate, setCertificate] = useState(false);
+  const [height, setHeight] = useState(false);
+  const [logoutButton, setLogoutButton] = useState(false);
 
   const Navigate = useNavigate();
   const Dispatch = useDispatch();
+
+  const [regNo, setRegNo] = useState();
+  const API_URL1 = "http://localhost:5000/api/student/viewCertificate";
+  const verifyCertificate = async (data) => {
+    const response = await axios.post(API_URL1, data); // Pass it as an object with the same key name
+    if (response.status === 200) {
+      console.log(response.data);
+    } else {
+      throw new Error(response.statusText);
+    }
+  };
+
+  const onChange = (e) => {
+    setRegNo((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const employeeLogoutClickHandler = () => {
     // Dispatch(logout);
@@ -33,7 +52,9 @@ const EmployeeHomepageBody = () => {
     setHome(false);
   };
 
-  const verifyButtonHandler =()=>{
+  const verifyButtonHandler = () => {
+    const data = { registerNumber: regNo.regNo };
+    verifyCertificate(data);
     setCertificate(true);
     setHeight(true);
   };
@@ -68,34 +89,35 @@ const EmployeeHomepageBody = () => {
     </div>
   );
 
-  const sidebarheight = height ? 'studenthomepagesidebarhigh' : 'studenthomepagesidebarlow';
+  const sidebarheight = height
+    ? "studenthomepagesidebarhigh"
+    : "studenthomepagesidebarlow";
   const credentialInfoSidebar = (
     <div className={sidebarheight}>
       <div className={classes.sidebartext}>
         <button>Verify Credentials</button>
       </div>
       <div className={classes.spacebetween}></div>
-
     </div>
   );
 
   const credentialInfo = (
-      <div className={classes.semesterselectorbody}>
+    <div className={classes.semesterselectorbody}>
       <div className={classes.semesterselecttext}>
         <p>Enter a public address </p>
       </div>
       <div className={classes.semesterselector}>
-        <input type="text" />
+        <input type="text" name="regNo" onChange={onChange} />
       </div>
       <div className={classes.selectorbutton}>
         <button onClick={verifyButtonHandler}>Verify</button>
       </div>
     </div>
   );
-  const logoutButtonClickHandler =()=>{
-    setLogoutButton(val => !val);
-  }
-    const logout = logoutButton ? 'dropdowncontent' : 'navbarlogobutton';
+  const logoutButtonClickHandler = () => {
+    setLogoutButton((val) => !val);
+  };
+  const logout = logoutButton ? "dropdowncontent" : "navbarlogobutton";
   return (
     <React.Fragment>
       <div className={classes.studenthomepagebody}>
@@ -119,16 +141,23 @@ const EmployeeHomepageBody = () => {
           </div>
         </div>
         <div className={classes.navbarlogobutton}>
-          <button onClick={logoutButtonClickHandler} className={classes.dropbtn}>
+          <button
+            onClick={logoutButtonClickHandler}
+            className={classes.dropbtn}
+          >
             <img src={logo} alt="" />
           </button>
 
           <div className={logout}>
-              <button className="dropdowncontentbutton" onClick={employeeLogoutClickHandler}>Logout</button>
+            <button
+              className="dropdowncontentbutton"
+              onClick={employeeLogoutClickHandler}
+            >
+              Logout
+            </button>
           </div>
         </div>
         {viewCertificate && <EmpCertificate />}
-
       </div>
     </React.Fragment>
   );

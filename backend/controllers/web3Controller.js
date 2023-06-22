@@ -83,9 +83,9 @@ const issueCertificate = asyncHandler(async (req, res) => {
 });
 
 const viewCertificate = asyncHandler(async (req, res) => {
-  const { registerNumber } = req.body;
-
   try {
+    const { registerNumber } = req.body;
+    console.log(registerNumber);
     const studentNamePromise =
       certificateContract.getCertificateStudentName(registerNumber);
     const institutionPromise =
