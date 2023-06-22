@@ -15,7 +15,7 @@
 
 .studentdetailstable1{
   margin-left: 1%;
-
+  border: 1px solid whitesmoke;
   margin-top: 2%;
   border-collapse: collapse;
   font-size: 21px;
@@ -28,14 +28,14 @@
 .studentInfoContainer{
   margin: 1rem;
 }
-td{
+/* td{
   border: 2px solid #dddddd;
   text-align: left;
   padding-top: 3%;
 }
 tr:nth-child(even){
   background-color: #a0a7ac;
-}
+} */
 .studenthomepagesidebar {
   background-color: #536674;
   height: 100%;

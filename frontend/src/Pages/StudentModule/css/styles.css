@@ -6,6 +6,18 @@
     background-color: #536674;
     color: whitesmoke;
 }
+.studenthomepagesidebarlow {
+    background-color: #536674;
+    height:83vh;
+    width: 19%;
+    border-top-right-radius: 20px;
+  }
+  .studenthomepagesidebarhigh {
+    background-color: #536674;
+    height: 282vh;
+    width: 19%;
+    border-top-right-radius: 20px;
+  }
 .selectedSidebarButton{
     background-color: #C0C0C0;
     color: black;
@@ -81,10 +93,17 @@
     padding: 1%;
     line-height: auto;
     text-align: center;
+    
 }
 .studentdetails{
     font-size: 1.5rem;
     
+}
+.tablerow{
+    border: 1px solid whitesmoke;
+}
+.tablecolumn{
+    border: 1px solid whitesmoke;
 }
 @media (max-width:1730px) {
     .tableliine{
