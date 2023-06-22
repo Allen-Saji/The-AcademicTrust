@@ -84,6 +84,9 @@ const StudentHomepageBody = () => {
   const resetCancelButtonHandler =()=>{
     setViewChangePasswordModal(false);
   }
+  const confirmNewPassHandler=()=>{
+
+  }
   const changePass = (
     <Modal>
       <div className="changepasswordbody">
@@ -101,7 +104,7 @@ const StudentHomepageBody = () => {
             <input type="password" />
           </div>
           <div className="buttons">
-            <button className="confirmbutton">Confirm</button>
+            <button className="confirmbutton" onClick={confirmNewPassHandler}>Confirm</button>
             <button className="cancelbutton" onClick={resetCancelButtonHandler}>Cancel</button>
           </div>
         </div>
