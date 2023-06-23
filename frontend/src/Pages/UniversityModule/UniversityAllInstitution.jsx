@@ -33,12 +33,15 @@ const UniversityAllInstitution = () => {
     setaddInstitutionButton(false);
     setupdateInstitutionButton(false);
     setdeleteInstitutionButton(false);
+    updateInstitutionFormCancelButtonHandler();
   };
   const addInstitutionButtonHandler = () => {
     setallInstitutionButton(false);
     setaddInstitutionButton(true);
     setupdateInstitutionButton(false);
     setdeleteInstitutionButton(false);
+    updateInstitutionFormCancelButtonHandler();
+    
   };
   const updateInstitutionButtonHandler = () => {
     setallInstitutionButton(false);
@@ -186,7 +189,7 @@ const UniversityAllInstitution = () => {
           <label htmlFor="">College Code:</label>
           <input
             name="institution_code"
-            className="institutioncollegeidinput"
+            className="institutioncollegeidinput1"
             type="text"
             onChange={onChange}
           />

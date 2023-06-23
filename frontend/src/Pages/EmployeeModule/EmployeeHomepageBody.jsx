@@ -104,7 +104,7 @@ const EmployeeHomepageBody = () => {
   const credentialInfo = (
     <div className={classes.semesterselectorbody}>
       <div className={classes.semesterselecttext}>
-        <p>Enter a public address </p>
+        <p>Enter The Student Register No </p>
       </div>
       <div className={classes.semesterselector}>
         <input type="text" name="regNo" onChange={onChange} />
@@ -117,7 +117,7 @@ const EmployeeHomepageBody = () => {
   const logoutButtonClickHandler = () => {
     setLogoutButton((val) => !val);
   };
-  const logout = logoutButton ? "dropdowncontent" : "navbarlogobutton";
+  const logout = logoutButton ? "navbarlogobutton" : "dropdowncontent";
   return (
     <React.Fragment>
       <div className={classes.studenthomepagebody}>
