@@ -9,6 +9,7 @@
 .hometable{
     margin-top: 1%;
     margin-left: 36%;
+    margin-bottom: 3%;
     font-size: 1.2rem;
     line-height: 1.4rem;
     width: 30%;
@@ -23,7 +24,7 @@
   }
   .studenthomepagesidebarhigh {
     background-color: #536674;
-    height: 282vh;
+    height: 360vh;
     width: 19%;
     border-top-right-radius: 20px;
   }

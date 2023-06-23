@@ -163,6 +163,9 @@
     ;
     color: black;
 }
+.bottommargin{
+    margin-bottom: 5%;
+}
 @media (max-width:1730px) {
     .tableliine{
         font-size: 1.1rem;
