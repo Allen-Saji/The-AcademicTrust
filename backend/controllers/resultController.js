@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const Result = require("../models/resultModel");
 
 const addResult = asyncHandler(async (req, res) => {
-  const { exam_id, enrollment_id, marks, grade } = req.body;
+  const { exam_id, enrollment_id, marks, grade, isPublished } = req.body;
 
   // Check if result exists
   const resultExists = await Result.findOne({
@@ -20,6 +20,7 @@ const addResult = asyncHandler(async (req, res) => {
     enrollment_id,
     marks,
     grade,
+    isPublished,
   });
 
   // Return response object
@@ -28,11 +29,12 @@ const addResult = asyncHandler(async (req, res) => {
     enrollment_id: result.enrollment_id,
     marks: result.marks,
     grade: result.grade,
+    isPublished: result.isPublished,
   });
 });
 
 const updateResult = asyncHandler(async (req, res) => {
-  const { exam_id, enrollment_id, marks, grade } = req.body;
+  const { exam_id, enrollment_id, marks, grade, isPublished } = req.body;
 
   // Check if result exists
   const resultExists = await Result.findOne({
@@ -54,16 +56,18 @@ const updateResult = asyncHandler(async (req, res) => {
       $set: {
         marks,
         grade,
+        isPublished,
       },
     }
   );
 
   // Return response object
   res.status(200).json({
-    exam_id: result.exam_id,
-    enrollment_id: result.enrollment_id,
-    marks: result.marks,
-    grade: result.grade,
+    exam_id: resultExists.exam_id,
+    enrollment_id: resultExists.enrollment_id,
+    marks: resultExists.marks,
+    grade: resultExists.grade,
+    isPublished: resultExists.isPublished,
   });
 });
 
