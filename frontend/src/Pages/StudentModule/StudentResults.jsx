@@ -8,9 +8,7 @@ import axios from "axios";
 const StudentResults = () => {
   const [viewResult, setViewResult] = useState(true);
   const [viewButton, setViewButton] = useState(false);
-  const [viewFlag, , setViewFalg] = useState(true);
 
-  const [reports, setReports] = useState(false);
   const [selectedSemester, setSelectedSemester] = useState(1);
 
   const { user } = useSelector((state) => state.auth);
@@ -20,17 +18,7 @@ const StudentResults = () => {
     setReports(false);
   };
 
-  const reportsButtonHandler = () => {
-    setViewResult(false);
-
-    setReports(true);
-  };
-
   const viewResultButton = viewResult
-    ? "selectedSidebarButton"
-    : "notSelectedSidebarButton";
-
-  const reportsButton = reports
     ? "selectedSidebarButton"
     : "notSelectedSidebarButton";
 
@@ -47,7 +35,6 @@ const StudentResults = () => {
     };
     const response = await axios.post(API_URL, data, config);
     if (response.status === 200) {
-      //console.log(response.data.gradeAndMarks);
       return response.data.gradeAndMarks;
     } else {
       throw new Error(response.statusText);
@@ -56,23 +43,14 @@ const StudentResults = () => {
 
   const [gradeAndMarks, setGradeAndMarks] = useState([]);
 
-  // useEffect(() => {
-  //   const data = { student_id, semester: 1 };
-  //   const setResult = async () => {
-  //     const result = await getMarksandGrades(data, token);
-  //     setGradeAndMarks(result);
-  //   };
-  //   setResult();
-  //   console.log(gradeAndMarks);
-  // }, [Dispatch]);
-
   const handleViewResults = () => {
     const data = { student_id, semester: selectedSemester };
     const setResult = async () => {
       const result = await getMarksandGrades(data, token);
-      setGradeAndMarks(result);
-
-      setViewButton(true);
+      if (result) {
+        setGradeAndMarks(result);
+        setViewButton(true);
+      }
     };
     setResult();
     console.log(gradeAndMarks);
@@ -143,7 +121,6 @@ const StudentResults = () => {
             View Result
           </button>
         </div>
-
 
         <div className={classes.spacebetween}></div>
         <div className={classes.setSidebarHeight}></div>
