@@ -5,6 +5,7 @@ const User = require("../models/studentModel");
 const Enrollment = require("../models/enrollmentModel");
 const Course = require("../models/courseModel");
 const Result = require("../models/resultModel");
+const Student = require("../models/studentModel");
 
 //@desc register a new user
 //@route /api/student
