@@ -5,6 +5,7 @@ const User = require("../models/studentModel");
 const Enrollment = require("../models/enrollmentModel");
 const Course = require("../models/courseModel");
 const Result = require("../models/resultModel");
+const Student = require("../models/studentModel");
 
 //@desc register a new user
 //@route /api/student
@@ -92,6 +93,36 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   res.send("Register Route");
+});
+
+// Controller function to change student password
+const changePassword = asyncHandler(async (req, res) => {
+  const { registration_no, currentPassword, newPassword } = req.body;
+
+  // Find the student by registration number
+  const student = await Student.findOne({ registration_no });
+
+  // Check if the student exists
+  if (!student) {
+    res.status(404);
+    throw new Error("Student not found");
+  }
+
+  // Check if the current password matches
+  const isMatch = await bcrypt.compare(currentPassword, student.password);
+  if (!isMatch) {
+    res.status(401);
+    throw new Error("Incorrect current password");
+  }
+
+  // Hash the new password
+  const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+  // Update the password
+  student.password = hashedPassword;
+  await student.save();
+
+  res.status(200).json({ message: "Password changed successfully" });
 });
 
 //@desc user login
@@ -210,19 +241,6 @@ const getGradeAndMarks = asyncHandler(async (req, res) => {
     credits: gradeAndMarks[index].credits,
   }));
 
-  //console.log(results);
-
-  // results.forEach((result) => {
-  //   const index = gradeAndMarks.findIndex(
-  //     (item) => item.courseName === result.enrollment_id.course_id.name
-  //   );
-
-  //   if (index !== -1) {
-  //     gradeAndMarks[index].grade = result.grade;
-  //     gradeAndMarks[index].marks = result.marks;
-  //   }
-  // });
-
   if (results[0].isPublished) {
     res.status(200).json({
       gradeAndMarks,
@@ -239,4 +257,5 @@ module.exports = {
   registerUser,
   getStudent,
   getGradeAndMarks,
+  changePassword,
 };

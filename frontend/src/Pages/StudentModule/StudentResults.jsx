@@ -50,6 +50,8 @@ const StudentResults = () => {
       if (result) {
         setGradeAndMarks(result);
         setViewButton(true);
+      } else {
+        console.log("no results found!");
       }
     };
     setResult();

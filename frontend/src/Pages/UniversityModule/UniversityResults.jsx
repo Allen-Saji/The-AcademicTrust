@@ -1,10 +1,35 @@
 import React, { Fragment, useState } from "react";
 import classes from "./css/UniversityHomepageBody.module.css";
 import "./css/styles.css";
+import axios from "axios";
 const UniversityResults = () => {
   const [publishResultButton, setPublishResultButton] = useState(true);
   const [updateResultButton, setUpdateRwsultButton] = useState(false);
   const [deleteResultButton, setDeleteResultButton] = useState(false);
+  const [optionValue, setOptionValue] = useState(
+    '{"year_of_adm":2017,"semester":1}'
+  );
+
+  const API_URL = "http://localhost:5000/api/admin/result/publish";
+  const publishResult = async (data) => {
+    console.log(data);
+    const response = await axios.post(API_URL, data);
+    if (response.status === 200) {
+      console.log("result successfully published!");
+    } else {
+      throw new Error(response.statusText);
+    }
+  };
+
+  const extractOptionValues = (optionValue) => {
+    const optionObject = JSON.parse(optionValue);
+    const { year_of_adm, semester } = optionObject;
+    publishResult(optionObject);
+  };
+
+  const onChangeOptionValue = (e) => {
+    setOptionValue(e.target.value);
+  };
 
   const publishResultButtonHandler = () => {
     setPublishResultButton(true);
@@ -38,14 +63,21 @@ const UniversityResults = () => {
         <p>Latest Result</p>
       </div>
       <div>
-        <select className="resultselector">
-          <option value="">B TECH S5(R,S) MARCH 2023</option>
+        <select className="resultselector" onChange={onChangeOptionValue}>
+          <option value='{"year_of_adm":2017,"semester":1}'>
+            B TECH S1(R,S) DECEMBER 2017
+          </option>
           <option value="">B TECH S5(R,S) MARCH 2023</option>
         </select>
-        <button className="publishbutton">Publish</button>
+        <button
+          className="publishbutton"
+          onClick={() => extractOptionValues(optionValue)}
+        >
+          Publish
+        </button>
       </div>
     </div>
-  );  
+  );
 
   return (
     <Fragment>
