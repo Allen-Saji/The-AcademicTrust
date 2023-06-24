@@ -5,8 +5,9 @@ import { logout, register } from "../../features/auth/authSlice";
 import "./css/styles.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import EmpCertificate from "./EmpCertificate";
+// import EmpCertificate from "./EmpCertificate";
 import axios from "axios";
+import Certificate from "../../Components/Certificate";
 
 const EmployeeHomepageBody = () => {
   const [home, setHome] = useState(true);
@@ -69,6 +70,7 @@ const EmployeeHomepageBody = () => {
       <div className={classes.spacebetween}></div>
     </div>
   );
+
   const homeInfo = (
     <div className={classes.semesterselectorbody}>
       <p className={classes.employertext}>Employer Details</p>
@@ -78,12 +80,16 @@ const EmployeeHomepageBody = () => {
           <td className="employertabledata">Aimil Bij</td>
         </tr>
         <tr className="employertablerow">
-          <td className="employertabledata">Company</td>
-          <td>Aimu Tech</td>
+          <td className="employertabledata">Email</td>
+          <td>Aimilbij@gmail.com</td>
         </tr>
         <tr className="employertablerow">
-          <td className="employertabledata">Id</td>
-          <td>123456789</td>
+          <td className="employertabledata">Hadquarters</td>
+          <td>America</td>
+        </tr>
+        <tr className="employertablerow">
+          <td className="employertabledata">Year Of Registration</td>
+          <td>2012</td>
         </tr>
       </table>
     </div>
@@ -157,7 +163,7 @@ const EmployeeHomepageBody = () => {
             </button>
           </div>
         </div>
-        {viewCertificate && <EmpCertificate />}
+        {viewCertificate && <Certificate />}
       </div>
     </React.Fragment>
   );

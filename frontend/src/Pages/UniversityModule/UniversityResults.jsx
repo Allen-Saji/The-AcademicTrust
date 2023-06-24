@@ -68,15 +68,15 @@ const UniversityResults = () => {
           </button>
         </div>
         <div className={classes.spacebetween1}></div>
-        <div className={classes.sidebartext1}>
+        {/* <div className={classes.sidebartext1}>
           <button
             onClick={deleteResultButtonHandler}
             className={deleteResultStyle}
           >
             Delete Result
           </button>
-        </div>
-        <div className={classes.spacebetween1}></div>
+        </div> */}
+        {/* <div className={classes.spacebetween1}></div> */}
       </div>
       {publishResultButton && resultTab}
     </Fragment>

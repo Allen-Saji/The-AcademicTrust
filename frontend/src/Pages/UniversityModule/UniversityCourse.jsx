@@ -167,100 +167,100 @@ const UniversityCourse = () => {
       </form>
     </div>
   );
-  const updateCoursesWindow = (
-    <div className="maincourses">
-      <div className="maininstitutionsearchinputbutton">
-        <input
-          className="maininstitutionsearchinput"
-          type="text"
-          placeholder="search"
-        />
-        <button className="maininstitutionsearchbutton">
-          <img className="searchbuttonimg" src={searchbutton} alt="" />
-        </button>
-      </div>
-      <div className="allinstitutiontext">
-        <p>All Courses</p>
-      </div>
-      <div className="spacebetween"></div>
-      <div className="updatecollegemainbutton">
-        <button
-          onClick={updateEachInstitutionButtonHandler}
-          className="updatecollegemainbuttonname"
-        >
-          Data Structures
-        </button>
-        <button
-          onClick={updateEachInstitutionButtonHandler}
-          className="updatecollegemainbuttonsymbol"
-        >
-          <img className="editpencilbuttonimg" src={editpencil} alt="" />
-        </button>
-      </div>
-    </div>
-  );
+  // const updateCoursesWindow = (
+  //   <div className="maincourses">
+  //     <div className="maininstitutionsearchinputbutton">
+  //       <input
+  //         className="maininstitutionsearchinput"
+  //         type="text"
+  //         placeholder="search"
+  //       />
+  //       <button className="maininstitutionsearchbutton">
+  //         <img className="searchbuttonimg" src={searchbutton} alt="" />
+  //       </button>
+  //     </div>
+  //     <div className="allinstitutiontext">
+  //       <p>All Courses</p>
+  //     </div>
+  //     <div className="spacebetween"></div>
+  //     <div className="updatecollegemainbutton">
+  //       <button
+  //         onClick={updateEachInstitutionButtonHandler}
+  //         className="updatecollegemainbuttonname"
+  //       >
+  //         Data Structures
+  //       </button>
+  //       <button
+  //         onClick={updateEachInstitutionButtonHandler}
+  //         className="updatecollegemainbuttonsymbol"
+  //       >
+  //         <img className="editpencilbuttonimg" src={editpencil} alt="" />
+  //       </button>
+  //     </div>
+  //   </div>
+  // );
 
-  const updateEachCoursesWindow = (
-    <div className="addCoursesMainLogin">
-      <h3 className="addCoursesText">Update Courses to the university</h3>
-      <form className="updateinstitutionform">
-        <div className="formdivs">
-          <label htmlFor="nameinput">Name:</label>
-          <input className="coursenameinput" id="nameinput" type="text" />
-        </div>
-        <div className="formdivs">
-          <label htmlFor="">Course Id:</label>
-          <input className="courseidinput" type="text" />
-        </div>
-        <div className="formdivs">
-          <label htmlFor="">Credits:</label>
-          <input className="creditcourseinput" type="text" />
-        </div>
+  // const updateEachCoursesWindow = (
+  //   <div className="addCoursesMainLogin">
+  //     <h3 className="addCoursesText">Update Courses to the university</h3>
+  //     <form className="updateinstitutionform">
+  //       <div className="formdivs">
+  //         <label htmlFor="nameinput">Name:</label>
+  //         <input className="coursenameinput" id="nameinput" type="text" />
+  //       </div>
+  //       <div className="formdivs">
+  //         <label htmlFor="">Course Id:</label>
+  //         <input className="courseidinput" type="text" />
+  //       </div>
+  //       <div className="formdivs">
+  //         <label htmlFor="">Credits:</label>
+  //         <input className="creditcourseinput" type="text" />
+  //       </div>
 
-        <button
-          onClick={saveEachCoursesButtonHandler}
-          className="addinstitutionbutton"
-          type="submit"
-        >
-          Save
-        </button>
-        <button
-          onClick={cancelEachCoursesButtonHandler}
-          className="addinstitutioncancelbutton"
-          type="submit"
-        >
-          Cancel
-        </button>
-      </form>
-    </div>
-  );
-  const updateEachCoursesConfirmBox = (
-    <Modal>
-      <div className="savechangesmainwindow">
-        <div className="savechangestext">
-          <p>Save Changes ?</p>
-        </div>
-        <div>
-          <button
-            onClick={updateCoursesConfirmBoxTickClickHandler}
-            className="savechangestickbutton"
-          >
-            <img className="savechangesticksymbol" src={saveTick} alt="" />
-          </button>
-          <button
-            onClick={updateCoursesConfirmBoxCancelClickHandler}
-            className="savechangescancelbutton"
-          >
-            <img
-              className="savechangescancelsymbol"
-              src={cancelSymbol}
-              alt=""
-            />
-          </button>
-        </div>
-      </div>
-    </Modal>
-  );
+  //       <button
+  //         onClick={saveEachCoursesButtonHandler}
+  //         className="addinstitutionbutton"
+  //         type="submit"
+  //       >
+  //         Save
+  //       </button>
+  //       <button
+  //         onClick={cancelEachCoursesButtonHandler}
+  //         className="addinstitutioncancelbutton"
+  //         type="submit"
+  //       >
+  //         Cancel
+  //       </button>
+  //     </form>
+  //   </div>
+  // );
+  // const updateEachCoursesConfirmBox = (
+  //   <Modal>
+  //     <div className="savechangesmainwindow">
+  //       <div className="savechangestext">
+  //         <p>Save Changes ?</p>
+  //       </div>
+  //       <div>
+  //         <button
+  //           onClick={updateCoursesConfirmBoxTickClickHandler}
+  //           className="savechangestickbutton"
+  //         >
+  //           <img className="savechangesticksymbol" src={saveTick} alt="" />
+  //         </button>
+  //         <button
+  //           onClick={updateCoursesConfirmBoxCancelClickHandler}
+  //           className="savechangescancelbutton"
+  //         >
+  //           <img
+  //             className="savechangescancelsymbol"
+  //             src={cancelSymbol}
+  //             alt=""
+  //           />
+  //         </button>
+  //       </div>
+  //     </div>
+  //   </Modal>
+  // );
 
   const deleteEachCourseWindow = (
     <div className="maincourses">
@@ -330,7 +330,7 @@ const UniversityCourse = () => {
             Add Course
           </button>
         </div>
-        <div className={classes.spacebetween1}></div>
+        {/* <div className={classes.spacebetween1}></div>
         <div className={classes.sidebartext1}>
           <button
             onClick={updateCourseButtonHandler}
@@ -338,7 +338,7 @@ const UniversityCourse = () => {
           >
             Update Course
           </button>
-        </div>
+        </div> */}
         <div className={classes.spacebetween1}></div>
         <div className={classes.sidebartext1}>
           <button
@@ -350,9 +350,9 @@ const UniversityCourse = () => {
         </div>
         <div className={classes.spacebetween1}></div>
         {addCourseButton && addCourseMainWindow}
-        {updateCourseButton && updateEachCoursesFlag && updateCoursesWindow}
-        {updateEachCourses && updateEachCoursesWindow}
-        {updateEachCoursesConfirmBoxFlag && updateEachCoursesConfirmBox}
+        {/* {updateCourseButton && updateEachCoursesFlag && updateCoursesWindow} */}
+        {/* {updateEachCourses && updateEachCoursesWindow} */}
+        {/* {updateEachCoursesConfirmBoxFlag && updateEachCoursesConfirmBox} */}
         {deleteCourseButton && deleteEachCourseWindow}
         {updateDeleteCoursesConfirmBoxFlag && deleteEachCoursesConfirmBoxWindow}
       </div>

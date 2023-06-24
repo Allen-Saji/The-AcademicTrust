@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./css/styles.css";
 import classes from "./css/StudentHomepageBody.module.css";
-import StdCertificate from "./StdCertificate";
+import Certificate from "../../Components/Certificate";
 const StudentCertificate = () => {
   const [certificate,setCertificate] = useState(false);
   const [height,setHeight] = useState(false);
@@ -27,7 +27,7 @@ const StudentCertificate = () => {
           <button onClick={viewButtonClickHandler} className={classes.certificatebutton}>View</button>
         </div>
       </div>
-      {certificate && <StdCertificate />}
+      {certificate && <Certificate />}
     </React.Fragment>
   );
 };
