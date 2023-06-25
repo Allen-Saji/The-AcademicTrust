@@ -12,6 +12,7 @@ const StudentCertificate = () => {
   const [loading, setLoading] = useState(false); // New state for loading status
   const [height, setHeight] = useState(false);
   const [certificateData, setCertificateData] = useState({});
+  const [error, setError] = useState(null); // New state for error handling
   const viewButtonClickHandler = () => {
     setLoading(true);
     viewCertificate({ registerNumber: user.registration_no });
@@ -21,15 +22,22 @@ const StudentCertificate = () => {
 
   const API_URL1 = "http://localhost:5000/api/student/viewCertificate";
   const viewCertificate = async (data) => {
-    const response = await axios.post(API_URL1, data); // Pass it as an object with the same key name
-    if (response.status === 200) {
-      console.log(response.data);
-      setCertificateData(response.data);
-    } else {
-      throw new Error(response.statusText);
+    try {
+      const response = await axios.post(API_URL1, data);
+      if (response.status === 200) {
+        console.log(response.data);
+        setCertificateData(response.data);
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        setError("Certificate not found!");
+      } else {
+        setError("An error occurred. Please try again later.");
+      }
+    } finally {
+      setLoading(false);
     }
   };
-
   useEffect(() => {
     if (Object.keys(certificateData).length > 0) {
       setLoading(false); // Set loading status to false when certificateData is received
@@ -65,7 +73,9 @@ const StudentCertificate = () => {
           </button>
         </div>
       </div>
-      {certificate && !loading && (
+      {error && <p className={classes.error}>{error}</p>}{" "}
+      {/* Render the error message */}
+      {certificate && !loading && !error && (
         <Certificate certificateData={certificateData} />
       )}
     </React.Fragment>

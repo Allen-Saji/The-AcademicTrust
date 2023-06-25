@@ -82,10 +82,9 @@ const issueCertificate = asyncHandler(async (req, res) => {
   }
 });
 
-const viewCertificate = asyncHandler(async (req, res) => {
+const viewCertificate = asyncHandler(async (req, res, next) => {
   try {
     const { registerNumber } = req.body;
-    console.log(registerNumber);
     const studentNamePromise =
       certificateContract.getCertificateStudentName(registerNumber);
     const institutionPromise =
@@ -109,6 +108,17 @@ const viewCertificate = asyncHandler(async (req, res) => {
       monthAndYearOfPassingPromise,
       cgpaPromise,
     ]);
+
+    if (
+      !studentName ||
+      !institution ||
+      !yearOfAdmission ||
+      !monthAndYearOfPassing ||
+      !cgpa
+    ) {
+      res.status(404).json({ error: "Certificate not found!" });
+      return;
+    }
 
     const subjectPromises = [];
     for (let i = 0; i < 8; i++) {
@@ -192,7 +202,7 @@ const viewCertificate = asyncHandler(async (req, res) => {
 
     res.status(200).json(response);
   } catch (error) {
-    throw new Error(error.message);
+    next(error);
   }
 });
 
