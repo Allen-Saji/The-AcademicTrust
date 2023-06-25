@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/logo/ktulogo.png";
 import "./certificate.css";
+import SubjectItem from "./SubjectItem";
 
 const TABLEHEADER = [
   {
@@ -9,47 +10,25 @@ const TABLEHEADER = [
     courseName: "Course Name",
     credit: "Credit",
     grade: "Grade",
-    yearOfPassing: "M&Y of passing",
+    yearOfPassing: "Month and Year of Passing",
   },
 ];
-const STDS1DATA = [
-  {
-    slNo: 1,
-    courseCode: "CST302",
-    courseNme: "Data Structure And Algorithm",
-    credit: 4,
-    grade: "S",
-    yearOfPassing: 2024,
-  },
-  {
-    slNo: 2,
-    courseCode: "CST304",
-    courseNme: "Database And Management System",
-    credit: 4,
-    grade: "A",
-    yearOfPassing: 2022,
-  },
-];
-
-const Certificate = () => {
+const checkBranch = (branch) => {
+  if (branch.substring(5, 7) === "CS") {
+    return "Computer Science and Engineering";
+  } else {
+    return "Electronics and Communication Engineering";
+  }
+};
+const Certificate = ({ certificateData }) => {
   const headers = TABLEHEADER.map((data) => (
     <tr class="resulttablerow">
       <td class="resulttablerow">{data.slNo}</td>
-      <td class="resulttablerow">{data.courseCode}</td>
+      {/* <td class="resulttablerow">{data.courseCode}</td> */}
       <td class="resulttablerow">{data.courseName}</td>
       <td class="resulttablerow">{data.credit}</td>
       <td class="resulttablerow">{data.grade}</td>
       <td class="resulttablerow">{data.yearOfPassing}</td>
-    </tr>
-  ));
-  const stddata = STDS1DATA.map((data) => (
-    <tr key={data.slNo} class="data1strow">
-      <td class="tablerow">{data.slNo}</td>
-      <td class="tablerow">{data.courseCode}</td>
-      <td class="tablerow">{data.courseNme}</td>
-      <td class="tablerow">{data.credit}</td>
-      <td class="tablerow">{data.grade}</td>
-      <td class="tablerow">{data.yearOfPassing}</td>
     </tr>
   ));
   return (
@@ -68,41 +47,58 @@ const Certificate = () => {
             </p>
           </div>
           <div className="namereg">
-            <p>Name:</p>
-            <p>Reg No:</p>
+            <p>Name: {certificateData.studentName}</p>
+            <p>Reg No: {certificateData.registerNumber}</p>
           </div>
 
           <div className="certificatetablebody">
             <h4 class="certificatetablebodyheading1">
               Bachelor of Technology Degree Certificate
             </h4>
-            <h4 class="certificatetablebodyheading2">Certificate Of Grades</h4>
+            <h4 class="certificatetablebodyheading2">
+              Consolidated Statement Of Grades
+            </h4>
             <div class="studentinfotablebody">
               <table class="studentinfotable">
                 <tr class="studenttableinforow">
-                  <td class="studenttableinforow">Name:</td>
-                  <td class="studenttableinforow">Ref No:</td>
+                  <td class="studenttableinforow">
+                    Name: {certificateData.studentName}
+                  </td>
+                  <td class="studenttableinforow">
+                    Reg No: {certificateData.registerNumber}
+                  </td>
                 </tr>
                 <tr class="studenttableinforow">
-                  <td>Institution:</td>
-                </tr>
-                <tr class="studenttableinforow">
-                  <td class="studenttableinforow">Branch:</td>
-                  <td class="studenttableinforow">Mode of Study:</td>
-                </tr>
-                <tr class="studenttableinforow">
-                  <td class="studenttableinforow">Year of Admission:</td>
-                  <td class="studenttableinforow">Duration of Program:</td>
+                  <td>Institution: {certificateData.institution}</td>
                 </tr>
                 <tr class="studenttableinforow">
                   <td class="studenttableinforow">
-                    Month and Year of Passing:
+                    Branch: {checkBranch(certificateData.registerNumber)}
                   </td>
-                  <td class="studenttableinforow">Medium of Instruction:</td>
+                  <td class="studenttableinforow">Mode of Study: Regular</td>
                 </tr>
                 <tr class="studenttableinforow">
-                  <td class="studenttableinforow">Total Credits:</td>
-                  <td class="studenttableinforow">CGPA:</td>
+                  <td class="studenttableinforow">
+                    Year of Admission: {certificateData.yearOfAdmission}
+                  </td>
+                  <td class="studenttableinforow">
+                    Duration of Program: 4 years
+                  </td>
+                </tr>
+                <tr class="studenttableinforow">
+                  <td class="studenttableinforow">
+                    Month and Year of Passing:{" "}
+                    {certificateData.monthAndYearOfPassing}
+                  </td>
+                  <td class="studenttableinforow">
+                    Medium of Instruction: English
+                  </td>
+                </tr>
+                <tr class="studenttableinforow">
+                  <td class="studenttableinforow">Total Credits: 184</td>
+                  <td class="studenttableinforow">
+                    CGPA: {certificateData.cgpa}
+                  </td>
                 </tr>
               </table>
             </div>
@@ -110,65 +106,113 @@ const Certificate = () => {
             <div class="resulttablemain">
               <table class="resulttable">
                 <tr>
-                  <p class="heading2">First Semester SGPA</p>
+                  <p class="heading2">First Semester</p>
                 </tr>
                 {headers}
-                {stddata}
+                <SubjectItem
+                  courseNames={certificateData.subjectNamesList[0]}
+                  credits={certificateData.examcreditsList[0]}
+                  months={certificateData.examMonthList[0]}
+                  grades={certificateData.examGradeList[0]}
+                  years={certificateData.examYearList[0]}
+                />
               </table>
               <table class="resulttable">
                 <tr>
-                  <p class="heading2">Second Semester SGPA</p>
+                  <p class="heading2">Second Semester</p>
                 </tr>
                 {headers}
-                {stddata}
-              </table>
-
-              <table class="resulttable">
-                <tr>
-                  <p class="heading2">Third Semester SGPA</p>
-                </tr>
-                {headers}
-                {stddata}
-              </table>
-
-              <table class="resulttable">
-                <tr>
-                  <p class="heading2">Fourth Semester SGPA</p>
-                </tr>
-                {headers}
-                {stddata}
+                <SubjectItem
+                  courseNames={certificateData.subjectNamesList[1]}
+                  credits={certificateData.examcreditsList[1]}
+                  months={certificateData.examMonthList[1]}
+                  grades={certificateData.examGradeList[1]}
+                  years={certificateData.examYearList[1]}
+                />
               </table>
 
               <table class="resulttable">
                 <tr>
-                  <p class="heading2">Fifth Semester SGPA</p>
+                  <p class="heading2">Third Semester</p>
                 </tr>
                 {headers}
-                {stddata}
+                <SubjectItem
+                  courseNames={certificateData.subjectNamesList[2]}
+                  credits={certificateData.examcreditsList[2]}
+                  months={certificateData.examMonthList[2]}
+                  grades={certificateData.examGradeList[2]}
+                  years={certificateData.examYearList[2]}
+                />
               </table>
 
               <table class="resulttable">
                 <tr>
-                  <p class="heading2">Sixth Semester SGPA</p>
+                  <p class="heading2">Fourth Semester</p>
                 </tr>
                 {headers}
-                {stddata}
+                <SubjectItem
+                  courseNames={certificateData.subjectNamesList[3]}
+                  credits={certificateData.examcreditsList[3]}
+                  months={certificateData.examMonthList[3]}
+                  grades={certificateData.examGradeList[3]}
+                  years={certificateData.examYearList[3]}
+                />
               </table>
 
               <table class="resulttable">
                 <tr>
-                  <p class="heading2">Seventh Semester SGPA</p>
+                  <p class="heading2">Fifth Semester</p>
                 </tr>
                 {headers}
-                {stddata}
+                <SubjectItem
+                  courseNames={certificateData.subjectNamesList[4]}
+                  credits={certificateData.examcreditsList[4]}
+                  months={certificateData.examMonthList[4]}
+                  grades={certificateData.examGradeList[4]}
+                  years={certificateData.examYearList[4]}
+                />
               </table>
 
               <table class="resulttable">
                 <tr>
-                  <p class="heading2">Eighth Semester SGPA</p>
+                  <p class="heading2">Sixth Semester</p>
                 </tr>
                 {headers}
-                {stddata}
+                <SubjectItem
+                  courseNames={certificateData.subjectNamesList[5]}
+                  credits={certificateData.examcreditsList[5]}
+                  months={certificateData.examMonthList[5]}
+                  grades={certificateData.examGradeList[5]}
+                  years={certificateData.examYearList[5]}
+                />
+              </table>
+
+              <table class="resulttable">
+                <tr>
+                  <p class="heading2">Seventh Semester</p>
+                </tr>
+                {headers}
+                <SubjectItem
+                  courseNames={certificateData.subjectNamesList[6]}
+                  credits={certificateData.examcreditsList[6]}
+                  months={certificateData.examMonthList[6]}
+                  grades={certificateData.examGradeList[6]}
+                  years={certificateData.examYearList[6]}
+                />
+              </table>
+
+              <table class="resulttable">
+                <tr>
+                  <p class="heading2">Eighth Semester</p>
+                </tr>
+                {headers}
+                <SubjectItem
+                  courseNames={certificateData.subjectNamesList[7]}
+                  credits={certificateData.examcreditsList[7]}
+                  months={certificateData.examMonthList[7]}
+                  grades={certificateData.examGradeList[7]}
+                  years={certificateData.examYearList[7]}
+                />
               </table>
               <h4 class="bottomhead">
                 Student Activity 2 credits(non-academic) successfully completed

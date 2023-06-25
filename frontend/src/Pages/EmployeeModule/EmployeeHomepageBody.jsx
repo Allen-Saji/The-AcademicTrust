@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../assets/logo/school.png";
 import classes from "./css/EmployeeHomepageBody.module.css";
 import { logout, register } from "../../features/auth/authSlice";
 import "./css/styles.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-// import EmpCertificate from "./EmpCertificate";
+import Spinner from "../../Components/Spinner";
 import axios from "axios";
 import Certificate from "../../Components/Certificate";
 
 const EmployeeHomepageBody = () => {
+  const [loading, setLoading] = useState(false); // New state for loading status
   const [home, setHome] = useState(true);
   const [Credentials, setCredentials] = useState(false);
   const [viewCertificate, setCertificate] = useState(false);
   const [height, setHeight] = useState(false);
   const [logoutButton, setLogoutButton] = useState(false);
+  const [certificateData, setCertificateData] = useState({});
 
   const Navigate = useNavigate();
   const Dispatch = useDispatch();
@@ -25,10 +27,17 @@ const EmployeeHomepageBody = () => {
     const response = await axios.post(API_URL1, data); // Pass it as an object with the same key name
     if (response.status === 200) {
       console.log(response.data);
+      setCertificateData(response.data);
     } else {
       throw new Error(response.statusText);
     }
   };
+
+  useEffect(() => {
+    if (Object.keys(certificateData).length > 0) {
+      setLoading(false); // Set loading status to false when certificateData is received
+    }
+  }, [certificateData]);
 
   const onChange = (e) => {
     setRegNo((prevState) => ({
@@ -36,6 +45,10 @@ const EmployeeHomepageBody = () => {
       [e.target.name]: e.target.value,
     }));
   };
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   const employeeLogoutClickHandler = () => {
     // Dispatch(logout);
@@ -55,6 +68,7 @@ const EmployeeHomepageBody = () => {
 
   const verifyButtonHandler = () => {
     const data = { registerNumber: regNo.regNo };
+    setLoading(true);
     verifyCertificate(data);
     setCertificate(true);
     setHeight(true);
@@ -84,7 +98,7 @@ const EmployeeHomepageBody = () => {
           <td>Aimilbij@gmail.com</td>
         </tr>
         <tr className="employertablerow">
-          <td className="employertabledata">Hadquarters</td>
+          <td className="employertabledata">Headquarters</td>
           <td>America</td>
         </tr>
         <tr className="employertablerow">
@@ -110,7 +124,7 @@ const EmployeeHomepageBody = () => {
   const credentialInfo = (
     <div className={classes.semesterselectorbody}>
       <div className={classes.semesterselecttext}>
-        <p>Enter The Student Register No </p>
+        <p>Enter the student register number </p>
       </div>
       <div className={classes.semesterselector}>
         <input type="text" name="regNo" onChange={onChange} />
@@ -163,7 +177,9 @@ const EmployeeHomepageBody = () => {
             </button>
           </div>
         </div>
-        {viewCertificate && <Certificate />}
+        {viewCertificate && !loading && (
+          <Certificate certificateData={certificateData} />
+        )}
       </div>
     </React.Fragment>
   );
