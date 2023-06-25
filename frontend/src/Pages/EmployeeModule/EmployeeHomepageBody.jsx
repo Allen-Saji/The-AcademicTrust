@@ -4,12 +4,13 @@ import classes from "./css/EmployeeHomepageBody.module.css";
 import { logout, register } from "../../features/auth/authSlice";
 import "./css/styles.css";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Spinner from "../../Components/Spinner";
 import axios from "axios";
 import Certificate from "../../Components/Certificate";
 
 const EmployeeHomepageBody = () => {
+  const { user } = useSelector((state) => state.auth);
   const [loading, setLoading] = useState(false); // New state for loading status
   const [home, setHome] = useState(true);
   const [Credentials, setCredentials] = useState(false);
@@ -19,7 +20,6 @@ const EmployeeHomepageBody = () => {
   const [certificateData, setCertificateData] = useState({});
 
   const Navigate = useNavigate();
-  const Dispatch = useDispatch();
 
   const [regNo, setRegNo] = useState();
   const API_URL1 = "http://localhost:5000/api/student/viewCertificate";
@@ -87,23 +87,23 @@ const EmployeeHomepageBody = () => {
 
   const homeInfo = (
     <div className={classes.semesterselectorbody}>
-      <p className={classes.employertext}>Employer Details</p>
+      <p className={classes.employertext}>Organization Details</p>
       <table className="hometable">
         <tr className="employertablerow">
-          <td className="employertabledata">Employer Name</td>
-          <td className="employertabledata">Aimil Bij</td>
+          <td className="employertabledata">Organization Name</td>
+          <td className="employertabledata">{user.name}</td>
         </tr>
         <tr className="employertablerow">
           <td className="employertabledata">Email</td>
-          <td>Aimilbij@gmail.com</td>
+          <td>{user.email}</td>
         </tr>
         <tr className="employertablerow">
           <td className="employertabledata">Headquarters</td>
-          <td>America</td>
+          <td>{user.headquarters}</td>
         </tr>
         <tr className="employertablerow">
           <td className="employertabledata">Year Of Registration</td>
-          <td>2012</td>
+          <td>{user.year_of_reg}</td>
         </tr>
       </table>
     </div>
