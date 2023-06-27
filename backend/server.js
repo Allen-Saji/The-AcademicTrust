@@ -30,6 +30,7 @@ app.use("/api/admin/program", require("./routes/programRoutes"));
 app.use("/api/admin/organization", require("./routes/organizationRoutes"));
 app.use("/api/admin/institution", require("./routes/institutionRoutes"));
 app.use("/api/organization", require("./routes/organizationRoutes"));
+app.use("/api/admin/announcements", require("./routes/announcementRoutes"));
 // Serve Frontend
 if (process.env.NODE_ENV === "production") {
   // Set build folder as static
