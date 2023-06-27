@@ -187,15 +187,20 @@ const getGradeAndMarks = asyncHandler(async (req, res) => {
     student_id,
     semester,
   });
+  //  console.log(enrollments);
 
   const courseIds = [];
   enrollments.forEach((enrollment) => {
     courseIds.push(enrollment.course_id);
   });
 
+  // console.log(courseIds);
+
   const courses = await Course.find({
     courseCode: { $in: courseIds },
   });
+
+  console.log(courses);
 
   //console.log(courseNames);
   //console.log(courseCredits);

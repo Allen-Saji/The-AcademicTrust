@@ -67,6 +67,9 @@ const UniversityResults = () => {
           <option value='{"year_of_adm":2017,"semester":1}'>
             B TECH S1(R,S) DECEMBER 2017
           </option>
+          <option value='{"year_of_adm":2017,"semester":3}'>
+            B TECH S3(R,S) DECEMBER 2018
+          </option>
           <option value="">B TECH S5(R,S) MARCH 2023</option>
         </select>
         <button
