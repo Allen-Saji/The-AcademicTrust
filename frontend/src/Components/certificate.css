@@ -48,7 +48,7 @@
   text-align: center;
   font-weight: 100;
   font-size: 1.3rem;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 .logo {
   width: 90px;
@@ -63,7 +63,7 @@
   margin-top: 1%;
 }
 .namereg {
-  margin-top: 15%;
+  margin-top: 25%;
   margin-left: 10%;
   font-size: 1.2rem;
   font-weight: 600;
@@ -98,7 +98,7 @@
 }
 .resulttablemain {
   margin-left: 15%;
-  margin-top: 5%;
+  margin-top: 8%;
 }
 
 .resulttable {
@@ -107,7 +107,7 @@
   border: 1px black solid;
   font-size: 1.1rem;
   width: 82.3%;
-  margin-top: 5%;
+  margin-top: 8%;
 }
 
 .resulttablerow {
@@ -115,10 +115,14 @@
 }
 .heading2 {
   width: 100%;
-  font-size: 1.2rem;
-  margin-left: 150%;
+  font-size: 1.4rem;
+  margin-left: -12%;
+  margin-top: -3%;
+  position: absolute;
 }
-
+.headerheading{
+  position: absolute;
+}
 .resultdatatable {
   border: 1px black solid;
   margin-top: 4%;
@@ -132,20 +136,78 @@
 }
 .bottomhead {
   margin-left: -43%;
+  margin-top: 3%;
 }
 .ktubottomlogo {
   width: 100px;
   margin-left: 45%;
-  margin-top: 3%;
+  margin-top: 12%;
 }
 .bottomname {
   display: flex;
   justify-content: end;
   margin-right: 15%;
-  margin-top: 1%;
+  margin-top: 5%;
   margin-bottom: 15%;
 }
+.trump{
+  width: 120px;
+  margin-left: 71%;
+  margin-top: -6%;
+  position: absolute;
+}
+@media (max-width: 1800px) {
+.trump{
+  margin-left: 16%;
+}
 
+}
+@media (max-width: 1700px) {
+  .trump{
+    margin-left: 15%;
+  }
+  
+  }
+  @media (max-width: 1690px) {
+    .trump{
+      margin-top: -7%;
+      margin-left: 69%;
+    }
+    
+    }
+    @media (max-width: 1532px) {
+      .trump{
+        margin-top: -7%;
+        margin-left: 68%;
+      }
+      
+      }
+      @media (max-width: 1374px) {
+        .trump{
+          margin-left: 66%;
+          margin-top: -8%;
+        }
+        .signature{
+          margin-top: 13%;
+        }
+        }
+        @media (max-width: 1216px) {
+          .trump{
+            margin-top: -9%;
+            margin-left: 65%;
+          }
+          
+          }
+@media (max-width: 1592px) {
+  .heading2{
+    margin-top: -4%;
+  }
+}
+@media (max-width: 1239px) {
+  .heading2{
+    margin-top: -5%;
+  }
+}
 @media (max-width: 1322px) {
   .certificateWholebody {
     margin-top: 18%;

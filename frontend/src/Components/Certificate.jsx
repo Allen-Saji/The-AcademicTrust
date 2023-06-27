@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/logo/ktulogo.png";
 import "./certificate.css";
 import SubjectItem from "./SubjectItem";
-
+import trump from '../assets/trumpSign.png';
 const TABLEHEADER = [
   {
     slNo: "Sl No",
@@ -104,10 +104,11 @@ const Certificate = ({ certificateData }) => {
             </div>
 
             <div class="resulttablemain">
+            <p className="heading2">First Semester</p>
               <table class="resulttable">
-                <tr>
-                  <p class="heading2">First Semester</p>
-                </tr>
+                {/* <th className="headerheading">
+                 
+                </th> */}
                 {headers}
                 <SubjectItem
                   courseNames={certificateData.subjectNamesList[0]}
@@ -220,7 +221,11 @@ const Certificate = ({ certificateData }) => {
             </div>
           </div>
           <img className="ktubottomlogo" src={logo} alt="" />
+          <div className="signature">
+          <img className="trump" src={trump} alt="" />
           <p class="bottomname">Controller of Examination</p>
+          </div>
+          
         </div>
       </div>
     </React.Fragment>

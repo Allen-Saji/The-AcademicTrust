@@ -81,6 +81,7 @@ const EmployeeHomepageBody = () => {
     verifyCertificate(data);
     setCertificate(true);
     setHeight(true);
+    setHome(true);
   };
 
   const homebutton = home ? "resultButtonActive" : "resultButton";
