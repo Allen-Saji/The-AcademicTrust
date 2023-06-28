@@ -53,6 +53,45 @@ const getEligibleStudents = asyncHandler(async (req, res) => {
   }
 });
 
+const getCgpaEachSem = async (req, res) => {
+  const { register_no } = req.body;
+  const cgpaEachSem = [];
+
+  try {
+    for (let i = 1; i <= 8; i++) {
+      const student_id = register_no;
+      const semester = i;
+
+      const enrollments = await Enrollment.find({
+        student_id,
+        semester,
+      });
+
+      // Retrieve results for the enrollments
+      const results = await Result.find({
+        enrollment_id: {
+          $in: enrollments.map((enrollment) => enrollment._id),
+        },
+      });
+
+      const subjectMarks = results.map((result) => result.marks);
+      let marks = 0;
+      subjectMarks.forEach((mark) => {
+        marks = marks + mark;
+      });
+
+      let cgpa = marks / (subjectMarks.length * 10);
+      cgpa = parseFloat(cgpa.toFixed(2));
+      cgpaEachSem.push(cgpa);
+    }
+
+    res.status(200).json(cgpaEachSem);
+  } catch (error) {
+    console.error("Failed to fetch CGPA for each semester:", error);
+    res.status(500).json({ error: "Failed to fetch CGPA for each semester" });
+  }
+};
+
 const getCertificateDetails = async (req, res) => {
   try {
     const { students } = req.body;
@@ -186,4 +225,5 @@ const getCertificateDetails = async (req, res) => {
 module.exports = {
   getEligibleStudents,
   getCertificateDetails,
+  getCgpaEachSem,
 };
