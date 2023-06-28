@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/logo/ktulogo.png";
 import "./certificate.css";
 import SubjectItem from "./SubjectItem";
-import trump from '../assets/trumpSign.png';
+import trump from "../assets/trumpSign.png";
 const TABLEHEADER = [
   {
     slNo: "Sl No",
@@ -20,7 +20,7 @@ const checkBranch = (branch) => {
     return "Electronics and Communication Engineering";
   }
 };
-const Certificate = ({ certificateData }) => {
+const Certificate = ({ certificateData, cgpa }) => {
   const headers = TABLEHEADER.map((data) => (
     <tr class="resulttablerow">
       <td class="resulttablerow">{data.slNo}</td>
@@ -104,7 +104,8 @@ const Certificate = ({ certificateData }) => {
             </div>
 
             <div class="resulttablemain">
-            <p className="heading2">First Semester</p>
+              <p className="heading2">First Semester</p>
+              <p className="heading2">SGPA: {cgpa[0]}</p>
               <table class="resulttable">
                 {/* <th className="headerheading">
                  
@@ -121,6 +122,7 @@ const Certificate = ({ certificateData }) => {
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Second Semester</p>
+                  <p className="heading2">SGPA: {cgpa[1]}</p>
                 </tr>
                 {headers}
                 <SubjectItem
@@ -135,6 +137,7 @@ const Certificate = ({ certificateData }) => {
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Third Semester</p>
+                  <p className="heading2">SGPA: {cgpa[2]}</p>
                 </tr>
                 {headers}
                 <SubjectItem
@@ -149,6 +152,7 @@ const Certificate = ({ certificateData }) => {
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Fourth Semester</p>
+                  <p className="heading2">SGPA: {cgpa[3]}</p>
                 </tr>
                 {headers}
                 <SubjectItem
@@ -163,6 +167,7 @@ const Certificate = ({ certificateData }) => {
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Fifth Semester</p>
+                  <p className="heading2">SGPA: {cgpa[4]}</p>
                 </tr>
                 {headers}
                 <SubjectItem
@@ -177,6 +182,7 @@ const Certificate = ({ certificateData }) => {
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Sixth Semester</p>
+                  <p className="heading2">SGPA: {cgpa[5]}</p>
                 </tr>
                 {headers}
                 <SubjectItem
@@ -191,6 +197,7 @@ const Certificate = ({ certificateData }) => {
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Seventh Semester</p>
+                  <p className="heading2">SGPA: {cgpa[6]}</p>
                 </tr>
                 {headers}
                 <SubjectItem
@@ -205,6 +212,7 @@ const Certificate = ({ certificateData }) => {
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Eighth Semester</p>
+                  <p className="heading2">SGPA: {cgpa[7]}</p>
                 </tr>
                 {headers}
                 <SubjectItem
@@ -222,10 +230,9 @@ const Certificate = ({ certificateData }) => {
           </div>
           <img className="ktubottomlogo" src={logo} alt="" />
           <div className="signature">
-          <img className="trump" src={trump} alt="" />
-          <p class="bottomname">Controller of Examination</p>
+            <img className="trump" src={trump} alt="" />
+            <p class="bottomname">Controller of Examination</p>
           </div>
-          
         </div>
       </div>
     </React.Fragment>

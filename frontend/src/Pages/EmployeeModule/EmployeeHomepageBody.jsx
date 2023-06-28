@@ -19,13 +19,21 @@ const EmployeeHomepageBody = () => {
   const [logoutButton, setLogoutButton] = useState(false);
   const [certificateData, setCertificateData] = useState({});
   const [error, setError] = useState(null); // New state for error handling
+  const [cgpa, setCgpa] = useState([]);
 
   const Navigate = useNavigate();
 
   const [regNo, setRegNo] = useState();
   const API_URL1 = "http://localhost:5000/api/student/viewCertificate";
+  const API_URL2 = "http://localhost:5000/api/student/getCgpa";
   const verifyCertificate = async (data) => {
     try {
+      const cgpaEachSem = await axios.post(API_URL2, {
+        register_no: regNo.regNo,
+      });
+      if (cgpaEachSem.status === 200) {
+        setCgpa(cgpaEachSem.data);
+      }
       const response = await axios.post(API_URL1, data);
       if (response.status === 200) {
         console.log(response.data);
@@ -190,7 +198,7 @@ const EmployeeHomepageBody = () => {
         {error && <p className={classes.error}>{error}</p>}{" "}
         {/* Render the error message */}
         {viewCertificate && !loading && !error && (
-          <Certificate certificateData={certificateData} />
+          <Certificate certificateData={certificateData} cgpa={cgpa} />
         )}
       </div>
     </React.Fragment>
