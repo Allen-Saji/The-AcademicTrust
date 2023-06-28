@@ -33,27 +33,29 @@ const StudentHome = () => {
             <tbody>
               <tr className="tablerow">
                 <td className="tablecolumn">Name : {user.name}</td>
-                <td className="tablecolumn">Register Number : {user.registration_no}</td>
+                <td className="tablecolumn">
+                  Register Number : {user.registration_no}
+                </td>
               </tr>
-              <tr  className="tablerow">
-                <td className="tablecolumn">Institution : {user.institution}</td>
+              <tr className="tablerow">
+                <td className="tablecolumn">
+                  Institution : {user.institution}
+                </td>
                 <td className="tablecolumn">Program: {user.program}</td>
               </tr>
-              <tr  className="tablerow">
+              <tr className="tablerow">
                 <td className="tablecolumn">Branch: {user.branch}</td>
                 <td className="tablecolumn">Mode of study:Regular</td>
               </tr>
-              <tr  className="tablerow">
+              <tr className="tablerow">
                 <td className="tablecolumn">Year of Admission: {year}</td>
-                <td className="tablecolumn">Duration of the programme : 4 Years</td>
+                <td className="tablecolumn">
+                  Duration of the programme : 4 Years
+                </td>
               </tr>
               <tr className="tablerow">
-                <td className="tablecolumn">Month and Year of Passing : JUNE-2022</td>
+                <td className="tablecolumn">Total Credits: 184</td>
                 <td className="tablecolumn">Medium of Instruction: English</td>
-              </tr>
-              <tr className="tablerow">
-                <td className="tablecolumn">Total Credits :190</td>
-                <td className="tablecolumn">CGPA :8.61</td>
               </tr>
             </tbody>
           </table>
@@ -65,4 +67,3 @@ const StudentHome = () => {
   );
 };
 export default StudentHome;
-
