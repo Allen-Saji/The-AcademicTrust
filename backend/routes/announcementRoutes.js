@@ -5,7 +5,7 @@ const {
   getLatestAnnouncements,
 } = require("../controllers/announcementController");
 
-router.post("/add", addAnnouncement);
-router.post("/", getLatestAnnouncements);
+router.post("/", addAnnouncement);
+router.get("/", getLatestAnnouncements);
 
 module.exports = router;

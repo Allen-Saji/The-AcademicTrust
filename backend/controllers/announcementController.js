@@ -1,20 +1,20 @@
 const Announcement = require("../models/announcementModel");
+const asyncHandler = require("async-handler");
 
-// Controller function to add a new announcement
-async function addAnnouncement(req, res) {
+const addAnnouncement = asyncHandler(async (req, res) => {
   const { title } = req.body;
 
-  try {
-    const newAnnouncement = new Announcement({
-      title,
-    });
+  // Create announcement
+  const announcement = await Announcement.create({
+    title,
+  });
 
-    const savedAnnouncement = await newAnnouncement.save();
-    res.status(201).json(savedAnnouncement);
-  } catch (error) {
-    res.status(500).json({ error: "Failed to add announcement" });
-  }
-}
+  // Return response object
+  res.status(201).json({
+    title: announcement.title,
+    date: announcement.date,
+  });
+});
 
 // Controller function to delete an announcement
 async function deleteAnnouncement(req, res) {
@@ -37,7 +37,6 @@ async function deleteAnnouncement(req, res) {
 async function getLatestAnnouncements(req, res) {
   try {
     const announcements = await Announcement.find().sort({ date: -1 }).limit(3);
-
     res.status(200).json(announcements);
   } catch (error) {
     res.status(500).json({ error: "Failed to retrieve announcements" });
