@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./css/Body.module.css";
 import tick from "../../assets/tick.png";
+import axios from "axios";
 
 import ImageSlider from "./ImageSlider";
 import pic1 from "../../assets/homepage1.jpg";
@@ -9,6 +10,7 @@ import pic3 from "../../assets/homepage3.jpg";
 import pic4 from "../../assets/homepage4.jpg";
 import pic5 from "../../assets/homepage5.jpg";
 const Body = () => {
+  const [announcements, setAnnouncements] = useState([]);
   const slides = [
     { url: pic1, title: "beach" },
     { url: pic2, title: "boat" },
@@ -16,6 +18,33 @@ const Body = () => {
     { url: pic4, title: "city" },
     { url: pic5, title: "italy" },
   ];
+
+  const API_URL = "http://localhost:5000/api/admin/announcements";
+
+  useEffect(() => {
+    const getAnnouncements = async () => {
+      try {
+        const response = await axios.get(API_URL);
+        const announcements = response.data;
+        setAnnouncements(announcements);
+        // Handle the fetched announcements as needed
+      } catch (error) {
+        console.error("Failed to fetch announcements:", error);
+        // Handle the error condition
+      }
+    };
+
+    getAnnouncements(); // Invoke the function on page load
+  }, []); // Empty dependency array ensures it only runs once on page load
+
+  const announcementItem = (
+    <>
+      {announcements.map((announcement) => (
+        <li>{announcement.title}</li>
+      ))}
+    </>
+  );
+
   const containerStyles = {
     width: "100%",
     height: "485px",
@@ -44,21 +73,7 @@ const Body = () => {
           </div>
           <div className={classes.announcementdetails}>
             <div className={classes.announcementdetails1}>
-              <ul>
-                <li>
-                  B.Tech S5 (PT) (S,FE) Exam Jan 2023 (2015 scheme)-Publication
-                  of Results - Notified - Reg
-                </li>
-                <li>
-                  APJAKTU - Conduct of the course CST206- Operating Systems
-                  (Slot C & D) of B.Tech S4 Supplementary June 2023 Examinations
-                  - Notification - reg:
-                </li>
-                {/* <li>kdgddbdmnbmdnbvmndbvmnbdvdmnbvmdnbvmbdvm</li>
-                <li>kefbvkenfebvkndbkbek</li>
-                <li>ijndigjningiergergegnj</li>
-                <li>ijrngrijenr</li> */}
-              </ul>
+              <ul>{announcementItem}</ul>
             </div>
           </div>
         </div>
