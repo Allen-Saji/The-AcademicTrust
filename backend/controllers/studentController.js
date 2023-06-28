@@ -200,7 +200,7 @@ const getGradeAndMarks = asyncHandler(async (req, res) => {
     courseCode: { $in: courseIds },
   });
 
-  console.log(courses);
+  // console.log(courses);
 
   //console.log(courseNames);
   //console.log(courseCredits);
