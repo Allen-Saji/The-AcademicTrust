@@ -89,7 +89,7 @@ const EmployeeHomepageBody = () => {
     verifyCertificate(data);
     setCertificate(true);
     setHeight(true);
-    setHome(true);
+    // setHome(true);
   };
 
   const homebutton = home ? "resultButtonActive" : "resultButton";
@@ -145,7 +145,7 @@ const EmployeeHomepageBody = () => {
         <p>Enter the student register number </p>
       </div>
       <div className={classes.semesterselector}>
-        <input type="text" name="regNo" onChange={onChange} />
+        <input type="text" name="regNo" value={certificateData.registerNumber} onChange={onChange} />
       </div>
       <div className={classes.selectorbutton}>
         <button onClick={verifyButtonHandler}>Verify</button>

@@ -156,6 +156,9 @@
   margin-top: -6%;
   position: absolute;
 }
+.sgpa{
+  position: absolute;
+}
 @media (max-width: 1800px) {
 .trump{
   margin-left: 16%;

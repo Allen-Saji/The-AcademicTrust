@@ -105,7 +105,7 @@ const Certificate = ({ certificateData, cgpa }) => {
 
             <div class="resulttablemain">
               <p className="heading2">First Semester</p>
-              <p className="heading2">SGPA: {cgpa[0]}</p>
+        
               <table class="resulttable">
                 {/* <th className="headerheading">
                  
@@ -118,11 +118,18 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[0]}
                   years={certificateData.examYearList[0]}
                 />
+                    <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p >SGPA: {cgpa[0]}</p></td>
+                </tr>
               </table>
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Second Semester</p>
-                  <p className="heading2">SGPA: {cgpa[1]}</p>
+
                 </tr>
                 {headers}
                 <SubjectItem
@@ -132,12 +139,19 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[1]}
                   years={certificateData.examYearList[1]}
                 />
+                  <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p className="">SGPA: {cgpa[1]}</p></td>
+                </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Third Semester</p>
-                  <p className="heading2">SGPA: {cgpa[2]}</p>
+
                 </tr>
                 {headers}
                 <SubjectItem
@@ -147,12 +161,19 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[2]}
                   years={certificateData.examYearList[2]}
                 />
+                  <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p className="">SGPA: {cgpa[2]}</p></td>
+                </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Fourth Semester</p>
-                  <p className="heading2">SGPA: {cgpa[3]}</p>
+
                 </tr>
                 {headers}
                 <SubjectItem
@@ -162,12 +183,19 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[3]}
                   years={certificateData.examYearList[3]}
                 />
+                  <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p className="">SGPA: {cgpa[3]}</p></td>
+                </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Fifth Semester</p>
-                  <p className="heading2">SGPA: {cgpa[4]}</p>
+          
                 </tr>
                 {headers}
                 <SubjectItem
@@ -177,12 +205,19 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[4]}
                   years={certificateData.examYearList[4]}
                 />
+                  <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p className="">SGPA: {cgpa[4]}</p></td>
+                </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Sixth Semester</p>
-                  <p className="heading2">SGPA: {cgpa[5]}</p>
+            
                 </tr>
                 {headers}
                 <SubjectItem
@@ -191,13 +226,21 @@ const Certificate = ({ certificateData, cgpa }) => {
                   months={certificateData.examMonthList[5]}
                   grades={certificateData.examGradeList[5]}
                   years={certificateData.examYearList[5]}
+                  
                 />
+                  <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p className="">SGPA: {cgpa[5]}</p></td>
+                </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Seventh Semester</p>
-                  <p className="heading2">SGPA: {cgpa[6]}</p>
+    
                 </tr>
                 {headers}
                 <SubjectItem
@@ -207,12 +250,19 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[6]}
                   years={certificateData.examYearList[6]}
                 />
+                  <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p >SGPA: {cgpa[6]}</p></td>
+                </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Eighth Semester</p>
-                  <p className="heading2">SGPA: {cgpa[7]}</p>
+                 
                 </tr>
                 {headers}
                 <SubjectItem
@@ -222,6 +272,13 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[7]}
                   years={certificateData.examYearList[7]}
                 />
+                  <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><p >SGPA: {cgpa[7]}</p></td>
+                </tr>
               </table>
               <h4 class="bottomhead">
                 Student Activity 2 credits(non-academic) successfully completed

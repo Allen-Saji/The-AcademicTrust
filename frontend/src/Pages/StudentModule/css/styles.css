@@ -1,10 +1,18 @@
 .resultButton{
     background-color: #ADD8E6;
     color: black;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-size: 22px;
 }
 .resultButtonActive{
     background-color: #536674;
     color: whitesmoke;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-size: 22px;
 }
 .studenthomepagesidebarlow {
     background-color: #536674;
