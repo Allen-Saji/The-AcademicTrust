@@ -116,7 +116,10 @@
   transition-duration: 1s;
   /* margin-left: -40%; */
 }
-
+.error{
+  font-size: 1.1rem;
+  color: #b62c22c4;
+}
 
 @media (max-width: 1337px) {
   .dropdowncontent{

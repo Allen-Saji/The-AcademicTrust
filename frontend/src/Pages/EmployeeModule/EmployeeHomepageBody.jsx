@@ -150,6 +150,7 @@ const EmployeeHomepageBody = () => {
       <div className={classes.selectorbutton}>
         <button onClick={verifyButtonHandler}>Verify</button>
       </div>
+      {error && <p className={classes.error}>{error}</p>}{" "}
     </div>
   );
   const logoutButtonClickHandler = () => {
@@ -195,7 +196,7 @@ const EmployeeHomepageBody = () => {
             </button>
           </div>
         </div>
-        {error && <p className={classes.error}>{error}</p>}{" "}
+       
         {/* Render the error message */}
         {viewCertificate && !loading && !error && (
           <Certificate certificateData={certificateData} cgpa={cgpa} />
