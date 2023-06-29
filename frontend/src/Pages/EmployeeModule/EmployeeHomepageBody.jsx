@@ -36,7 +36,7 @@ const EmployeeHomepageBody = () => {
       }
       const response = await axios.post(API_URL1, data);
       if (response.status === 200) {
-        console.log(response.data);
+        //console.log(response.data);
         setCertificateData(response.data);
       }
     } catch (error) {
@@ -85,11 +85,11 @@ const EmployeeHomepageBody = () => {
 
   const verifyButtonHandler = () => {
     const data = { registerNumber: regNo.regNo };
+    setError(null);
     setLoading(true);
     verifyCertificate(data);
     setCertificate(true);
     setHeight(true);
-    // setHome(true);
   };
 
   const homebutton = home ? "resultButtonActive" : "resultButton";
@@ -145,7 +145,7 @@ const EmployeeHomepageBody = () => {
         <p>Enter the student register number </p>
       </div>
       <div className={classes.semesterselector}>
-        <input type="text" name="regNo"  onChange={onChange} />
+        <input type="text" name="regNo" onChange={onChange} />
       </div>
       <div className={classes.selectorbutton}>
         <button onClick={verifyButtonHandler}>Verify</button>
@@ -196,7 +196,7 @@ const EmployeeHomepageBody = () => {
             </button>
           </div>
         </div>
-       
+
         {/* Render the error message */}
         {viewCertificate && !loading && !error && (
           <Certificate certificateData={certificateData} cgpa={cgpa} />
