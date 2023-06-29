@@ -24,7 +24,7 @@
   }
   .studenthomepagesidebarhigh {
     background-color: #536674;
-    height: 520vh;
+    height: 560vh;
     width: 19%;
     border-top-right-radius: 20px;
   }
@@ -66,33 +66,48 @@
 @media (max-width: 1796px) {
   .studenthomepagesidebarhigh {
 
-    height: 540vh;
+    height: 560vh;
  
   }
   
 }
-@media (max-width: 1374px) {
+@media (max-width: 1760px) {
   .studenthomepagesidebarhigh {
-    height: 560vh;
+    height: 570vh;
   }
 }
-@media (max-width: 1322px) {
+@media (max-width: 1374px) {
   .studenthomepagesidebarhigh {
     height: 580vh;
   }
 }
-@media (max-width: 1244px) {
+@media (max-width: 1322px) {
   .studenthomepagesidebarhigh {
-    height: 610vh;
+    height: 600vh;
   }
 }
-@media (max-width: 1195px) {
+@media (max-width: 1244px) {
   .studenthomepagesidebarhigh {
     height: 630vh;
   }
 }
-@media (max-width: 1134px) {
+@media (max-width: 1195px) {
   .studenthomepagesidebarhigh {
     height: 650vh;
+  }
+}
+@media (max-width: 1134px) {
+  .studenthomepagesidebarhigh {
+    height: 680vh;
+  }
+}
+@media (max-width: 1080px) {
+  .studenthomepagesidebarhigh {
+    height: 700vh;
+  }
+}
+@media (max-width: 962px) {
+  .studenthomepagesidebarhigh {
+    height: 710vh;
   }
 }

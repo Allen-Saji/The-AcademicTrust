@@ -43,6 +43,7 @@
 
 .Certificatemainheader {
   text-align: center;
+  margin-top: 10%;
 }
 .topheading {
   text-align: center;
@@ -63,13 +64,14 @@
   margin-top: 1%;
 }
 .namereg {
-  margin-top: 25%;
+  margin-top: 45%;
   margin-left: 10%;
   font-size: 1.2rem;
   font-weight: 600;
 }
 .certificatetablebody {
   text-align: center;
+  margin-top: 30%;
 }
 .certificatetablebodyheading1 {
   margin-top: 15%;
@@ -159,15 +161,15 @@
 .sgpa{
   position: absolute;
 }
-@media (max-width: 1800px) {
+/* @media (max-width: 1800px) {
 .trump{
-  margin-left: 16%;
+  margin-left: 71%;
 }
 
-}
+} */
 @media (max-width: 1700px) {
   .trump{
-    margin-left: 15%;
+    margin-left: 70%;
   }
   
   }
