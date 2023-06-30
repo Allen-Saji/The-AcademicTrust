@@ -63,9 +63,9 @@ const EmployeeHomepageBody = () => {
     }));
   };
 
-  if (loading) {
-    return <Spinner />;
-  }
+  // if (loading) {
+  //   return <Spinner />;
+  // }
 
   const employeeLogoutClickHandler = () => {
     // Dispatch(logout);
@@ -201,6 +201,7 @@ const EmployeeHomepageBody = () => {
         {viewCertificate && !loading && !error && (
           <Certificate certificateData={certificateData} cgpa={cgpa} />
         )}
+        {loading && <Spinner />}
       </div>
     </React.Fragment>
   );
