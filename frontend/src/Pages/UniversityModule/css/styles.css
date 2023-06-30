@@ -394,13 +394,17 @@
   margin-left: 5%;
 }
 .dropdownbox{
-  margin-left: 5%;
-  margin-top: 1%;
+  margin-left: 35%;
+  /* margin-top: 1%; */
 }
 .dropdownselector{
-  width: 8%;
+  width:max-content;
   font-size: 1.1rem;
   border-radius: 10px;
+}
+.batch{
+  font-size: 1.2rem;
+  margin-right: 1%;
 }
 
 @media (max-width:1432px) {

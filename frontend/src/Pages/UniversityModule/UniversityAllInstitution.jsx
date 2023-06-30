@@ -16,8 +16,8 @@ import AllInstitutionData from "./AllInstituionData";
 const UniversityAllInstitution = () => {
   const [closeSubmitOverlay, setCloseSubmitOverlay] = useState(false);
 
-  const [allInstitutionButton, setallInstitutionButton] = useState(true);
-  const [addInstitutionButton, setaddInstitutionButton] = useState(false);
+  const [allInstitutionButton, setallInstitutionButton] = useState(false);
+  const [addInstitutionButton, setaddInstitutionButton] = useState(true);
   const [updateInstitutionButton, setupdateInstitutionButton] = useState(false);
   const [deleteInstitutionButton, setdeleteInstitutionButton] = useState(false);
 
@@ -28,13 +28,13 @@ const UniversityAllInstitution = () => {
   const [saveUpdatedCollege, setSaveUpdatedCollege] = useState(false);
 
   const [showDeleteDialogeBox, setShowDeleteDialogeBox] = useState(false);
-  const allInstitutionButtonHandler = () => {
-    setallInstitutionButton(true);
-    setaddInstitutionButton(false);
-    setupdateInstitutionButton(false);
-    setdeleteInstitutionButton(false);
-    updateInstitutionFormCancelButtonHandler();
-  };
+  // const allInstitutionButtonHandler = () => {
+  //   setallInstitutionButton(true);
+  //   setaddInstitutionButton(false);
+  //   setupdateInstitutionButton(false);
+  //   setdeleteInstitutionButton(false);
+  //   updateInstitutionFormCancelButtonHandler();
+  // };
   const addInstitutionButtonHandler = () => {
     setallInstitutionButton(false);
     setaddInstitutionButton(true);
@@ -137,11 +137,11 @@ const UniversityAllInstitution = () => {
     toast.success(`Institution added successfully`);
   };
 
-  const allInstitutionNamesTable = (
-    <div className="maintableforinstitution">
-      <AllInstitutionData />
-    </div>
-  );
+  // const allInstitutionNamesTable = (
+  //   <div className="maintableforinstitution">
+  //     <AllInstitutionData />
+  //   </div>
+  // );
   const addInstitutionHtml = (
     <div className="maintableforaddinstitution">
       <h3 className="addinstitutionheading">
@@ -380,7 +380,7 @@ const UniversityAllInstitution = () => {
   return (
     <Fragment>
       <div className={classes.universityhomepagesidebar}>
-        <div className={classes.sidebartext1}>
+        {/* <div className={classes.sidebartext1}>
           <button
             className={allInstitutionStyle}
             onClick={allInstitutionButtonHandler}
@@ -388,7 +388,7 @@ const UniversityAllInstitution = () => {
             All Institution
           </button>
         </div>
-        <div className={classes.spacebetween1}></div>
+        <div className={classes.spacebetween1}></div> */}
         <div className={classes.sidebartext1}>
           <button
             className={addInstitutionStyle}
@@ -417,7 +417,7 @@ const UniversityAllInstitution = () => {
         </div>
         <div className={classes.spacebetween1}></div>
       </div>
-      {allInstitutionButton && allInstitutionNamesTable}
+      {/* {allInstitutionButton && allInstitutionNamesTable} */}
       {addInstitutionButton && addInstitutionHtml}
       {updateInstitutionButton &&
         updateInstitutionHtmlFlag &&

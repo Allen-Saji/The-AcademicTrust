@@ -5,6 +5,7 @@ import "./css/styles.css";
 import axios from "axios";
 const UniversityCertificateGenerator = () => {
   const [viewMesg, setMesg] = useState(false);
+  const[errorMessage,setErrorMessage] = useState('');
   const [selectedBatchYear, setSelectedBatchYear] = useState(2018);
 
   const API_URL1 =
@@ -40,12 +41,17 @@ const UniversityCertificateGenerator = () => {
           if (response.status === 200) {
             console.log(reply.data);
           }
+  
         }
       } else {
         throw new Error(response.statusText);
+        setErrorMessage('Certificate already issued')
+
       }
     } else {
       throw new Error(response.statusText);
+      setErrorMessage('Certificate already issued')
+
     }
   };
 
@@ -61,22 +67,26 @@ const UniversityCertificateGenerator = () => {
     <Fragment>
       <div className="certificateSelectorbody">
         <div className="dropdownbox">
+        <label className="batch">Batch</label>
+
           <select
             onChange={onChangeSelectorHandler}
             className="dropdownselector"
           >
-            <option value={2018}>2018</option>
-            <option value={2017}>2017</option>
+            <option value={2018}>BTech December 2018</option>
+            <option value={2017}>Btech December 2017</option>
             {/* <option value={2024}>2024</option>
           <option value={2029}>2029</option> */}
           </select>
-        </div>
-        <button className="generatebutton" onClick={generateButtonHandler}>
+          <button className="generatebutton" onClick={generateButtonHandler}>
           Generate
         </button>
+        </div>
+       
         {viewMesg && (
           <p className="generatedtext"> Batch Generated successfully!!</p>
         )}{" "}
+        <p>{errorMessage}</p>
       </div>
     </Fragment>
   );
