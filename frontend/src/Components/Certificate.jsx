@@ -3,6 +3,7 @@ import logo from "../assets/logo/ktulogo.png";
 import "./certificate.css";
 import SubjectItem from "./SubjectItem";
 import trump from "../assets/trumpSign.png";
+
 const TABLEHEADER = [
   {
     slNo: "Sl No",
@@ -13,6 +14,7 @@ const TABLEHEADER = [
     yearOfPassing: "Month and Year of Passing",
   },
 ];
+
 const checkBranch = (branch) => {
   if (branch.substring(5, 7) === "CS") {
     return "Computer Science and Engineering";
@@ -31,9 +33,10 @@ const Certificate = ({ certificateData, cgpa }) => {
       <td class="resulttablerow">{data.yearOfPassing}</td>
     </tr>
   ));
+
   return (
     <React.Fragment>
-      <div className="certificateWholebody">
+      <div className="certificateWholebody" id="certificate">
         <div className="certificatebody">
           <div className="topheading">Certificate of Grades</div>
           <div className="Certificatemainheader">
@@ -105,7 +108,7 @@ const Certificate = ({ certificateData, cgpa }) => {
 
             <div class="resulttablemain">
               <p className="heading2">First Semester</p>
-        
+
               <table class="resulttable">
                 {/* <th className="headerheading">
                  
@@ -118,18 +121,19 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[0]}
                   years={certificateData.examYearList[0]}
                 />
-                    <tr>
+                <tr>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><p >SGPA: {cgpa[0]}</p></td>
+                  <td>
+                    <p>SGPA: {cgpa[0]}</p>
+                  </td>
                 </tr>
               </table>
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Second Semester</p>
-
                 </tr>
                 {headers}
                 <SubjectItem
@@ -139,19 +143,20 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[1]}
                   years={certificateData.examYearList[1]}
                 />
-                  <tr>
+                <tr>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><p className="">SGPA: {cgpa[1]}</p></td>
+                  <td>
+                    <p className="">SGPA: {cgpa[1]}</p>
+                  </td>
                 </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Third Semester</p>
-
                 </tr>
                 {headers}
                 <SubjectItem
@@ -161,19 +166,20 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[2]}
                   years={certificateData.examYearList[2]}
                 />
-                  <tr>
+                <tr>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><p className="">SGPA: {cgpa[2]}</p></td>
+                  <td>
+                    <p className="">SGPA: {cgpa[2]}</p>
+                  </td>
                 </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Fourth Semester</p>
-
                 </tr>
                 {headers}
                 <SubjectItem
@@ -183,19 +189,20 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[3]}
                   years={certificateData.examYearList[3]}
                 />
-                  <tr>
+                <tr>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><p className="">SGPA: {cgpa[3]}</p></td>
+                  <td>
+                    <p className="">SGPA: {cgpa[3]}</p>
+                  </td>
                 </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Fifth Semester</p>
-          
                 </tr>
                 {headers}
                 <SubjectItem
@@ -205,19 +212,20 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[4]}
                   years={certificateData.examYearList[4]}
                 />
-                  <tr>
+                <tr>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><p className="">SGPA: {cgpa[4]}</p></td>
+                  <td>
+                    <p className="">SGPA: {cgpa[4]}</p>
+                  </td>
                 </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Sixth Semester</p>
-            
                 </tr>
                 {headers}
                 <SubjectItem
@@ -226,21 +234,21 @@ const Certificate = ({ certificateData, cgpa }) => {
                   months={certificateData.examMonthList[5]}
                   grades={certificateData.examGradeList[5]}
                   years={certificateData.examYearList[5]}
-                  
                 />
-                  <tr>
+                <tr>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><p className="">SGPA: {cgpa[5]}</p></td>
+                  <td>
+                    <p className="">SGPA: {cgpa[5]}</p>
+                  </td>
                 </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Seventh Semester</p>
-    
                 </tr>
                 {headers}
                 <SubjectItem
@@ -250,19 +258,20 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[6]}
                   years={certificateData.examYearList[6]}
                 />
-                  <tr>
+                <tr>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><p >SGPA: {cgpa[6]}</p></td>
+                  <td>
+                    <p>SGPA: {cgpa[6]}</p>
+                  </td>
                 </tr>
               </table>
 
               <table class="resulttable">
                 <tr>
                   <p class="heading2">Eighth Semester</p>
-                 
                 </tr>
                 {headers}
                 <SubjectItem
@@ -272,12 +281,14 @@ const Certificate = ({ certificateData, cgpa }) => {
                   grades={certificateData.examGradeList[7]}
                   years={certificateData.examYearList[7]}
                 />
-                  <tr>
+                <tr>
                   <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td><p >SGPA: {cgpa[7]}</p></td>
+                  <td>
+                    <p>SGPA: {cgpa[7]}</p>
+                  </td>
                 </tr>
               </table>
               <h4 class="bottomhead">
