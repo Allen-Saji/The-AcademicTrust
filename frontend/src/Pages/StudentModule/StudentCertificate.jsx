@@ -52,9 +52,9 @@ const StudentCertificate = () => {
     }
   }, [certificateData]);
 
-  if (loading) {
-    return <Spinner />;
-  }
+  // if (loading) {
+  //   return <Spinner />;
+  // }
 
   const sidebarheight = height
     ? "studenthomepagesidebarhigh"
@@ -83,6 +83,7 @@ const StudentCertificate = () => {
       </div>
       {error && <p className={classes.error}>{error}</p>}{" "}
       {/* Render the error message */}
+      {loading && <Spinner />}
       {certificate && !loading && !error && (
         <Certificate certificateData={certificateData} cgpa={cgpa} />
       )}
