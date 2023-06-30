@@ -7,10 +7,9 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { addInstitution } from "../../features/institution/institutionSlice";
 import searchbutton from "../../assets/searchbutton.png";
-import editpencil from "../../assets/editpencilbutton.png";
+// import editpencil from "../../assets/editpencilbutton.png";
 import saveTick from "../../assets/saveTick.png";
 import cancelSymbol from "../../assets/cancelSaveButton.png";
-import Modal from "../../UI/Modal";
 import deletelogo from "../../assets/deleteButton.png";
 import AllInstitutionData from "./AllInstituionData";
 const UniversityAllInstitution = () => {
@@ -21,13 +20,16 @@ const UniversityAllInstitution = () => {
   const [updateInstitutionButton, setupdateInstitutionButton] = useState(false);
   const [deleteInstitutionButton, setdeleteInstitutionButton] = useState(false);
 
+  //State management for update institution 
+  const[searchInstitutionButton,setSearchInstitutionButton] = useState(false);
+
+  const[updateEachFormCancelButton,setUpdateEachFormCancelButton] = useState(false);
   const [updateInstitutionHtmlFlag, setUpdateInstitutionHtmlFlag] =
     useState(true);
   const [updateEachInstitutionButton, setUpdateEachInstitutionButton] =
     useState(false);
   const [saveUpdatedCollege, setSaveUpdatedCollege] = useState(false);
 
-  const [showDeleteDialogeBox, setShowDeleteDialogeBox] = useState(false);
   // const allInstitutionButtonHandler = () => {
   //   setallInstitutionButton(true);
   //   setaddInstitutionButton(false);
@@ -41,6 +43,8 @@ const UniversityAllInstitution = () => {
     setupdateInstitutionButton(false);
     setdeleteInstitutionButton(false);
     updateInstitutionFormCancelButtonHandler();
+    setUpdateInstitutionHtmlFlag(true);
+    setSearchInstitutionButton(false);
     
   };
   const updateInstitutionButtonHandler = () => {
@@ -56,13 +60,12 @@ const UniversityAllInstitution = () => {
     setdeleteInstitutionButton(true);
   };
 
-  const updateEachInstitutionButtonHandler = () => {
-    setUpdateEachInstitutionButton(true);
-    setUpdateInstitutionHtmlFlag(false);
-  };
-  const updateInstitutionFormCancelButtonHandler = () => {
+  
+  const updateInstitutionFormCancelButtonHandler = (event) => {
+      // event.preventDefault();
     setUpdateInstitutionHtmlFlag(true);
     setUpdateEachInstitutionButton(false);
+    setUpdateEachFormCancelButton(false);
   };
   const updateInstitutionFormSaveButtonHandler = () => {
     setUpdateInstitutionHtmlFlag(true);
@@ -70,23 +73,16 @@ const UniversityAllInstitution = () => {
     setSaveUpdatedCollege(true);
     setCloseSubmitOverlay(true);
   };
-  const onCloseSubmit = () => {
-    setCloseSubmitOverlay(false);
-  };
+
   const updateInstitutionSaveChangesClickHandler = () => {
     setCloseSubmitOverlay(false);
   };
 
   const deleteEachInstitutionButtonHandler = () => {
-    setShowDeleteDialogeBox(true);
-  };
-  const deleteInstitutionSaveChangesClickHandler = () => {
-    setShowDeleteDialogeBox(false);
+
   };
 
-  const deleteInstitutionSaveChangesCancelClickHandler = () => {
-    setShowDeleteDialogeBox(false);
-  };
+ 
 
   const allInstitutionStyle = allInstitutionButton
     ? "sidebarActive"
@@ -210,23 +206,33 @@ const UniversityAllInstitution = () => {
     </div>
   );
 
+  const searchButton = ()=>{
+    setSearchInstitutionButton(true);
+    // setUpdateEachInstitutionButton(false);
+    setUpdateInstitutionHtmlFlag(false);
+  }
+
   const mainUpdateInstitution = (
     <div className="maininstitution">
       <div className="maininstitutionsearchinputbutton">
+        <label className="allinstitutiontext">Search Institution</label>
         <input
           className="maininstitutionsearchinput"
           type="text"
           placeholder="search"
+        
         />
-        <button className="maininstitutionsearchbutton">
+        {/* Search button for update institution  */}
+        <button onClick={searchButton} className="maininstitutionsearchbutton">
           <img className="searchbuttonimg" src={searchbutton} alt="" />
+          
         </button>
       </div>
-      <div className="allinstitutiontext">
+      {/* <div className="allinstitutiontext">
         <p>All Institutions</p>
-      </div>
-      <div className="spacebetween"></div>
-      <div className="updatecollegemainbutton">
+      </div> */}
+      {/* <div className="spacebetween"></div> */}
+      {/* <div className="updatecollegemainbutton">
         <button
           onClick={updateEachInstitutionButtonHandler}
           className="updatecollegemainbuttonname"
@@ -239,7 +245,7 @@ const UniversityAllInstitution = () => {
         >
           <img className="editpencilbuttonimg" src={editpencil} alt="" />
         </button>
-      </div>
+      </div> */}
     </div>
   );
   const updateInstitutionForm = (
@@ -290,7 +296,7 @@ const UniversityAllInstitution = () => {
     </div>
   );
   const saveChangesHtml = (
-    <Modal onCloseSubmit={onCloseSubmit}>
+    
       <div className="savechangesmainwindow">
         <div className="savechangestext">
           <p>Save Changes ?</p>
@@ -314,11 +320,11 @@ const UniversityAllInstitution = () => {
           </button>
         </div>
       </div>
-    </Modal>
+    
   );
 
   const mainUpdateDeleteInstitution = (
-    <div className="maininstitution">
+    <div className="maininstitutiondelete">
       <div className="maininstitutionsearchinputbutton">
         <input
           className="maininstitutionsearchinput"
@@ -349,34 +355,6 @@ const UniversityAllInstitution = () => {
       </div>
     </div>
   );
-  const deleteInstitutionConfirmBox = (
-    <Modal>
-      <div className="savechangesmainwindow">
-        <div className="savechangestext">
-          <p>Are you sure want delete ?</p>
-        </div>
-        <div>
-          <button
-            onClick={deleteInstitutionSaveChangesClickHandler}
-            className="savechangestickbutton"
-          >
-            <img className="savechangesticksymbol" src={saveTick} alt="" />
-          </button>
-          <button
-            onClick={deleteInstitutionSaveChangesCancelClickHandler}
-            className="savechangescancelbutton"
-          >
-            <img
-              className="savechangescancelsymbol"
-              src={cancelSymbol}
-              alt=""
-            />
-          </button>
-        </div>
-      </div>
-    </Modal>
-  );
-
   return (
     <Fragment>
       <div className={classes.universityhomepagesidebar}>
@@ -422,10 +400,10 @@ const UniversityAllInstitution = () => {
       {updateInstitutionButton &&
         updateInstitutionHtmlFlag &&
         mainUpdateInstitution}
-      {updateEachInstitutionButton && updateInstitutionForm}
-      {closeSubmitOverlay && saveChangesHtml}
+        {searchInstitutionButton && !updateEachFormCancelButton && updateInstitutionForm}
+      {/* {updateEachInstitutionButton && updateInstitutionForm} */}
       {deleteInstitutionButton && mainUpdateDeleteInstitution}
-      {showDeleteDialogeBox && deleteInstitutionConfirmBox}
+      
     </Fragment>
   );
 };
