@@ -93,7 +93,7 @@ const UniversityResults = () => {
             Publish Result
           </button>
         </div>
-        <div className={classes.spacebetween1}></div>
+        {/* <div className={classes.spacebetween1}></div>
         <div className={classes.sidebartext1}>
           <button
             onClick={updateResultButtonHandler}
@@ -101,7 +101,7 @@ const UniversityResults = () => {
           >
             Update Result
           </button>
-        </div>
+        </div> */}
         <div className={classes.spacebetween1}></div>
         {/* <div className={classes.sidebartext1}>
           <button

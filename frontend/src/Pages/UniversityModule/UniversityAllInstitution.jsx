@@ -377,7 +377,7 @@ const UniversityAllInstitution = () => {
           </button>
         </div>
         <div className={classes.spacebetween1}></div>
-        <div className={classes.sidebartext1}>
+        {/* <div className={classes.sidebartext1}>
           <button
             onClick={updateInstitutionButtonHandler}
             className={updateInstitutionStyle}
@@ -394,7 +394,7 @@ const UniversityAllInstitution = () => {
             Delete Institution
           </button>
         </div>
-        <div className={classes.spacebetween1}></div>
+        <div className={classes.spacebetween1}></div> */}
       </div>
       {allInstitutionButton && allInstitutionNamesTable}
       {addInstitutionButton && addInstitutionHtml}

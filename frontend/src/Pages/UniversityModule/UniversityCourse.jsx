@@ -340,7 +340,7 @@ const UniversityCourse = () => {
             Update Course
           </button>
         </div> */}
-        <div className={classes.spacebetween1}></div>
+        {/* <div className={classes.spacebetween1}></div>
         <div className={classes.sidebartext1}>
           <button
             className={deleteCourseStyle}
@@ -348,7 +348,7 @@ const UniversityCourse = () => {
           >
             Delete Course
           </button>
-        </div>
+        </div> */}
         <div className={classes.spacebetween1}></div>
         {addCourseButton && addCourseMainWindow}
         {/* {updateCourseButton && updateEachCoursesFlag && updateCoursesWindow} */}
