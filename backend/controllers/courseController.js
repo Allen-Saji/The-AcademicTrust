@@ -26,6 +26,53 @@ const addCourse = asyncHandler(async (req, res) => {
   });
 });
 
+const getCourse = asyncHandler(async (req, res) => {
+  const { courseCode } = req.body;
+
+  // Find course by courseCode
+  const course = await Course.findOne({ courseCode });
+
+  // Check if course exists
+  if (!course) {
+    res.status(404);
+    throw new Error("Course not found!");
+  }
+
+  // Return response object
+  res.json({
+    name: course.name,
+    courseCode: course.courseCode,
+    credits: course.credits,
+  });
+});
+
+const editCourse = asyncHandler(async (req, res) => {
+  const { courseCode, name, credits } = req.body;
+
+  // Find course by courseCode
+  const course = await Course.findOne({ courseCode });
+
+  // Check if course exists
+  if (!course) {
+    res.status(404);
+    throw new Error("Course not found!");
+  }
+
+  // Update course details
+  course.name = name;
+  course.credits = credits;
+  await course.save();
+
+  // Return response object
+  res.json({
+    name: course.name,
+    courseCode: course.courseCode,
+    credits: course.credits,
+  });
+});
+
 module.exports = {
   addCourse,
+  getCourse,
+  editCourse,
 };
