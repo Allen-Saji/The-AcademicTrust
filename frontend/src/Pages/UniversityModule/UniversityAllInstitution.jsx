@@ -13,39 +13,40 @@ import cancelSymbol from "../../assets/cancelSaveButton.png";
 import deletelogo from "../../assets/deleteButton.png";
 import AllInstitutionData from "./AllInstituionData";
 const UniversityAllInstitution = () => {
-  const [closeSubmitOverlay, setCloseSubmitOverlay] = useState(false);
+  
 
-  const [allInstitutionButton, setallInstitutionButton] = useState(false);
-  const [addInstitutionButton, setaddInstitutionButton] = useState(true);
+  const [allInstitutionButton, setallInstitutionButton] = useState(true);
+  const [addInstitutionButton, setaddInstitutionButton] = useState(false);
   const [updateInstitutionButton, setupdateInstitutionButton] = useState(false);
   const [deleteInstitutionButton, setdeleteInstitutionButton] = useState(false);
 
   //State management for update institution 
   const[searchInstitutionButton,setSearchInstitutionButton] = useState(false);
 
-  const[updateEachFormCancelButton,setUpdateEachFormCancelButton] = useState(false);
+  
   const [updateInstitutionHtmlFlag, setUpdateInstitutionHtmlFlag] =
     useState(true);
   const [updateEachInstitutionButton, setUpdateEachInstitutionButton] =
     useState(false);
   const [saveUpdatedCollege, setSaveUpdatedCollege] = useState(false);
 
-  // const allInstitutionButtonHandler = () => {
-  //   setallInstitutionButton(true);
-  //   setaddInstitutionButton(false);
-  //   setupdateInstitutionButton(false);
-  //   setdeleteInstitutionButton(false);
-  //   updateInstitutionFormCancelButtonHandler();
-  // };
+  const allInstitutionButtonHandler = () => {
+    setallInstitutionButton(true);
+    setaddInstitutionButton(false);
+    setupdateInstitutionButton(false);
+    setdeleteInstitutionButton(false);
+    setSearchInstitutionButton(false);
+    updateInstitutionFormCancelButtonHandler();
+  };
   const addInstitutionButtonHandler = () => {
     setallInstitutionButton(false);
     setaddInstitutionButton(true);
     setupdateInstitutionButton(false);
     setdeleteInstitutionButton(false);
-    updateInstitutionFormCancelButtonHandler();
     setUpdateInstitutionHtmlFlag(true);
     setSearchInstitutionButton(false);
-    
+    updateInstitutionFormCancelButtonHandler();
+   
   };
   const updateInstitutionButtonHandler = () => {
     setallInstitutionButton(false);
@@ -61,17 +62,17 @@ const UniversityAllInstitution = () => {
   };
 
   
-  const updateInstitutionFormCancelButtonHandler = (event) => {
+  const updateInstitutionFormCancelButtonHandler = () => {
       // event.preventDefault();
     setUpdateInstitutionHtmlFlag(true);
     setUpdateEachInstitutionButton(false);
-    setUpdateEachFormCancelButton(false);
+    // setUpdateEachFormCancelButton(false);
   };
   const updateInstitutionFormSaveButtonHandler = () => {
     setUpdateInstitutionHtmlFlag(true);
     setUpdateEachInstitutionButton(false);
     setSaveUpdatedCollege(true);
-    setCloseSubmitOverlay(true);
+
   };
 
   const updateInstitutionSaveChangesClickHandler = () => {
@@ -133,11 +134,11 @@ const UniversityAllInstitution = () => {
     toast.success(`Institution added successfully`);
   };
 
-  // const allInstitutionNamesTable = (
-  //   <div className="maintableforinstitution">
-  //     <AllInstitutionData />
-  //   </div>
-  // );
+  const allInstitutionNamesTable = (
+    <div className="maintableforinstitution">
+      <AllInstitutionData />
+    </div>
+  );
   const addInstitutionHtml = (
     <div className="maintableforaddinstitution">
       <h3 className="addinstitutionheading">
@@ -358,7 +359,7 @@ const UniversityAllInstitution = () => {
   return (
     <Fragment>
       <div className={classes.universityhomepagesidebar}>
-        {/* <div className={classes.sidebartext1}>
+        <div className={classes.sidebartext1}>
           <button
             className={allInstitutionStyle}
             onClick={allInstitutionButtonHandler}
@@ -366,7 +367,7 @@ const UniversityAllInstitution = () => {
             All Institution
           </button>
         </div>
-        <div className={classes.spacebetween1}></div> */}
+        <div className={classes.spacebetween1}></div>
         <div className={classes.sidebartext1}>
           <button
             className={addInstitutionStyle}
@@ -395,12 +396,12 @@ const UniversityAllInstitution = () => {
         </div>
         <div className={classes.spacebetween1}></div>
       </div>
-      {/* {allInstitutionButton && allInstitutionNamesTable} */}
+      {allInstitutionButton && allInstitutionNamesTable}
       {addInstitutionButton && addInstitutionHtml}
       {updateInstitutionButton &&
         updateInstitutionHtmlFlag &&
         mainUpdateInstitution}
-        {searchInstitutionButton && !updateEachFormCancelButton && updateInstitutionForm}
+        {searchInstitutionButton && !updateInstitutionHtmlFlag && updateInstitutionForm}
       {/* {updateEachInstitutionButton && updateInstitutionForm} */}
       {deleteInstitutionButton && mainUpdateDeleteInstitution}
       
