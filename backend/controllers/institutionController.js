@@ -35,8 +35,31 @@ const addInstitution = asyncHandler(async (req, res) => {
   });
 });
 
+const getInstitution = asyncHandler(async (req, res) => {
+  const { institution_code } = req.body;
+
+  // Find institution by institutionCode
+  const institution = await Institution.findOne({ institution_code });
+
+  // Check if institution exists
+  if (!institution) {
+    res.status(404);
+    throw new Error("Institution not found!");
+  }
+
+  // Return response object
+  res.json({
+    name: institution.name,
+    year_of_reg: institution.year_of_reg,
+    address: institution.address,
+    phn_no: institution.phn_no,
+    email: institution.email,
+    institution_code: institution.institution_code,
+  });
+});
+
 const editInstitution = asyncHandler(async (req, res) => {
-  const { id, name, year_of_reg, address, phn_no, email, institution_code } =
+  const { name, year_of_reg, address, phn_no, email, institution_code } =
     req.body;
 
   // Check if institution exists
@@ -98,4 +121,5 @@ module.exports = {
   editInstitution,
   deleteInstitution,
   viewAllInstitutions,
+  getInstitution,
 };

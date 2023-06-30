@@ -1,14 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const { protect } = require("../middleware/authMiddleware");
+
 const {
   addInstitution,
   editInstitution,
   deleteInstitution,
   viewAllInstitutions,
+  getInstitution,
 } = require("../controllers/institutionController");
 
 router.post("/", addInstitution);
+router.post("/getInstitution", getInstitution);
 router.put("/", editInstitution);
 router.delete("/", deleteInstitution);
 router.get("/", viewAllInstitutions);
