@@ -42,7 +42,9 @@ const UniversityCourse = () => {
     setDeleteCourseButton(true);
   };
 
-  const addCoursesFormSaveButtonHandler = () => {};
+  const addCoursesFormSaveButtonHandler = (e) => {
+    e.preventDefault;
+  };
   const addCoursesFormCancelButtonHandler = () => {};
   const updateEachInstitutionButtonHandler = () => {
     setUpdateEchCourses(true);
@@ -153,7 +155,6 @@ const UniversityCourse = () => {
         <button
           onClick={addCoursesFormSaveButtonHandler}
           className="addinstitutionbutton"
-          type="submit"
         >
           Save
         </button>
