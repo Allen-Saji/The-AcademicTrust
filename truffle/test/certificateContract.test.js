@@ -1,25 +1,27 @@
 const CertificateContract = artifacts.require("CertificateContract");
 
 contract("CertificateContract", (accounts) => {
-  let certificateContract;
-  const registerNumber = "12345";
-  const studentName = "John Doe";
-  const institution = "ABC University";
-  const yearOfAdmission = 2020;
-  const monthAndYearOfPassing = 2023;
-  const cgpa = 8;
-  const subjectNames = [["Math", "Science"], ["English"]];
-  const subjectCredits = [[4, 3], [3]];
-  const subjectGrades = [[85, 90], [75]];
-  const subjectExamMonths = [12, 6];
-  const subjectExamYears = [2022, 2023];
+  let contractInstance;
 
   before(async () => {
-    certificateContract = await CertificateContract.deployed();
+    contractInstance = await CertificateContract.new();
   });
 
-  it("should issue a certificate and retrieve student name", async () => {
-    await certificateContract.issueCertificate(
+  it("should issue a certificate", async () => {
+    const registerNumber = "123";
+    const studentName = "John Doe";
+    const institution = "Example University";
+    const yearOfAdmission = 2020;
+    const monthAndYearOfPassing = "June 2023";
+    const cgpa = "4.0";
+
+    const subjectNames = [["Subject 1", "Subject 2"], ["Subject 3"]];
+    const subjectCredits = [[3, 4], [2]];
+    const subjectGrades = [["A", "B"], ["C"]];
+    const subjectExamMonths = [["Jan", "Feb"], ["Mar"]];
+    const subjectExamYears = [[2021, 2022], [2023]];
+
+    await contractInstance.issueCertificate(
       registerNumber,
       studentName,
       institution,
@@ -33,147 +35,134 @@ contract("CertificateContract", (accounts) => {
       subjectExamYears
     );
 
-    const retrievedStudentName =
-      await certificateContract.getCertificateStudentName(registerNumber);
-
-    assert.equal(
-      retrievedStudentName,
-      studentName,
-      "Retrieved student name does not match"
-    );
-  });
-
-  it("should issue a certificate and retrieve register number", async () => {
-    const retrievedRegisterNumber =
-      await certificateContract.getCertificateRegisterNumber(registerNumber);
-
-    assert.equal(
-      retrievedRegisterNumber,
-      registerNumber,
-      "Retrieved register number does not match"
-    );
-  });
-
-  it("should issue a certificate and retrieve institution", async () => {
-    const retrievedInstitution =
-      await certificateContract.getCertificateInstitution(registerNumber);
-
-    assert.equal(
-      retrievedInstitution,
-      institution,
-      "Retrieved institution does not match"
-    );
-  });
-
-  it("should issue a certificate and retrieve year of admission", async () => {
-    const retrievedYearOfAdmission =
-      await certificateContract.getCertificateYearOfAdmission(registerNumber);
-
-    assert.equal(
-      retrievedYearOfAdmission,
-      yearOfAdmission,
-      "Retrieved year of admission does not match"
-    );
-  });
-
-  it("should issue a certificate and retrieve month and year of passing", async () => {
-    const retrievedMonthAndYearOfPassing =
-      await certificateContract.getCertificateMonthAndYearOfPassing(
-        registerNumber
-      );
-
-    assert.equal(
-      retrievedMonthAndYearOfPassing,
-      monthAndYearOfPassing,
-      "Retrieved month and year of passing do not match"
-    );
-  });
-
-  it("should issue a certificate and retrieve CGPA", async () => {
-    const retrievedCGPA = await certificateContract.getCertificateCGPA(
+    const certificateExists = await contractInstance.checkCertificateExists(
       registerNumber
     );
-
-    assert.equal(retrievedCGPA, cgpa, "Retrieved CGPA does not match");
+    assert.isTrue(certificateExists);
   });
 
-  it("should issue a certificate and retrieve subject credits", async () => {
+  it("should get the student name from a certificate", async () => {
+    const registerNumber = "123";
+    const expectedStudentName = "John Doe";
+
+    const studentName = await contractInstance.getCertificateStudentName(
+      registerNumber
+    );
+    assert.equal(studentName, expectedStudentName);
+  });
+
+  it("should get the register number from a certificate", async () => {
+    const registerNumber = "123";
+    const expectedRegisterNumber = "123";
+
+    const retrievedRegisterNumber =
+      await contractInstance.getCertificateRegisterNumber(registerNumber);
+    assert.equal(retrievedRegisterNumber, expectedRegisterNumber);
+  });
+
+  it("should get the institution from a certificate", async () => {
+    const registerNumber = "123";
+    const expectedInstitution = "Example University";
+
+    const institution = await contractInstance.getCertificateInstitution(
+      registerNumber
+    );
+    assert.equal(institution, expectedInstitution);
+  });
+
+  it("should get the year of admission from a certificate", async () => {
+    const registerNumber = "123";
+    const expectedYearOfAdmission = 2020;
+
+    const yearOfAdmission =
+      await contractInstance.getCertificateYearOfAdmission(registerNumber);
+    assert.equal(yearOfAdmission, expectedYearOfAdmission);
+  });
+
+  it("should get the month and year of passing from a certificate", async () => {
+    const registerNumber = "123";
+    const expectedMonthAndYearOfPassing = "June 2023";
+
+    const monthAndYearOfPassing =
+      await contractInstance.getCertificateMonthAndYearOfPassing(
+        registerNumber
+      );
+    assert.equal(monthAndYearOfPassing, expectedMonthAndYearOfPassing);
+  });
+
+  it("should get the CGPA from a certificate", async () => {
+    const registerNumber = "123";
+    const expectedCGPA = "4.0";
+
+    const cgpa = await contractInstance.getCertificateCGPA(registerNumber);
+    assert.equal(cgpa, expectedCGPA);
+  });
+
+  it("should get the subject credits from a certificate", async () => {
+    const registerNumber = "123";
     const semesterIndex = 0;
-    const subjectName = subjectNames[semesterIndex][0];
-    const retrievedSubjectCredits = await certificateContract.getSubjectCredits(
+    const subjectName = "Subject 1";
+    const expectedCredits = 3;
+
+    const credits = await contractInstance.getSubjectCredits(
       registerNumber,
       semesterIndex,
       subjectName
     );
-
-    assert.equal(
-      retrievedSubjectCredits,
-      subjectCredits[semesterIndex][0],
-      "Retrieved subject credits do not match"
-    );
+    assert.equal(credits, expectedCredits);
   });
 
-  it("should issue a certificate and retrieve subject grade", async () => {
+  it("should get the subject grade from a certificate", async () => {
+    const registerNumber = "123";
     const semesterIndex = 0;
-    const subjectName = subjectNames[semesterIndex][0];
-    const retrievedSubjectGrade = await certificateContract.getSubjectGrade(
+    const subjectName = "Subject 1";
+    const expectedGrade = "A";
+
+    const grade = await contractInstance.getSubjectGrade(
       registerNumber,
       semesterIndex,
       subjectName
     );
-
-    assert.equal(
-      retrievedSubjectGrade,
-      subjectGrades[semesterIndex][0],
-      "Retrieved subject grade does not match"
-    );
+    assert.equal(grade, expectedGrade);
   });
 
-  it("should issue a certificate and retrieve subject exam month", async () => {
+  it("should get the subject exam month from a certificate", async () => {
+    const registerNumber = "123";
     const semesterIndex = 0;
-    const subjectName = subjectNames[semesterIndex][0];
-    const retrievedSubjectExamMonth =
-      await certificateContract.getSubjectExamMonth(
-        registerNumber,
-        semesterIndex,
-        subjectName
-      );
+    const subjectName = "Subject 1";
+    const expectedExamMonth = "Jan";
 
-    assert.equal(
-      retrievedSubjectExamMonth,
-      subjectExamMonths[semesterIndex],
-      "Retrieved subject exam month does not match"
+    const examMonth = await contractInstance.getSubjectExamMonth(
+      registerNumber,
+      semesterIndex,
+      subjectName
     );
+    assert.equal(examMonth, expectedExamMonth);
   });
 
-  it("should issue a certificate and retrieve subject exam year", async () => {
+  it("should get the subject exam year from a certificate", async () => {
+    const registerNumber = "123";
     const semesterIndex = 0;
-    const subjectName = subjectNames[semesterIndex][0];
-    const retrievedSubjectExamYear =
-      await certificateContract.getSubjectExamYear(
-        registerNumber,
-        semesterIndex,
-        subjectName
-      );
+    const subjectName = "Subject 1";
+    const expectedExamYear = 2021;
 
-    assert.equal(
-      retrievedSubjectExamYear,
-      subjectExamYears[semesterIndex],
-      "Retrieved subject exam year does not match"
+    const examYear = await contractInstance.getSubjectExamYear(
+      registerNumber,
+      semesterIndex,
+      subjectName
     );
+    assert.equal(examYear, expectedExamYear);
   });
 
-  it("should issue a certificate and retrieve subject names", async () => {
+  it("should get the subject names from a certificate", async () => {
+    const registerNumber = "123";
     const semesterIndex = 0;
-    const retrievedSubjectNames = await certificateContract.getSubjectNames(
+    const expectedSubjectNames = ["Subject 1", "Subject 2"];
+
+    const subjectNames = await contractInstance.getSubjectNames(
       registerNumber,
       semesterIndex
     );
-
-    assert.deepEqual(
-      retrievedSubjectNames,
-      subjectNames[semesterIndex],
-      "Retrieved subject names do not match"
-    );
+    assert.deepEqual(subjectNames, expectedSubjectNames);
   });
 });
