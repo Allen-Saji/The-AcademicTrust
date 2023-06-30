@@ -43,7 +43,6 @@ const issueCertificate = asyncHandler(async (req, res) => {
 
     const signer = wallet.connect(provider);
     const contractWithSigner = certificateContract.connect(signer);
-    console.log(contractWithSigner);
 
     const certificateExists = await contractWithSigner.checkCertificateExists(
       registerNumber
