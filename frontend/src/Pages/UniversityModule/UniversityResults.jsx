@@ -2,6 +2,8 @@ import React, { Fragment, useState } from "react";
 import classes from "./css/UniversityHomepageBody.module.css";
 import "./css/styles.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 const UniversityResults = () => {
   const [publishResultButton, setPublishResultButton] = useState(true);
   const [updateResultButton, setUpdateRwsultButton] = useState(false);
@@ -13,11 +15,17 @@ const UniversityResults = () => {
   const API_URL = "http://localhost:5000/api/admin/result/publish";
   const publishResult = async (data) => {
     console.log(data);
-    const response = await axios.post(API_URL, data);
-    if (response.status === 200) {
-      console.log("result successfully published!");
-    } else {
-      throw new Error(response.statusText);
+    try {
+      const response = await axios.post(API_URL, data);
+      if (response.status === 200) {
+        console.log("result successfully published!");
+        toast.success("Results published successfully!");
+      } else {
+        throw new Error(response.statusText);
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to publish results. Please try again.");
     }
   };
 
