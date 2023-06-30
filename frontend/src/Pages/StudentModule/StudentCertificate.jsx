@@ -52,9 +52,6 @@ const StudentCertificate = () => {
     }
   }, [certificateData]);
 
-  // if (loading) {
-  //   return <Spinner />;
-  // }
 
   const sidebarheight = height
     ? "studenthomepagesidebarhigh"
