@@ -21042,12 +21042,12 @@
     "11155111": {
       "events": {},
       "links": {},
-      "address": "0xFEEf66b883D928210d475a1B014751BBc5c53c34",
-      "transactionHash": "0x2cede9e9f00b13e0198b27f35bd4b552f94682327299e8a56bd1b2bf787e9c38"
+      "address": "0x8cA51C7A8c10584E522d5ebbEfa8480d7972d26C",
+      "transactionHash": "0x8c3bd94fb9250ac09c44b4e24916e530a9e5e64854e3bbf3b7e2f4acf5b438e5"
     }
   },
   "schemaVersion": "3.4.14",
-  "updatedAt": "2023-06-30T05:01:53.623Z",
+  "updatedAt": "2023-07-01T02:34:30.414Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
