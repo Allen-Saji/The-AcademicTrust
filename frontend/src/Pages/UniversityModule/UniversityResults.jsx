@@ -72,8 +72,8 @@ const UniversityResults = () => {
       </div>
       <div>
         <select className="resultselector" onChange={onChangeOptionValue}>
-          <option value='{"year_of_adm":2017,"semester":1}'>
-            B TECH S1(R,S) DECEMBER 2017
+          <option value='{"year_of_adm":2017,"semester":8}'>
+            B TECH S8(R,S) June 2021
           </option>
           <option value='{"year_of_adm":2017,"semester":3}'>
             B TECH S3(R,S) DECEMBER 2018
