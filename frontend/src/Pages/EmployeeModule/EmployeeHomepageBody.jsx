@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../assets/logo/school.png";
 import classes from "./css/EmployeeHomepageBody.module.css";
-import { logout, register } from "../../features/auth/authSlice";
 import "./css/styles.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
