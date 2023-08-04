@@ -72,8 +72,8 @@ const UniversityCertificateGenerator = () => {
             onChange={onChangeSelectorHandler}
             className="dropdownselector"
           >
-            <option value={2018}>BTech December 2018</option>
-            <option value={2017}>Btech December 2017</option>
+            <option value={2018}>BTech 2022</option>
+            <option value={2017}>Btech 2021</option>
             {/* <option value={2024}>2024</option>
           <option value={2029}>2029</option> */}
           </select>
